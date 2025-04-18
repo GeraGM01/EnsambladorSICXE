@@ -192,3 +192,13 @@ body {
         background: #fff;
     }
 }
+
+.CodeMirror {
+    height: 100% !important;
+}
+
+#editorContainer {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
