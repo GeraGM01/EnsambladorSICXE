@@ -51,3 +51,5 @@
 /.vs/ProyectoSICXE/DesignTimeBuild/.dtbcache.v2
 /.vs/ProyectoSICXE/config/applicationhost.config
 *.vsidx
+/ProyectoSICXE/obj/Debug/net8.0/ProyectoSICXE.sourcelink.json
+/ProyectoSICXE/obj/Debug/net8.0/project.razor.vs.bin
