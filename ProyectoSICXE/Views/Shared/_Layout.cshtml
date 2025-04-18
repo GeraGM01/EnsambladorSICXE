@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="~/lib/fontawesome/css/all.min.css" />
     @* Estilos propios *@
     <link href="~/css/fuentes.css" rel="stylesheet" />
+    @* Estilos Code Mirror *@
+    <link rel="stylesheet" href="~/css/codemirror.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/ProyectoSICXE.styles.css" asp-append-version="true" />
 </head>
@@ -35,6 +37,10 @@
     <script src="~/js/site.js" asp-append-version="true"></script>
     @* Scripts font awesome *@
     <script src="~/lib/fontawesome/js/all.min.js"></script>
+    @* Scripts code mirror *@
+    <script src="~/js/codemirror.min.js"></script>
+    @* Scripts code clike *@
+    <script src="~/js/clike.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await Html.PartialAsync("Dialogos")
     @await RenderSectionAsync("Scripts", required: false)
