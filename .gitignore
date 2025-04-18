@@ -53,3 +53,6 @@
 *.vsidx
 /ProyectoSICXE/obj/Debug/net8.0/ProyectoSICXE.sourcelink.json
 /ProyectoSICXE/obj/Debug/net8.0/project.razor.vs.bin
+/ProyectoSICXE/bin/Debug/net8.0/Antlr3.Runtime.dll
+/ProyectoSICXE/obj/Debug/net8.0/Proyecto.44126DE4.Up2Date
+/ProyectoSICXE/obj/Debug/net8.0/ProyectoSICXE.csproj.AssemblyReference.cache
