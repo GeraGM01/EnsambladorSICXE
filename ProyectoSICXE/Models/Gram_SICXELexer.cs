@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-// $ANTLR 3.5.1 C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g 2025-03-04 15:33:20
+// $ANTLR 3.5.1 C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g 2025-04-16 23:09:02
 
 // The variable 'variable' is assigned but its value is never used.
 #pragma warning disable 219
@@ -29,7 +29,7 @@ using Antlr.Runtime.Misc;
 public partial class Gram_SICXELexer : Antlr.Runtime.Lexer
 {
 	public const int EOF=-1;
-	public const int T__33=33;
+	public const int T__41=41;
 	public const int AT=4;
 	public const int BASE=5;
 	public const int BYTE=6;
@@ -37,28 +37,36 @@ public partial class Gram_SICXELexer : Antlr.Runtime.Lexer
 	public const int CONSTCAD=8;
 	public const int CONSTHEX=9;
 	public const int DIR=10;
-	public const int END=11;
-	public const int F1CODOP=12;
-	public const int F1_INSTR=13;
-	public const int F2CODOP=14;
-	public const int F2_INSTR=15;
-	public const int F34CODOP=16;
-	public const int F34_INSTR=17;
-	public const int FINL=18;
-	public const int HEXCONST=19;
-	public const int HEXSUF=20;
-	public const int ID=21;
-	public const int INDICE=22;
-	public const int INSTR=23;
-	public const int NUM=24;
-	public const int NUMERAL=25;
-	public const int PLUS=26;
-	public const int REG=27;
-	public const int RESB=28;
-	public const int RESW=29;
-	public const int START=30;
-	public const int WORD=31;
-	public const int WS=32;
+	public const int DIV=11;
+	public const int END=12;
+	public const int EQU=13;
+	public const int F1CODOP=14;
+	public const int F1_INSTR=15;
+	public const int F2CODOP=16;
+	public const int F2_INSTR=17;
+	public const int F34CODOP=18;
+	public const int F34_INSTR=19;
+	public const int FINL=20;
+	public const int HEXCONST=21;
+	public const int HEXSUF=22;
+	public const int ID=23;
+	public const int INDICE=24;
+	public const int INSTR=25;
+	public const int LPAREN=26;
+	public const int MINUS=27;
+	public const int NUM=28;
+	public const int NUMERAL=29;
+	public const int ORG=30;
+	public const int PLUS=31;
+	public const int REG=32;
+	public const int RESB=33;
+	public const int RESW=34;
+	public const int RPAREN=35;
+	public const int STAR=36;
+	public const int START=37;
+	public const int USE=38;
+	public const int WORD=39;
+	public const int WS=40;
 
 	// delegates
 	// delegators
@@ -86,19 +94,19 @@ public partial class Gram_SICXELexer : Antlr.Runtime.Lexer
 	partial void EnterRule(string ruleName, int ruleIndex);
 	partial void LeaveRule(string ruleName, int ruleIndex);
 
-	partial void EnterRule_T__33();
-	partial void LeaveRule_T__33();
+	partial void EnterRule_T__41();
+	partial void LeaveRule_T__41();
 
-	// $ANTLR start "T__33"
-	[GrammarRule("T__33")]
-	private void mT__33()
+	// $ANTLR start "T__41"
+	[GrammarRule("T__41")]
+	private void mT__41()
 	{
-		EnterRule_T__33();
-		EnterRule("T__33", 1);
-		TraceIn("T__33", 1);
+		EnterRule_T__41();
+		EnterRule("T__41", 1);
+		TraceIn("T__41", 1);
 		try
 		{
-			int _type = T__33;
+			int _type = T__41;
 			int _channel = DefaultTokenChannel;
 			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:7:7: ( ',' )
 			DebugEnterAlt(1);
@@ -114,12 +122,12 @@ public partial class Gram_SICXELexer : Antlr.Runtime.Lexer
 		}
 		finally
 		{
-			TraceOut("T__33", 1);
-			LeaveRule("T__33", 1);
-			LeaveRule_T__33();
+			TraceOut("T__41", 1);
+			LeaveRule("T__41", 1);
+			LeaveRule_T__41();
 		}
 	}
-	// $ANTLR end "T__33"
+	// $ANTLR end "T__41"
 
 	partial void EnterRule_START();
 	partial void LeaveRule_START();
@@ -135,11 +143,11 @@ public partial class Gram_SICXELexer : Antlr.Runtime.Lexer
 		{
 			int _type = START;
 			int _channel = DefaultTokenChannel;
-			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:153:7: ( 'START' )
+			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:19:7: ( 'START' )
 			DebugEnterAlt(1);
-			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:153:9: 'START'
+			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:19:9: 'START'
 			{
-			DebugLocation(153, 9);
+			DebugLocation(19, 9);
 			Match("START"); 
 
 
@@ -171,11 +179,11 @@ public partial class Gram_SICXELexer : Antlr.Runtime.Lexer
 		{
 			int _type = END;
 			int _channel = DefaultTokenChannel;
-			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:154:7: ( 'END' )
+			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:20:7: ( 'END' )
 			DebugEnterAlt(1);
-			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:154:9: 'END'
+			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:20:9: 'END'
 			{
-			DebugLocation(154, 9);
+			DebugLocation(20, 9);
 			Match("END"); 
 
 
@@ -207,11 +215,11 @@ public partial class Gram_SICXELexer : Antlr.Runtime.Lexer
 		{
 			int _type = BYTE;
 			int _channel = DefaultTokenChannel;
-			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:155:7: ( 'BYTE' )
+			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:21:7: ( 'BYTE' )
 			DebugEnterAlt(1);
-			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:155:9: 'BYTE'
+			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:21:9: 'BYTE'
 			{
-			DebugLocation(155, 9);
+			DebugLocation(21, 9);
 			Match("BYTE"); 
 
 
@@ -243,11 +251,11 @@ public partial class Gram_SICXELexer : Antlr.Runtime.Lexer
 		{
 			int _type = WORD;
 			int _channel = DefaultTokenChannel;
-			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:156:7: ( 'WORD' )
+			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:22:7: ( 'WORD' )
 			DebugEnterAlt(1);
-			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:156:9: 'WORD'
+			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:22:9: 'WORD'
 			{
-			DebugLocation(156, 9);
+			DebugLocation(22, 9);
 			Match("WORD"); 
 
 
@@ -279,11 +287,11 @@ public partial class Gram_SICXELexer : Antlr.Runtime.Lexer
 		{
 			int _type = RESB;
 			int _channel = DefaultTokenChannel;
-			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:157:7: ( 'RESB' )
+			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:23:7: ( 'RESB' )
 			DebugEnterAlt(1);
-			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:157:9: 'RESB'
+			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:23:9: 'RESB'
 			{
-			DebugLocation(157, 9);
+			DebugLocation(23, 9);
 			Match("RESB"); 
 
 
@@ -315,11 +323,11 @@ public partial class Gram_SICXELexer : Antlr.Runtime.Lexer
 		{
 			int _type = RESW;
 			int _channel = DefaultTokenChannel;
-			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:158:7: ( 'RESW' )
+			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:24:7: ( 'RESW' )
 			DebugEnterAlt(1);
-			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:158:9: 'RESW'
+			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:24:9: 'RESW'
 			{
-			DebugLocation(158, 9);
+			DebugLocation(24, 9);
 			Match("RESW"); 
 
 
@@ -351,11 +359,11 @@ public partial class Gram_SICXELexer : Antlr.Runtime.Lexer
 		{
 			int _type = BASE;
 			int _channel = DefaultTokenChannel;
-			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:159:7: ( 'BASE' )
+			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:25:7: ( 'BASE' )
 			DebugEnterAlt(1);
-			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:159:9: 'BASE'
+			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:25:9: 'BASE'
 			{
-			DebugLocation(159, 9);
+			DebugLocation(25, 9);
 			Match("BASE"); 
 
 
@@ -373,6 +381,114 @@ public partial class Gram_SICXELexer : Antlr.Runtime.Lexer
 	}
 	// $ANTLR end "BASE"
 
+	partial void EnterRule_EQU();
+	partial void LeaveRule_EQU();
+
+	// $ANTLR start "EQU"
+	[GrammarRule("EQU")]
+	private void mEQU()
+	{
+		EnterRule_EQU();
+		EnterRule("EQU", 9);
+		TraceIn("EQU", 9);
+		try
+		{
+			int _type = EQU;
+			int _channel = DefaultTokenChannel;
+			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:26:7: ( 'EQU' )
+			DebugEnterAlt(1);
+			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:26:9: 'EQU'
+			{
+			DebugLocation(26, 9);
+			Match("EQU"); 
+
+
+			}
+
+			state.type = _type;
+			state.channel = _channel;
+		}
+		finally
+		{
+			TraceOut("EQU", 9);
+			LeaveRule("EQU", 9);
+			LeaveRule_EQU();
+		}
+	}
+	// $ANTLR end "EQU"
+
+	partial void EnterRule_ORG();
+	partial void LeaveRule_ORG();
+
+	// $ANTLR start "ORG"
+	[GrammarRule("ORG")]
+	private void mORG()
+	{
+		EnterRule_ORG();
+		EnterRule("ORG", 10);
+		TraceIn("ORG", 10);
+		try
+		{
+			int _type = ORG;
+			int _channel = DefaultTokenChannel;
+			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:27:7: ( 'ORG' )
+			DebugEnterAlt(1);
+			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:27:9: 'ORG'
+			{
+			DebugLocation(27, 9);
+			Match("ORG"); 
+
+
+			}
+
+			state.type = _type;
+			state.channel = _channel;
+		}
+		finally
+		{
+			TraceOut("ORG", 10);
+			LeaveRule("ORG", 10);
+			LeaveRule_ORG();
+		}
+	}
+	// $ANTLR end "ORG"
+
+	partial void EnterRule_USE();
+	partial void LeaveRule_USE();
+
+	// $ANTLR start "USE"
+	[GrammarRule("USE")]
+	private void mUSE()
+	{
+		EnterRule_USE();
+		EnterRule("USE", 11);
+		TraceIn("USE", 11);
+		try
+		{
+			int _type = USE;
+			int _channel = DefaultTokenChannel;
+			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:28:7: ( 'USE' )
+			DebugEnterAlt(1);
+			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:28:9: 'USE'
+			{
+			DebugLocation(28, 9);
+			Match("USE"); 
+
+
+			}
+
+			state.type = _type;
+			state.channel = _channel;
+		}
+		finally
+		{
+			TraceOut("USE", 11);
+			LeaveRule("USE", 11);
+			LeaveRule_USE();
+		}
+	}
+	// $ANTLR end "USE"
+
 	partial void EnterRule_FINL();
 	partial void LeaveRule_FINL();
 
@@ -381,18 +497,18 @@ public partial class Gram_SICXELexer : Antlr.Runtime.Lexer
 	private void mFINL()
 	{
 		EnterRule_FINL();
-		EnterRule("FINL", 9);
-		TraceIn("FINL", 9);
+		EnterRule("FINL", 12);
+		TraceIn("FINL", 12);
 		try
 		{
 			int _type = FINL;
 			int _channel = DefaultTokenChannel;
-			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:163:5: ( ( ';' )* ( ( '\\r' )? '\\n' | '\\r' ) )
+			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:32:5: ( ( ';' )* ( ( '\\r' )? '\\n' | '\\r' ) )
 			DebugEnterAlt(1);
-			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:163:7: ( ';' )* ( ( '\\r' )? '\\n' | '\\r' )
+			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:32:7: ( ';' )* ( ( '\\r' )? '\\n' | '\\r' )
 			{
-			DebugLocation(163, 7);
-			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:163:7: ( ';' )*
+			DebugLocation(32, 7);
+			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:32:7: ( ';' )*
 			try { DebugEnterSubRule(1);
 			while (true)
 			{
@@ -411,9 +527,9 @@ public partial class Gram_SICXELexer : Antlr.Runtime.Lexer
 				{
 				case 1:
 					DebugEnterAlt(1);
-					// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:163:9: ';'
+					// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:32:9: ';'
 					{
-					DebugLocation(163, 9);
+					DebugLocation(32, 9);
 					Match(';'); 
 
 					}
@@ -429,8 +545,8 @@ public partial class Gram_SICXELexer : Antlr.Runtime.Lexer
 
 			} finally { DebugExitSubRule(1); }
 
-			DebugLocation(163, 16);
-			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:163:16: ( ( '\\r' )? '\\n' | '\\r' )
+			DebugLocation(32, 16);
+			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:32:16: ( ( '\\r' )? '\\n' | '\\r' )
 			int alt3=2;
 			try { DebugEnterSubRule(3);
 			try { DebugEnterDecision(3, false);
@@ -464,10 +580,10 @@ public partial class Gram_SICXELexer : Antlr.Runtime.Lexer
 			{
 			case 1:
 				DebugEnterAlt(1);
-				// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:163:18: ( '\\r' )? '\\n'
+				// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:32:18: ( '\\r' )? '\\n'
 				{
-				DebugLocation(163, 18);
-				// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:163:18: ( '\\r' )?
+				DebugLocation(32, 18);
+				// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:32:18: ( '\\r' )?
 				int alt2=2;
 				try { DebugEnterSubRule(2);
 				try { DebugEnterDecision(2, false);
@@ -482,9 +598,9 @@ public partial class Gram_SICXELexer : Antlr.Runtime.Lexer
 				{
 				case 1:
 					DebugEnterAlt(1);
-					// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:163:18: '\\r'
+					// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:32:18: '\\r'
 					{
-					DebugLocation(163, 18);
+					DebugLocation(32, 18);
 					Match('\r'); 
 
 					}
@@ -493,16 +609,16 @@ public partial class Gram_SICXELexer : Antlr.Runtime.Lexer
 				}
 				} finally { DebugExitSubRule(2); }
 
-				DebugLocation(163, 24);
+				DebugLocation(32, 24);
 				Match('\n'); 
 
 				}
 				break;
 			case 2:
 				DebugEnterAlt(2);
-				// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:163:31: '\\r'
+				// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:32:31: '\\r'
 				{
-				DebugLocation(163, 31);
+				DebugLocation(32, 31);
 				Match('\r'); 
 
 				}
@@ -519,8 +635,8 @@ public partial class Gram_SICXELexer : Antlr.Runtime.Lexer
 		}
 		finally
 		{
-			TraceOut("FINL", 9);
-			LeaveRule("FINL", 9);
+			TraceOut("FINL", 12);
+			LeaveRule("FINL", 12);
 			LeaveRule_FINL();
 		}
 	}
@@ -534,18 +650,18 @@ public partial class Gram_SICXELexer : Antlr.Runtime.Lexer
 	private void mREG()
 	{
 		EnterRule_REG();
-		EnterRule("REG", 10);
-		TraceIn("REG", 10);
+		EnterRule("REG", 13);
+		TraceIn("REG", 13);
 		try
 		{
 			int _type = REG;
 			int _channel = DefaultTokenChannel;
-			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:168:5: ( 'A' | 'B' | 'C' | 'D' | 'E' | 'F' | 'X' )
+			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:40:5: ( 'A' | 'B' | 'C' | 'D' | 'E' | 'F' | 'X' | 'L' | 'S' | 'T' )
 			DebugEnterAlt(1);
 			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:
 			{
-			DebugLocation(168, 5);
-			if ((input.LA(1)>='A' && input.LA(1)<='F')||input.LA(1)=='X')
+			DebugLocation(40, 5);
+			if ((input.LA(1)>='A' && input.LA(1)<='F')||input.LA(1)=='L'||(input.LA(1)>='S' && input.LA(1)<='T')||input.LA(1)=='X')
 			{
 				input.Consume();
 			}
@@ -565,8 +681,8 @@ public partial class Gram_SICXELexer : Antlr.Runtime.Lexer
 		}
 		finally
 		{
-			TraceOut("REG", 10);
-			LeaveRule("REG", 10);
+			TraceOut("REG", 13);
+			LeaveRule("REG", 13);
 			LeaveRule_REG();
 		}
 	}
@@ -580,13 +696,13 @@ public partial class Gram_SICXELexer : Antlr.Runtime.Lexer
 	private void mINDICE()
 	{
 		EnterRule_INDICE();
-		EnterRule("INDICE", 11);
-		TraceIn("INDICE", 11);
+		EnterRule("INDICE", 14);
+		TraceIn("INDICE", 14);
 		try
 		{
 			int _type = INDICE;
 			int _channel = DefaultTokenChannel;
-			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:173:5: ( 'IX' | 'IY' | 'IZ' )
+			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:54:5: ( 'IX' | 'IY' | 'IZ' )
 			int alt4=3;
 			try { DebugEnterDecision(4, false);
 			int LA4_1 = input.LA(1);
@@ -630,9 +746,9 @@ public partial class Gram_SICXELexer : Antlr.Runtime.Lexer
 			{
 			case 1:
 				DebugEnterAlt(1);
-				// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:173:7: 'IX'
+				// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:54:7: 'IX'
 				{
-				DebugLocation(173, 7);
+				DebugLocation(54, 7);
 				Match("IX"); 
 
 
@@ -640,9 +756,9 @@ public partial class Gram_SICXELexer : Antlr.Runtime.Lexer
 				break;
 			case 2:
 				DebugEnterAlt(2);
-				// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:173:14: 'IY'
+				// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:54:14: 'IY'
 				{
-				DebugLocation(173, 14);
+				DebugLocation(54, 14);
 				Match("IY"); 
 
 
@@ -650,9 +766,9 @@ public partial class Gram_SICXELexer : Antlr.Runtime.Lexer
 				break;
 			case 3:
 				DebugEnterAlt(3);
-				// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:173:21: 'IZ'
+				// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:54:21: 'IZ'
 				{
-				DebugLocation(173, 21);
+				DebugLocation(54, 21);
 				Match("IZ"); 
 
 
@@ -665,8 +781,8 @@ public partial class Gram_SICXELexer : Antlr.Runtime.Lexer
 		}
 		finally
 		{
-			TraceOut("INDICE", 11);
-			LeaveRule("INDICE", 11);
+			TraceOut("INDICE", 14);
+			LeaveRule("INDICE", 14);
 			LeaveRule_INDICE();
 		}
 	}
@@ -680,17 +796,17 @@ public partial class Gram_SICXELexer : Antlr.Runtime.Lexer
 	private void mPLUS()
 	{
 		EnterRule_PLUS();
-		EnterRule("PLUS", 12);
-		TraceIn("PLUS", 12);
+		EnterRule("PLUS", 15);
+		TraceIn("PLUS", 15);
 		try
 		{
 			int _type = PLUS;
 			int _channel = DefaultTokenChannel;
-			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:178:5: ( '+' )
+			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:60:8: ( '+' )
 			DebugEnterAlt(1);
-			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:178:7: '+'
+			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:60:10: '+'
 			{
-			DebugLocation(178, 7);
+			DebugLocation(60, 10);
 			Match('+'); 
 
 			}
@@ -700,12 +816,187 @@ public partial class Gram_SICXELexer : Antlr.Runtime.Lexer
 		}
 		finally
 		{
-			TraceOut("PLUS", 12);
-			LeaveRule("PLUS", 12);
+			TraceOut("PLUS", 15);
+			LeaveRule("PLUS", 15);
 			LeaveRule_PLUS();
 		}
 	}
 	// $ANTLR end "PLUS"
+
+	partial void EnterRule_MINUS();
+	partial void LeaveRule_MINUS();
+
+	// $ANTLR start "MINUS"
+	[GrammarRule("MINUS")]
+	private void mMINUS()
+	{
+		EnterRule_MINUS();
+		EnterRule("MINUS", 16);
+		TraceIn("MINUS", 16);
+		try
+		{
+			int _type = MINUS;
+			int _channel = DefaultTokenChannel;
+			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:61:8: ( '-' )
+			DebugEnterAlt(1);
+			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:61:10: '-'
+			{
+			DebugLocation(61, 10);
+			Match('-'); 
+
+			}
+
+			state.type = _type;
+			state.channel = _channel;
+		}
+		finally
+		{
+			TraceOut("MINUS", 16);
+			LeaveRule("MINUS", 16);
+			LeaveRule_MINUS();
+		}
+	}
+	// $ANTLR end "MINUS"
+
+	partial void EnterRule_STAR();
+	partial void LeaveRule_STAR();
+
+	// $ANTLR start "STAR"
+	[GrammarRule("STAR")]
+	private void mSTAR()
+	{
+		EnterRule_STAR();
+		EnterRule("STAR", 17);
+		TraceIn("STAR", 17);
+		try
+		{
+			int _type = STAR;
+			int _channel = DefaultTokenChannel;
+			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:62:8: ( '*' )
+			DebugEnterAlt(1);
+			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:62:10: '*'
+			{
+			DebugLocation(62, 10);
+			Match('*'); 
+
+			}
+
+			state.type = _type;
+			state.channel = _channel;
+		}
+		finally
+		{
+			TraceOut("STAR", 17);
+			LeaveRule("STAR", 17);
+			LeaveRule_STAR();
+		}
+	}
+	// $ANTLR end "STAR"
+
+	partial void EnterRule_DIV();
+	partial void LeaveRule_DIV();
+
+	// $ANTLR start "DIV"
+	[GrammarRule("DIV")]
+	private void mDIV()
+	{
+		EnterRule_DIV();
+		EnterRule("DIV", 18);
+		TraceIn("DIV", 18);
+		try
+		{
+			int _type = DIV;
+			int _channel = DefaultTokenChannel;
+			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:63:8: ( '/' )
+			DebugEnterAlt(1);
+			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:63:10: '/'
+			{
+			DebugLocation(63, 10);
+			Match('/'); 
+
+			}
+
+			state.type = _type;
+			state.channel = _channel;
+		}
+		finally
+		{
+			TraceOut("DIV", 18);
+			LeaveRule("DIV", 18);
+			LeaveRule_DIV();
+		}
+	}
+	// $ANTLR end "DIV"
+
+	partial void EnterRule_LPAREN();
+	partial void LeaveRule_LPAREN();
+
+	// $ANTLR start "LPAREN"
+	[GrammarRule("LPAREN")]
+	private void mLPAREN()
+	{
+		EnterRule_LPAREN();
+		EnterRule("LPAREN", 19);
+		TraceIn("LPAREN", 19);
+		try
+		{
+			int _type = LPAREN;
+			int _channel = DefaultTokenChannel;
+			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:64:8: ( '(' )
+			DebugEnterAlt(1);
+			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:64:10: '('
+			{
+			DebugLocation(64, 10);
+			Match('('); 
+
+			}
+
+			state.type = _type;
+			state.channel = _channel;
+		}
+		finally
+		{
+			TraceOut("LPAREN", 19);
+			LeaveRule("LPAREN", 19);
+			LeaveRule_LPAREN();
+		}
+	}
+	// $ANTLR end "LPAREN"
+
+	partial void EnterRule_RPAREN();
+	partial void LeaveRule_RPAREN();
+
+	// $ANTLR start "RPAREN"
+	[GrammarRule("RPAREN")]
+	private void mRPAREN()
+	{
+		EnterRule_RPAREN();
+		EnterRule("RPAREN", 20);
+		TraceIn("RPAREN", 20);
+		try
+		{
+			int _type = RPAREN;
+			int _channel = DefaultTokenChannel;
+			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:65:8: ( ')' )
+			DebugEnterAlt(1);
+			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:65:10: ')'
+			{
+			DebugLocation(65, 10);
+			Match(')'); 
+
+			}
+
+			state.type = _type;
+			state.channel = _channel;
+		}
+		finally
+		{
+			TraceOut("RPAREN", 20);
+			LeaveRule("RPAREN", 20);
+			LeaveRule_RPAREN();
+		}
+	}
+	// $ANTLR end "RPAREN"
 
 	partial void EnterRule_AT();
 	partial void LeaveRule_AT();
@@ -715,17 +1006,17 @@ public partial class Gram_SICXELexer : Antlr.Runtime.Lexer
 	private void mAT()
 	{
 		EnterRule_AT();
-		EnterRule("AT", 13);
-		TraceIn("AT", 13);
+		EnterRule("AT", 21);
+		TraceIn("AT", 21);
 		try
 		{
 			int _type = AT;
 			int _channel = DefaultTokenChannel;
-			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:183:5: ( '@' )
+			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:68:5: ( '@' )
 			DebugEnterAlt(1);
-			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:183:7: '@'
+			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:68:7: '@'
 			{
-			DebugLocation(183, 7);
+			DebugLocation(68, 7);
 			Match('@'); 
 
 			}
@@ -735,8 +1026,8 @@ public partial class Gram_SICXELexer : Antlr.Runtime.Lexer
 		}
 		finally
 		{
-			TraceOut("AT", 13);
-			LeaveRule("AT", 13);
+			TraceOut("AT", 21);
+			LeaveRule("AT", 21);
 			LeaveRule_AT();
 		}
 	}
@@ -750,17 +1041,17 @@ public partial class Gram_SICXELexer : Antlr.Runtime.Lexer
 	private void mNUMERAL()
 	{
 		EnterRule_NUMERAL();
-		EnterRule("NUMERAL", 14);
-		TraceIn("NUMERAL", 14);
+		EnterRule("NUMERAL", 22);
+		TraceIn("NUMERAL", 22);
 		try
 		{
 			int _type = NUMERAL;
 			int _channel = DefaultTokenChannel;
-			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:187:5: ( '#' )
+			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:72:5: ( '#' )
 			DebugEnterAlt(1);
-			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:187:7: '#'
+			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:72:7: '#'
 			{
-			DebugLocation(187, 7);
+			DebugLocation(72, 7);
 			Match('#'); 
 
 			}
@@ -770,8 +1061,8 @@ public partial class Gram_SICXELexer : Antlr.Runtime.Lexer
 		}
 		finally
 		{
-			TraceOut("NUMERAL", 14);
-			LeaveRule("NUMERAL", 14);
+			TraceOut("NUMERAL", 22);
+			LeaveRule("NUMERAL", 22);
 			LeaveRule_NUMERAL();
 		}
 	}
@@ -785,11 +1076,11 @@ public partial class Gram_SICXELexer : Antlr.Runtime.Lexer
 	private void mF1_INSTR()
 	{
 		EnterRule_F1_INSTR();
-		EnterRule("F1_INSTR", 15);
-		TraceIn("F1_INSTR", 15);
+		EnterRule("F1_INSTR", 23);
+		TraceIn("F1_INSTR", 23);
 		try
 		{
-			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:192:5: ( 'FIX' | 'NORM' | 'FLOAT' | 'HIO' | 'SIO' | 'TIO' )
+			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:79:5: ( 'FIX' | 'NORM' | 'FLOAT' | 'HIO' | 'SIO' | 'TIO' )
 			int alt5=6;
 			try { DebugEnterDecision(5, false);
 			switch (input.LA(1))
@@ -847,9 +1138,9 @@ public partial class Gram_SICXELexer : Antlr.Runtime.Lexer
 			{
 			case 1:
 				DebugEnterAlt(1);
-				// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:192:7: 'FIX'
+				// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:79:7: 'FIX'
 				{
-				DebugLocation(192, 7);
+				DebugLocation(79, 7);
 				Match("FIX"); 
 
 
@@ -857,9 +1148,9 @@ public partial class Gram_SICXELexer : Antlr.Runtime.Lexer
 				break;
 			case 2:
 				DebugEnterAlt(2);
-				// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:193:7: 'NORM'
+				// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:80:7: 'NORM'
 				{
-				DebugLocation(193, 7);
+				DebugLocation(80, 7);
 				Match("NORM"); 
 
 
@@ -867,9 +1158,9 @@ public partial class Gram_SICXELexer : Antlr.Runtime.Lexer
 				break;
 			case 3:
 				DebugEnterAlt(3);
-				// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:194:7: 'FLOAT'
+				// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:81:7: 'FLOAT'
 				{
-				DebugLocation(194, 7);
+				DebugLocation(81, 7);
 				Match("FLOAT"); 
 
 
@@ -877,9 +1168,9 @@ public partial class Gram_SICXELexer : Antlr.Runtime.Lexer
 				break;
 			case 4:
 				DebugEnterAlt(4);
-				// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:195:7: 'HIO'
+				// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:82:7: 'HIO'
 				{
-				DebugLocation(195, 7);
+				DebugLocation(82, 7);
 				Match("HIO"); 
 
 
@@ -887,9 +1178,9 @@ public partial class Gram_SICXELexer : Antlr.Runtime.Lexer
 				break;
 			case 5:
 				DebugEnterAlt(5);
-				// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:196:7: 'SIO'
+				// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:83:7: 'SIO'
 				{
-				DebugLocation(196, 7);
+				DebugLocation(83, 7);
 				Match("SIO"); 
 
 
@@ -897,9 +1188,9 @@ public partial class Gram_SICXELexer : Antlr.Runtime.Lexer
 				break;
 			case 6:
 				DebugEnterAlt(6);
-				// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:197:7: 'TIO'
+				// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:84:7: 'TIO'
 				{
-				DebugLocation(197, 7);
+				DebugLocation(84, 7);
 				Match("TIO"); 
 
 
@@ -910,8 +1201,8 @@ public partial class Gram_SICXELexer : Antlr.Runtime.Lexer
 		}
 		finally
 		{
-			TraceOut("F1_INSTR", 15);
-			LeaveRule("F1_INSTR", 15);
+			TraceOut("F1_INSTR", 23);
+			LeaveRule("F1_INSTR", 23);
 			LeaveRule_F1_INSTR();
 		}
 	}
@@ -925,11 +1216,11 @@ public partial class Gram_SICXELexer : Antlr.Runtime.Lexer
 	private void mF2_INSTR()
 	{
 		EnterRule_F2_INSTR();
-		EnterRule("F2_INSTR", 16);
-		TraceIn("F2_INSTR", 16);
+		EnterRule("F2_INSTR", 24);
+		TraceIn("F2_INSTR", 24);
 		try
 		{
-			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:201:5: ( 'ADDR' | 'SUBR' | 'COMPR' | 'MULR' | 'DIVR' | 'RMO' | 'SHIFTL' | 'SHIFTR' | 'SVC' | 'CLEAR' | 'TIXR' )
+			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:88:5: ( 'ADDR' | 'SUBR' | 'COMPR' | 'MULR' | 'DIVR' | 'RMO' | 'SHIFTL' | 'SHIFTR' | 'SVC' | 'CLEAR' | 'TIXR' )
 			int alt6=11;
 			try { DebugEnterDecision(6, false);
 			switch (input.LA(1))
@@ -1069,9 +1360,9 @@ public partial class Gram_SICXELexer : Antlr.Runtime.Lexer
 			{
 			case 1:
 				DebugEnterAlt(1);
-				// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:201:7: 'ADDR'
+				// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:88:7: 'ADDR'
 				{
-				DebugLocation(201, 7);
+				DebugLocation(88, 7);
 				Match("ADDR"); 
 
 
@@ -1079,9 +1370,9 @@ public partial class Gram_SICXELexer : Antlr.Runtime.Lexer
 				break;
 			case 2:
 				DebugEnterAlt(2);
-				// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:202:7: 'SUBR'
+				// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:89:7: 'SUBR'
 				{
-				DebugLocation(202, 7);
+				DebugLocation(89, 7);
 				Match("SUBR"); 
 
 
@@ -1089,9 +1380,9 @@ public partial class Gram_SICXELexer : Antlr.Runtime.Lexer
 				break;
 			case 3:
 				DebugEnterAlt(3);
-				// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:203:7: 'COMPR'
+				// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:90:7: 'COMPR'
 				{
-				DebugLocation(203, 7);
+				DebugLocation(90, 7);
 				Match("COMPR"); 
 
 
@@ -1099,9 +1390,9 @@ public partial class Gram_SICXELexer : Antlr.Runtime.Lexer
 				break;
 			case 4:
 				DebugEnterAlt(4);
-				// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:204:7: 'MULR'
+				// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:91:7: 'MULR'
 				{
-				DebugLocation(204, 7);
+				DebugLocation(91, 7);
 				Match("MULR"); 
 
 
@@ -1109,9 +1400,9 @@ public partial class Gram_SICXELexer : Antlr.Runtime.Lexer
 				break;
 			case 5:
 				DebugEnterAlt(5);
-				// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:205:7: 'DIVR'
+				// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:92:7: 'DIVR'
 				{
-				DebugLocation(205, 7);
+				DebugLocation(92, 7);
 				Match("DIVR"); 
 
 
@@ -1119,9 +1410,9 @@ public partial class Gram_SICXELexer : Antlr.Runtime.Lexer
 				break;
 			case 6:
 				DebugEnterAlt(6);
-				// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:206:7: 'RMO'
+				// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:93:7: 'RMO'
 				{
-				DebugLocation(206, 7);
+				DebugLocation(93, 7);
 				Match("RMO"); 
 
 
@@ -1129,9 +1420,9 @@ public partial class Gram_SICXELexer : Antlr.Runtime.Lexer
 				break;
 			case 7:
 				DebugEnterAlt(7);
-				// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:207:7: 'SHIFTL'
+				// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:94:7: 'SHIFTL'
 				{
-				DebugLocation(207, 7);
+				DebugLocation(94, 7);
 				Match("SHIFTL"); 
 
 
@@ -1139,9 +1430,9 @@ public partial class Gram_SICXELexer : Antlr.Runtime.Lexer
 				break;
 			case 8:
 				DebugEnterAlt(8);
-				// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:208:7: 'SHIFTR'
+				// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:95:7: 'SHIFTR'
 				{
-				DebugLocation(208, 7);
+				DebugLocation(95, 7);
 				Match("SHIFTR"); 
 
 
@@ -1149,9 +1440,9 @@ public partial class Gram_SICXELexer : Antlr.Runtime.Lexer
 				break;
 			case 9:
 				DebugEnterAlt(9);
-				// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:209:7: 'SVC'
+				// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:96:7: 'SVC'
 				{
-				DebugLocation(209, 7);
+				DebugLocation(96, 7);
 				Match("SVC"); 
 
 
@@ -1159,9 +1450,9 @@ public partial class Gram_SICXELexer : Antlr.Runtime.Lexer
 				break;
 			case 10:
 				DebugEnterAlt(10);
-				// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:210:7: 'CLEAR'
+				// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:97:7: 'CLEAR'
 				{
-				DebugLocation(210, 7);
+				DebugLocation(97, 7);
 				Match("CLEAR"); 
 
 
@@ -1169,9 +1460,9 @@ public partial class Gram_SICXELexer : Antlr.Runtime.Lexer
 				break;
 			case 11:
 				DebugEnterAlt(11);
-				// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:211:7: 'TIXR'
+				// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:98:7: 'TIXR'
 				{
-				DebugLocation(211, 7);
+				DebugLocation(98, 7);
 				Match("TIXR"); 
 
 
@@ -1182,8 +1473,8 @@ public partial class Gram_SICXELexer : Antlr.Runtime.Lexer
 		}
 		finally
 		{
-			TraceOut("F2_INSTR", 16);
-			LeaveRule("F2_INSTR", 16);
+			TraceOut("F2_INSTR", 24);
+			LeaveRule("F2_INSTR", 24);
 			LeaveRule_F2_INSTR();
 		}
 	}
@@ -1197,11 +1488,11 @@ public partial class Gram_SICXELexer : Antlr.Runtime.Lexer
 	private void mF34_INSTR()
 	{
 		EnterRule_F34_INSTR();
-		EnterRule("F34_INSTR", 17);
-		TraceIn("F34_INSTR", 17);
+		EnterRule("F34_INSTR", 25);
+		TraceIn("F34_INSTR", 25);
 		try
 		{
-			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:215:5: ( 'ADD' | 'ADDF' | 'AND' | 'COMP' | 'COMPF' | 'DIV' | 'DIVF' | 'J' | 'JEQ' | 'JGT' | 'JLT' | 'JSUB' | 'LDA' | 'LDB' | 'LDCH' | 'LDF' | 'LDL' | 'LDS' | 'LDT' | 'LDX' | 'MUL' | 'MULF' | 'MULR' | 'OR' | 'RD' | 'RSUB' | 'SSK' | 'STA' | 'STB' | 'STCH' | 'STF' | 'STI' | 'STL' | 'STS' | 'STSW' | 'STT' | 'STX' | 'SUB' | 'SUBF' | 'TIX' | 'WD' )
+			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:102:5: ( 'ADD' | 'ADDF' | 'AND' | 'COMP' | 'COMPF' | 'DIV' | 'DIVF' | 'J' | 'JEQ' | 'JGT' | 'JLT' | 'JSUB' | 'LDA' | 'LDB' | 'LDCH' | 'LDF' | 'LDL' | 'LDS' | 'LDT' | 'LDX' | 'MUL' | 'MULF' | 'MULR' | 'OR' | 'RD' | 'RSUB' | 'SSK' | 'STA' | 'STB' | 'STCH' | 'STF' | 'STI' | 'STL' | 'STS' | 'STSW' | 'STT' | 'STX' | 'SUB' | 'SUBF' | 'TIX' | 'WD' )
 			int alt7=41;
 			try { DebugEnterDecision(7, false);
 			try
@@ -1218,9 +1509,9 @@ public partial class Gram_SICXELexer : Antlr.Runtime.Lexer
 			{
 			case 1:
 				DebugEnterAlt(1);
-				// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:215:7: 'ADD'
+				// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:102:7: 'ADD'
 				{
-				DebugLocation(215, 7);
+				DebugLocation(102, 7);
 				Match("ADD"); 
 
 
@@ -1228,9 +1519,9 @@ public partial class Gram_SICXELexer : Antlr.Runtime.Lexer
 				break;
 			case 2:
 				DebugEnterAlt(2);
-				// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:216:7: 'ADDF'
+				// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:103:7: 'ADDF'
 				{
-				DebugLocation(216, 7);
+				DebugLocation(103, 7);
 				Match("ADDF"); 
 
 
@@ -1238,9 +1529,9 @@ public partial class Gram_SICXELexer : Antlr.Runtime.Lexer
 				break;
 			case 3:
 				DebugEnterAlt(3);
-				// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:217:7: 'AND'
+				// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:104:7: 'AND'
 				{
-				DebugLocation(217, 7);
+				DebugLocation(104, 7);
 				Match("AND"); 
 
 
@@ -1248,9 +1539,9 @@ public partial class Gram_SICXELexer : Antlr.Runtime.Lexer
 				break;
 			case 4:
 				DebugEnterAlt(4);
-				// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:218:7: 'COMP'
+				// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:105:7: 'COMP'
 				{
-				DebugLocation(218, 7);
+				DebugLocation(105, 7);
 				Match("COMP"); 
 
 
@@ -1258,9 +1549,9 @@ public partial class Gram_SICXELexer : Antlr.Runtime.Lexer
 				break;
 			case 5:
 				DebugEnterAlt(5);
-				// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:219:7: 'COMPF'
+				// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:106:7: 'COMPF'
 				{
-				DebugLocation(219, 7);
+				DebugLocation(106, 7);
 				Match("COMPF"); 
 
 
@@ -1268,9 +1559,9 @@ public partial class Gram_SICXELexer : Antlr.Runtime.Lexer
 				break;
 			case 6:
 				DebugEnterAlt(6);
-				// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:220:7: 'DIV'
+				// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:107:7: 'DIV'
 				{
-				DebugLocation(220, 7);
+				DebugLocation(107, 7);
 				Match("DIV"); 
 
 
@@ -1278,9 +1569,9 @@ public partial class Gram_SICXELexer : Antlr.Runtime.Lexer
 				break;
 			case 7:
 				DebugEnterAlt(7);
-				// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:221:7: 'DIVF'
+				// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:108:7: 'DIVF'
 				{
-				DebugLocation(221, 7);
+				DebugLocation(108, 7);
 				Match("DIVF"); 
 
 
@@ -1288,18 +1579,18 @@ public partial class Gram_SICXELexer : Antlr.Runtime.Lexer
 				break;
 			case 8:
 				DebugEnterAlt(8);
-				// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:222:7: 'J'
+				// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:109:7: 'J'
 				{
-				DebugLocation(222, 7);
+				DebugLocation(109, 7);
 				Match('J'); 
 
 				}
 				break;
 			case 9:
 				DebugEnterAlt(9);
-				// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:223:7: 'JEQ'
+				// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:110:7: 'JEQ'
 				{
-				DebugLocation(223, 7);
+				DebugLocation(110, 7);
 				Match("JEQ"); 
 
 
@@ -1307,9 +1598,9 @@ public partial class Gram_SICXELexer : Antlr.Runtime.Lexer
 				break;
 			case 10:
 				DebugEnterAlt(10);
-				// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:224:7: 'JGT'
+				// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:111:7: 'JGT'
 				{
-				DebugLocation(224, 7);
+				DebugLocation(111, 7);
 				Match("JGT"); 
 
 
@@ -1317,9 +1608,9 @@ public partial class Gram_SICXELexer : Antlr.Runtime.Lexer
 				break;
 			case 11:
 				DebugEnterAlt(11);
-				// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:225:7: 'JLT'
+				// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:112:7: 'JLT'
 				{
-				DebugLocation(225, 7);
+				DebugLocation(112, 7);
 				Match("JLT"); 
 
 
@@ -1327,9 +1618,9 @@ public partial class Gram_SICXELexer : Antlr.Runtime.Lexer
 				break;
 			case 12:
 				DebugEnterAlt(12);
-				// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:226:7: 'JSUB'
+				// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:113:7: 'JSUB'
 				{
-				DebugLocation(226, 7);
+				DebugLocation(113, 7);
 				Match("JSUB"); 
 
 
@@ -1337,9 +1628,9 @@ public partial class Gram_SICXELexer : Antlr.Runtime.Lexer
 				break;
 			case 13:
 				DebugEnterAlt(13);
-				// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:227:7: 'LDA'
+				// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:114:7: 'LDA'
 				{
-				DebugLocation(227, 7);
+				DebugLocation(114, 7);
 				Match("LDA"); 
 
 
@@ -1347,9 +1638,9 @@ public partial class Gram_SICXELexer : Antlr.Runtime.Lexer
 				break;
 			case 14:
 				DebugEnterAlt(14);
-				// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:228:7: 'LDB'
+				// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:115:7: 'LDB'
 				{
-				DebugLocation(228, 7);
+				DebugLocation(115, 7);
 				Match("LDB"); 
 
 
@@ -1357,9 +1648,9 @@ public partial class Gram_SICXELexer : Antlr.Runtime.Lexer
 				break;
 			case 15:
 				DebugEnterAlt(15);
-				// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:229:7: 'LDCH'
+				// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:116:7: 'LDCH'
 				{
-				DebugLocation(229, 7);
+				DebugLocation(116, 7);
 				Match("LDCH"); 
 
 
@@ -1367,9 +1658,9 @@ public partial class Gram_SICXELexer : Antlr.Runtime.Lexer
 				break;
 			case 16:
 				DebugEnterAlt(16);
-				// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:230:7: 'LDF'
+				// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:117:7: 'LDF'
 				{
-				DebugLocation(230, 7);
+				DebugLocation(117, 7);
 				Match("LDF"); 
 
 
@@ -1377,9 +1668,9 @@ public partial class Gram_SICXELexer : Antlr.Runtime.Lexer
 				break;
 			case 17:
 				DebugEnterAlt(17);
-				// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:231:7: 'LDL'
+				// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:118:7: 'LDL'
 				{
-				DebugLocation(231, 7);
+				DebugLocation(118, 7);
 				Match("LDL"); 
 
 
@@ -1387,9 +1678,9 @@ public partial class Gram_SICXELexer : Antlr.Runtime.Lexer
 				break;
 			case 18:
 				DebugEnterAlt(18);
-				// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:232:7: 'LDS'
+				// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:119:7: 'LDS'
 				{
-				DebugLocation(232, 7);
+				DebugLocation(119, 7);
 				Match("LDS"); 
 
 
@@ -1397,9 +1688,9 @@ public partial class Gram_SICXELexer : Antlr.Runtime.Lexer
 				break;
 			case 19:
 				DebugEnterAlt(19);
-				// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:233:7: 'LDT'
+				// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:120:7: 'LDT'
 				{
-				DebugLocation(233, 7);
+				DebugLocation(120, 7);
 				Match("LDT"); 
 
 
@@ -1407,9 +1698,9 @@ public partial class Gram_SICXELexer : Antlr.Runtime.Lexer
 				break;
 			case 20:
 				DebugEnterAlt(20);
-				// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:234:7: 'LDX'
+				// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:121:7: 'LDX'
 				{
-				DebugLocation(234, 7);
+				DebugLocation(121, 7);
 				Match("LDX"); 
 
 
@@ -1417,9 +1708,9 @@ public partial class Gram_SICXELexer : Antlr.Runtime.Lexer
 				break;
 			case 21:
 				DebugEnterAlt(21);
-				// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:235:7: 'MUL'
+				// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:122:7: 'MUL'
 				{
-				DebugLocation(235, 7);
+				DebugLocation(122, 7);
 				Match("MUL"); 
 
 
@@ -1427,9 +1718,9 @@ public partial class Gram_SICXELexer : Antlr.Runtime.Lexer
 				break;
 			case 22:
 				DebugEnterAlt(22);
-				// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:236:7: 'MULF'
+				// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:123:7: 'MULF'
 				{
-				DebugLocation(236, 7);
+				DebugLocation(123, 7);
 				Match("MULF"); 
 
 
@@ -1437,9 +1728,9 @@ public partial class Gram_SICXELexer : Antlr.Runtime.Lexer
 				break;
 			case 23:
 				DebugEnterAlt(23);
-				// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:237:7: 'MULR'
+				// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:124:7: 'MULR'
 				{
-				DebugLocation(237, 7);
+				DebugLocation(124, 7);
 				Match("MULR"); 
 
 
@@ -1447,9 +1738,9 @@ public partial class Gram_SICXELexer : Antlr.Runtime.Lexer
 				break;
 			case 24:
 				DebugEnterAlt(24);
-				// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:238:7: 'OR'
+				// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:125:7: 'OR'
 				{
-				DebugLocation(238, 7);
+				DebugLocation(125, 7);
 				Match("OR"); 
 
 
@@ -1457,9 +1748,9 @@ public partial class Gram_SICXELexer : Antlr.Runtime.Lexer
 				break;
 			case 25:
 				DebugEnterAlt(25);
-				// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:239:7: 'RD'
+				// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:126:7: 'RD'
 				{
-				DebugLocation(239, 7);
+				DebugLocation(126, 7);
 				Match("RD"); 
 
 
@@ -1467,9 +1758,9 @@ public partial class Gram_SICXELexer : Antlr.Runtime.Lexer
 				break;
 			case 26:
 				DebugEnterAlt(26);
-				// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:240:7: 'RSUB'
+				// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:127:7: 'RSUB'
 				{
-				DebugLocation(240, 7);
+				DebugLocation(127, 7);
 				Match("RSUB"); 
 
 
@@ -1477,9 +1768,9 @@ public partial class Gram_SICXELexer : Antlr.Runtime.Lexer
 				break;
 			case 27:
 				DebugEnterAlt(27);
-				// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:241:7: 'SSK'
+				// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:128:7: 'SSK'
 				{
-				DebugLocation(241, 7);
+				DebugLocation(128, 7);
 				Match("SSK"); 
 
 
@@ -1487,9 +1778,9 @@ public partial class Gram_SICXELexer : Antlr.Runtime.Lexer
 				break;
 			case 28:
 				DebugEnterAlt(28);
-				// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:242:7: 'STA'
+				// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:129:7: 'STA'
 				{
-				DebugLocation(242, 7);
+				DebugLocation(129, 7);
 				Match("STA"); 
 
 
@@ -1497,9 +1788,9 @@ public partial class Gram_SICXELexer : Antlr.Runtime.Lexer
 				break;
 			case 29:
 				DebugEnterAlt(29);
-				// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:243:7: 'STB'
+				// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:130:7: 'STB'
 				{
-				DebugLocation(243, 7);
+				DebugLocation(130, 7);
 				Match("STB"); 
 
 
@@ -1507,9 +1798,9 @@ public partial class Gram_SICXELexer : Antlr.Runtime.Lexer
 				break;
 			case 30:
 				DebugEnterAlt(30);
-				// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:244:7: 'STCH'
+				// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:131:7: 'STCH'
 				{
-				DebugLocation(244, 7);
+				DebugLocation(131, 7);
 				Match("STCH"); 
 
 
@@ -1517,9 +1808,9 @@ public partial class Gram_SICXELexer : Antlr.Runtime.Lexer
 				break;
 			case 31:
 				DebugEnterAlt(31);
-				// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:245:7: 'STF'
+				// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:132:7: 'STF'
 				{
-				DebugLocation(245, 7);
+				DebugLocation(132, 7);
 				Match("STF"); 
 
 
@@ -1527,9 +1818,9 @@ public partial class Gram_SICXELexer : Antlr.Runtime.Lexer
 				break;
 			case 32:
 				DebugEnterAlt(32);
-				// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:246:7: 'STI'
+				// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:133:7: 'STI'
 				{
-				DebugLocation(246, 7);
+				DebugLocation(133, 7);
 				Match("STI"); 
 
 
@@ -1537,9 +1828,9 @@ public partial class Gram_SICXELexer : Antlr.Runtime.Lexer
 				break;
 			case 33:
 				DebugEnterAlt(33);
-				// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:247:7: 'STL'
+				// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:134:7: 'STL'
 				{
-				DebugLocation(247, 7);
+				DebugLocation(134, 7);
 				Match("STL"); 
 
 
@@ -1547,9 +1838,9 @@ public partial class Gram_SICXELexer : Antlr.Runtime.Lexer
 				break;
 			case 34:
 				DebugEnterAlt(34);
-				// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:248:7: 'STS'
+				// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:135:7: 'STS'
 				{
-				DebugLocation(248, 7);
+				DebugLocation(135, 7);
 				Match("STS"); 
 
 
@@ -1557,9 +1848,9 @@ public partial class Gram_SICXELexer : Antlr.Runtime.Lexer
 				break;
 			case 35:
 				DebugEnterAlt(35);
-				// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:249:7: 'STSW'
+				// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:136:7: 'STSW'
 				{
-				DebugLocation(249, 7);
+				DebugLocation(136, 7);
 				Match("STSW"); 
 
 
@@ -1567,9 +1858,9 @@ public partial class Gram_SICXELexer : Antlr.Runtime.Lexer
 				break;
 			case 36:
 				DebugEnterAlt(36);
-				// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:250:7: 'STT'
+				// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:137:7: 'STT'
 				{
-				DebugLocation(250, 7);
+				DebugLocation(137, 7);
 				Match("STT"); 
 
 
@@ -1577,9 +1868,9 @@ public partial class Gram_SICXELexer : Antlr.Runtime.Lexer
 				break;
 			case 37:
 				DebugEnterAlt(37);
-				// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:251:7: 'STX'
+				// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:138:7: 'STX'
 				{
-				DebugLocation(251, 7);
+				DebugLocation(138, 7);
 				Match("STX"); 
 
 
@@ -1587,9 +1878,9 @@ public partial class Gram_SICXELexer : Antlr.Runtime.Lexer
 				break;
 			case 38:
 				DebugEnterAlt(38);
-				// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:252:7: 'SUB'
+				// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:139:7: 'SUB'
 				{
-				DebugLocation(252, 7);
+				DebugLocation(139, 7);
 				Match("SUB"); 
 
 
@@ -1597,9 +1888,9 @@ public partial class Gram_SICXELexer : Antlr.Runtime.Lexer
 				break;
 			case 39:
 				DebugEnterAlt(39);
-				// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:253:7: 'SUBF'
+				// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:140:7: 'SUBF'
 				{
-				DebugLocation(253, 7);
+				DebugLocation(140, 7);
 				Match("SUBF"); 
 
 
@@ -1607,9 +1898,9 @@ public partial class Gram_SICXELexer : Antlr.Runtime.Lexer
 				break;
 			case 40:
 				DebugEnterAlt(40);
-				// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:254:7: 'TIX'
+				// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:141:7: 'TIX'
 				{
-				DebugLocation(254, 7);
+				DebugLocation(141, 7);
 				Match("TIX"); 
 
 
@@ -1617,9 +1908,9 @@ public partial class Gram_SICXELexer : Antlr.Runtime.Lexer
 				break;
 			case 41:
 				DebugEnterAlt(41);
-				// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:255:7: 'WD'
+				// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:142:7: 'WD'
 				{
-				DebugLocation(255, 7);
+				DebugLocation(142, 7);
 				Match("WD"); 
 
 
@@ -1630,8 +1921,8 @@ public partial class Gram_SICXELexer : Antlr.Runtime.Lexer
 		}
 		finally
 		{
-			TraceOut("F34_INSTR", 17);
-			LeaveRule("F34_INSTR", 17);
+			TraceOut("F34_INSTR", 25);
+			LeaveRule("F34_INSTR", 25);
 			LeaveRule_F34_INSTR();
 		}
 	}
@@ -1645,17 +1936,17 @@ public partial class Gram_SICXELexer : Antlr.Runtime.Lexer
 	private void mF1CODOP()
 	{
 		EnterRule_F1CODOP();
-		EnterRule("F1CODOP", 18);
-		TraceIn("F1CODOP", 18);
+		EnterRule("F1CODOP", 26);
+		TraceIn("F1CODOP", 26);
 		try
 		{
 			int _type = F1CODOP;
 			int _channel = DefaultTokenChannel;
-			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:258:10: ( F1_INSTR )
+			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:145:10: ( F1_INSTR )
 			DebugEnterAlt(1);
-			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:258:12: F1_INSTR
+			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:145:12: F1_INSTR
 			{
-			DebugLocation(258, 12);
+			DebugLocation(145, 12);
 			mF1_INSTR(); 
 
 			}
@@ -1665,8 +1956,8 @@ public partial class Gram_SICXELexer : Antlr.Runtime.Lexer
 		}
 		finally
 		{
-			TraceOut("F1CODOP", 18);
-			LeaveRule("F1CODOP", 18);
+			TraceOut("F1CODOP", 26);
+			LeaveRule("F1CODOP", 26);
 			LeaveRule_F1CODOP();
 		}
 	}
@@ -1680,17 +1971,17 @@ public partial class Gram_SICXELexer : Antlr.Runtime.Lexer
 	private void mF2CODOP()
 	{
 		EnterRule_F2CODOP();
-		EnterRule("F2CODOP", 19);
-		TraceIn("F2CODOP", 19);
+		EnterRule("F2CODOP", 27);
+		TraceIn("F2CODOP", 27);
 		try
 		{
 			int _type = F2CODOP;
 			int _channel = DefaultTokenChannel;
-			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:259:10: ( F2_INSTR )
+			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:146:10: ( F2_INSTR )
 			DebugEnterAlt(1);
-			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:259:12: F2_INSTR
+			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:146:12: F2_INSTR
 			{
-			DebugLocation(259, 12);
+			DebugLocation(146, 12);
 			mF2_INSTR(); 
 
 			}
@@ -1700,8 +1991,8 @@ public partial class Gram_SICXELexer : Antlr.Runtime.Lexer
 		}
 		finally
 		{
-			TraceOut("F2CODOP", 19);
-			LeaveRule("F2CODOP", 19);
+			TraceOut("F2CODOP", 27);
+			LeaveRule("F2CODOP", 27);
 			LeaveRule_F2CODOP();
 		}
 	}
@@ -1715,17 +2006,17 @@ public partial class Gram_SICXELexer : Antlr.Runtime.Lexer
 	private void mF34CODOP()
 	{
 		EnterRule_F34CODOP();
-		EnterRule("F34CODOP", 20);
-		TraceIn("F34CODOP", 20);
+		EnterRule("F34CODOP", 28);
+		TraceIn("F34CODOP", 28);
 		try
 		{
 			int _type = F34CODOP;
 			int _channel = DefaultTokenChannel;
-			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:260:10: ( F34_INSTR )
+			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:147:10: ( F34_INSTR )
 			DebugEnterAlt(1);
-			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:260:12: F34_INSTR
+			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:147:12: F34_INSTR
 			{
-			DebugLocation(260, 12);
+			DebugLocation(147, 12);
 			mF34_INSTR(); 
 
 			}
@@ -1735,8 +2026,8 @@ public partial class Gram_SICXELexer : Antlr.Runtime.Lexer
 		}
 		finally
 		{
-			TraceOut("F34CODOP", 20);
-			LeaveRule("F34CODOP", 20);
+			TraceOut("F34CODOP", 28);
+			LeaveRule("F34CODOP", 28);
 			LeaveRule_F34CODOP();
 		}
 	}
@@ -1750,18 +2041,18 @@ public partial class Gram_SICXELexer : Antlr.Runtime.Lexer
 	private void mNUM()
 	{
 		EnterRule_NUM();
-		EnterRule("NUM", 21);
-		TraceIn("NUM", 21);
+		EnterRule("NUM", 29);
+		TraceIn("NUM", 29);
 		try
 		{
 			int _type = NUM;
 			int _channel = DefaultTokenChannel;
-			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:264:5: ( ( '0' .. '9' )+ )
+			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:153:5: ( ( '0' .. '9' )+ )
 			DebugEnterAlt(1);
-			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:264:7: ( '0' .. '9' )+
+			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:153:7: ( '0' .. '9' )+
 			{
-			DebugLocation(264, 7);
-			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:264:7: ( '0' .. '9' )+
+			DebugLocation(153, 7);
+			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:153:7: ( '0' .. '9' )+
 			int cnt8=0;
 			try { DebugEnterSubRule(8);
 			while (true)
@@ -1783,7 +2074,7 @@ public partial class Gram_SICXELexer : Antlr.Runtime.Lexer
 					DebugEnterAlt(1);
 					// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:
 					{
-					DebugLocation(264, 7);
+					DebugLocation(153, 7);
 					input.Consume();
 
 
@@ -1813,8 +2104,8 @@ public partial class Gram_SICXELexer : Antlr.Runtime.Lexer
 		}
 		finally
 		{
-			TraceOut("NUM", 21);
-			LeaveRule("NUM", 21);
+			TraceOut("NUM", 29);
+			LeaveRule("NUM", 29);
 			LeaveRule_NUM();
 		}
 	}
@@ -1828,21 +2119,21 @@ public partial class Gram_SICXELexer : Antlr.Runtime.Lexer
 	private void mCONSTHEX()
 	{
 		EnterRule_CONSTHEX();
-		EnterRule("CONSTHEX", 22);
-		TraceIn("CONSTHEX", 22);
+		EnterRule("CONSTHEX", 30);
+		TraceIn("CONSTHEX", 30);
 		try
 		{
 			int _type = CONSTHEX;
 			int _channel = DefaultTokenChannel;
-			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:269:5: ( '0x' ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' )+ )
+			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:157:5: ( '0x' ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' )+ )
 			DebugEnterAlt(1);
-			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:269:7: '0x' ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' )+
+			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:157:7: '0x' ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' )+
 			{
-			DebugLocation(269, 7);
+			DebugLocation(157, 7);
 			Match("0x"); 
 
-			DebugLocation(269, 12);
-			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:269:12: ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' )+
+			DebugLocation(157, 12);
+			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:157:12: ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' )+
 			int cnt9=0;
 			try { DebugEnterSubRule(9);
 			while (true)
@@ -1864,7 +2155,7 @@ public partial class Gram_SICXELexer : Antlr.Runtime.Lexer
 					DebugEnterAlt(1);
 					// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:
 					{
-					DebugLocation(269, 12);
+					DebugLocation(157, 12);
 					input.Consume();
 
 
@@ -1894,8 +2185,8 @@ public partial class Gram_SICXELexer : Antlr.Runtime.Lexer
 		}
 		finally
 		{
-			TraceOut("CONSTHEX", 22);
-			LeaveRule("CONSTHEX", 22);
+			TraceOut("CONSTHEX", 30);
+			LeaveRule("CONSTHEX", 30);
 			LeaveRule_CONSTHEX();
 		}
 	}
@@ -1909,18 +2200,18 @@ public partial class Gram_SICXELexer : Antlr.Runtime.Lexer
 	private void mHEXSUF()
 	{
 		EnterRule_HEXSUF();
-		EnterRule("HEXSUF", 23);
-		TraceIn("HEXSUF", 23);
+		EnterRule("HEXSUF", 31);
+		TraceIn("HEXSUF", 31);
 		try
 		{
 			int _type = HEXSUF;
 			int _channel = DefaultTokenChannel;
-			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:274:5: ( ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' )+ ( 'h' | 'H' ) )
+			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:161:5: ( ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' )+ ( 'h' | 'H' ) )
 			DebugEnterAlt(1);
-			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:274:7: ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' )+ ( 'h' | 'H' )
+			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:161:7: ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' )+ ( 'h' | 'H' )
 			{
-			DebugLocation(274, 7);
-			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:274:7: ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' )+
+			DebugLocation(161, 7);
+			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:161:7: ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' )+
 			int cnt10=0;
 			try { DebugEnterSubRule(10);
 			while (true)
@@ -1942,7 +2233,7 @@ public partial class Gram_SICXELexer : Antlr.Runtime.Lexer
 					DebugEnterAlt(1);
 					// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:
 					{
-					DebugLocation(274, 7);
+					DebugLocation(161, 7);
 					input.Consume();
 
 
@@ -1964,7 +2255,7 @@ public partial class Gram_SICXELexer : Antlr.Runtime.Lexer
 
 			} finally { DebugExitSubRule(10); }
 
-			DebugLocation(274, 42);
+			DebugLocation(161, 42);
 			if (input.LA(1)=='H'||input.LA(1)=='h')
 			{
 				input.Consume();
@@ -1985,8 +2276,8 @@ public partial class Gram_SICXELexer : Antlr.Runtime.Lexer
 		}
 		finally
 		{
-			TraceOut("HEXSUF", 23);
-			LeaveRule("HEXSUF", 23);
+			TraceOut("HEXSUF", 31);
+			LeaveRule("HEXSUF", 31);
 			LeaveRule_HEXSUF();
 		}
 	}
@@ -2000,20 +2291,20 @@ public partial class Gram_SICXELexer : Antlr.Runtime.Lexer
 	private void mCONSTCAD()
 	{
 		EnterRule_CONSTCAD();
-		EnterRule("CONSTCAD", 24);
-		TraceIn("CONSTCAD", 24);
+		EnterRule("CONSTCAD", 32);
+		TraceIn("CONSTCAD", 32);
 		try
 		{
 			int _type = CONSTCAD;
 			int _channel = DefaultTokenChannel;
-			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:279:5: ( '\"' ( '\\\\' . |~ ( '\\\"' | '\\\\' ) )* '\"' )
+			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:165:5: ( '\"' ( '\\\\' . |~ ( '\\\"' | '\\\\' ) )* '\"' )
 			DebugEnterAlt(1);
-			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:279:7: '\"' ( '\\\\' . |~ ( '\\\"' | '\\\\' ) )* '\"'
+			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:165:7: '\"' ( '\\\\' . |~ ( '\\\"' | '\\\\' ) )* '\"'
 			{
-			DebugLocation(279, 7);
+			DebugLocation(165, 7);
 			Match('\"'); 
-			DebugLocation(279, 11);
-			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:279:11: ( '\\\\' . |~ ( '\\\"' | '\\\\' ) )*
+			DebugLocation(165, 11);
+			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:165:11: ( '\\\\' . |~ ( '\\\"' | '\\\\' ) )*
 			try { DebugEnterSubRule(11);
 			while (true)
 			{
@@ -2036,20 +2327,20 @@ public partial class Gram_SICXELexer : Antlr.Runtime.Lexer
 				{
 				case 1:
 					DebugEnterAlt(1);
-					// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:279:13: '\\\\' .
+					// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:165:13: '\\\\' .
 					{
-					DebugLocation(279, 13);
+					DebugLocation(165, 13);
 					Match('\\'); 
-					DebugLocation(279, 18);
+					DebugLocation(165, 18);
 					MatchAny(); 
 
 					}
 					break;
 				case 2:
 					DebugEnterAlt(2);
-					// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:279:22: ~ ( '\\\"' | '\\\\' )
+					// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:165:22: ~ ( '\\\"' | '\\\\' )
 					{
-					DebugLocation(279, 22);
+					DebugLocation(165, 22);
 					input.Consume();
 
 
@@ -2066,7 +2357,7 @@ public partial class Gram_SICXELexer : Antlr.Runtime.Lexer
 
 			} finally { DebugExitSubRule(11); }
 
-			DebugLocation(279, 38);
+			DebugLocation(165, 38);
 			Match('\"'); 
 
 			}
@@ -2076,8 +2367,8 @@ public partial class Gram_SICXELexer : Antlr.Runtime.Lexer
 		}
 		finally
 		{
-			TraceOut("CONSTCAD", 24);
-			LeaveRule("CONSTCAD", 24);
+			TraceOut("CONSTCAD", 32);
+			LeaveRule("CONSTCAD", 32);
 			LeaveRule_CONSTCAD();
 		}
 	}
@@ -2091,17 +2382,17 @@ public partial class Gram_SICXELexer : Antlr.Runtime.Lexer
 	private void mID()
 	{
 		EnterRule_ID();
-		EnterRule("ID", 25);
-		TraceIn("ID", 25);
+		EnterRule("ID", 33);
+		TraceIn("ID", 33);
 		try
 		{
 			int _type = ID;
 			int _channel = DefaultTokenChannel;
-			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:284:5: ( ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' )* )
+			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:169:5: ( ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' )* )
 			DebugEnterAlt(1);
-			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:284:7: ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' )*
+			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:169:7: ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' )*
 			{
-			DebugLocation(284, 7);
+			DebugLocation(169, 7);
 			if ((input.LA(1)>='A' && input.LA(1)<='Z')||input.LA(1)=='_'||(input.LA(1)>='a' && input.LA(1)<='z'))
 			{
 				input.Consume();
@@ -2114,8 +2405,8 @@ public partial class Gram_SICXELexer : Antlr.Runtime.Lexer
 				throw mse;
 			}
 
-			DebugLocation(285, 7);
-			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:285:7: ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' )*
+			DebugLocation(170, 7);
+			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:170:7: ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' )*
 			try { DebugEnterSubRule(12);
 			while (true)
 			{
@@ -2136,7 +2427,7 @@ public partial class Gram_SICXELexer : Antlr.Runtime.Lexer
 					DebugEnterAlt(1);
 					// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:
 					{
-					DebugLocation(285, 7);
+					DebugLocation(170, 7);
 					input.Consume();
 
 
@@ -2161,8 +2452,8 @@ public partial class Gram_SICXELexer : Antlr.Runtime.Lexer
 		}
 		finally
 		{
-			TraceOut("ID", 25);
-			LeaveRule("ID", 25);
+			TraceOut("ID", 33);
+			LeaveRule("ID", 33);
 			LeaveRule_ID();
 		}
 	}
@@ -2176,22 +2467,22 @@ public partial class Gram_SICXELexer : Antlr.Runtime.Lexer
 	private void mCHCONST()
 	{
 		EnterRule_CHCONST();
-		EnterRule("CHCONST", 26);
-		TraceIn("CHCONST", 26);
+		EnterRule("CHCONST", 34);
+		TraceIn("CHCONST", 34);
 		try
 		{
 			int _type = CHCONST;
 			int _channel = DefaultTokenChannel;
-			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:290:5: ( 'C' '\\'' (~ ( '\\'' | '\\r' | '\\n' ) )* '\\'' )
+			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:174:5: ( 'C' '\\'' (~ ( '\\'' | '\\r' | '\\n' ) )* '\\'' )
 			DebugEnterAlt(1);
-			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:290:7: 'C' '\\'' (~ ( '\\'' | '\\r' | '\\n' ) )* '\\''
+			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:174:7: 'C' '\\'' (~ ( '\\'' | '\\r' | '\\n' ) )* '\\''
 			{
-			DebugLocation(290, 7);
+			DebugLocation(174, 7);
 			Match('C'); 
-			DebugLocation(290, 11);
+			DebugLocation(174, 11);
 			Match('\''); 
-			DebugLocation(290, 16);
-			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:290:16: (~ ( '\\'' | '\\r' | '\\n' ) )*
+			DebugLocation(174, 16);
+			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:174:16: (~ ( '\\'' | '\\r' | '\\n' ) )*
 			try { DebugEnterSubRule(13);
 			while (true)
 			{
@@ -2212,7 +2503,7 @@ public partial class Gram_SICXELexer : Antlr.Runtime.Lexer
 					DebugEnterAlt(1);
 					// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:
 					{
-					DebugLocation(290, 16);
+					DebugLocation(174, 16);
 					input.Consume();
 
 
@@ -2229,7 +2520,7 @@ public partial class Gram_SICXELexer : Antlr.Runtime.Lexer
 
 			} finally { DebugExitSubRule(13); }
 
-			DebugLocation(290, 43);
+			DebugLocation(174, 43);
 			Match('\''); 
 
 			}
@@ -2239,8 +2530,8 @@ public partial class Gram_SICXELexer : Antlr.Runtime.Lexer
 		}
 		finally
 		{
-			TraceOut("CHCONST", 26);
-			LeaveRule("CHCONST", 26);
+			TraceOut("CHCONST", 34);
+			LeaveRule("CHCONST", 34);
 			LeaveRule_CHCONST();
 		}
 	}
@@ -2254,22 +2545,22 @@ public partial class Gram_SICXELexer : Antlr.Runtime.Lexer
 	private void mHEXCONST()
 	{
 		EnterRule_HEXCONST();
-		EnterRule("HEXCONST", 27);
-		TraceIn("HEXCONST", 27);
+		EnterRule("HEXCONST", 35);
+		TraceIn("HEXCONST", 35);
 		try
 		{
 			int _type = HEXCONST;
 			int _channel = DefaultTokenChannel;
-			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:295:5: ( 'X' '\\'' ( ( '0' .. '9' ) | ( 'a' .. 'f' ) | ( 'A' .. 'F' ) )+ '\\'' )
+			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:178:5: ( 'X' '\\'' ( ( '0' .. '9' ) | ( 'a' .. 'f' ) | ( 'A' .. 'F' ) )+ '\\'' )
 			DebugEnterAlt(1);
-			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:295:7: 'X' '\\'' ( ( '0' .. '9' ) | ( 'a' .. 'f' ) | ( 'A' .. 'F' ) )+ '\\''
+			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:178:7: 'X' '\\'' ( ( '0' .. '9' ) | ( 'a' .. 'f' ) | ( 'A' .. 'F' ) )+ '\\''
 			{
-			DebugLocation(295, 7);
+			DebugLocation(178, 7);
 			Match('X'); 
-			DebugLocation(295, 11);
+			DebugLocation(178, 11);
 			Match('\''); 
-			DebugLocation(295, 16);
-			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:295:16: ( ( '0' .. '9' ) | ( 'a' .. 'f' ) | ( 'A' .. 'F' ) )+
+			DebugLocation(178, 16);
+			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:178:16: ( ( '0' .. '9' ) | ( 'a' .. 'f' ) | ( 'A' .. 'F' ) )+
 			int cnt14=0;
 			try { DebugEnterSubRule(14);
 			while (true)
@@ -2291,7 +2582,7 @@ public partial class Gram_SICXELexer : Antlr.Runtime.Lexer
 					DebugEnterAlt(1);
 					// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:
 					{
-					DebugLocation(295, 16);
+					DebugLocation(178, 16);
 					input.Consume();
 
 
@@ -2313,7 +2604,7 @@ public partial class Gram_SICXELexer : Antlr.Runtime.Lexer
 
 			} finally { DebugExitSubRule(14); }
 
-			DebugLocation(295, 58);
+			DebugLocation(178, 58);
 			Match('\''); 
 
 			}
@@ -2323,8 +2614,8 @@ public partial class Gram_SICXELexer : Antlr.Runtime.Lexer
 		}
 		finally
 		{
-			TraceOut("HEXCONST", 27);
-			LeaveRule("HEXCONST", 27);
+			TraceOut("HEXCONST", 35);
+			LeaveRule("HEXCONST", 35);
 			LeaveRule_HEXCONST();
 		}
 	}
@@ -2338,18 +2629,18 @@ public partial class Gram_SICXELexer : Antlr.Runtime.Lexer
 	private void mWS()
 	{
 		EnterRule_WS();
-		EnterRule("WS", 28);
-		TraceIn("WS", 28);
+		EnterRule("WS", 36);
+		TraceIn("WS", 36);
 		try
 		{
 			int _type = WS;
 			int _channel = DefaultTokenChannel;
-			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:300:5: ( ( ' ' | '\\t' )+ )
+			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:183:5: ( ( ' ' | '\\t' )+ )
 			DebugEnterAlt(1);
-			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:300:7: ( ' ' | '\\t' )+
+			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:183:7: ( ' ' | '\\t' )+
 			{
-			DebugLocation(300, 7);
-			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:300:7: ( ' ' | '\\t' )+
+			DebugLocation(183, 7);
+			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:183:7: ( ' ' | '\\t' )+
 			int cnt15=0;
 			try { DebugEnterSubRule(15);
 			while (true)
@@ -2371,7 +2662,7 @@ public partial class Gram_SICXELexer : Antlr.Runtime.Lexer
 					DebugEnterAlt(1);
 					// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:
 					{
-					DebugLocation(300, 7);
+					DebugLocation(183, 7);
 					input.Consume();
 
 
@@ -2393,7 +2684,7 @@ public partial class Gram_SICXELexer : Antlr.Runtime.Lexer
 
 			} finally { DebugExitSubRule(15); }
 
-			DebugLocation(300, 21);
+			DebugLocation(183, 21);
 			 _channel = Hidden; 
 
 			}
@@ -2403,8 +2694,8 @@ public partial class Gram_SICXELexer : Antlr.Runtime.Lexer
 		}
 		finally
 		{
-			TraceOut("WS", 28);
-			LeaveRule("WS", 28);
+			TraceOut("WS", 36);
+			LeaveRule("WS", 36);
 			LeaveRule_WS();
 		}
 	}
@@ -2412,8 +2703,8 @@ public partial class Gram_SICXELexer : Antlr.Runtime.Lexer
 
 	public override void mTokens()
 	{
-		// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:1:8: ( T__33 | START | END | BYTE | WORD | RESB | RESW | BASE | FINL | REG | INDICE | PLUS | AT | NUMERAL | F1CODOP | F2CODOP | F34CODOP | NUM | CONSTHEX | HEXSUF | CONSTCAD | ID | CHCONST | HEXCONST | WS )
-		int alt16=25;
+		// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:1:8: ( T__41 | START | END | BYTE | WORD | RESB | RESW | BASE | EQU | ORG | USE | FINL | REG | INDICE | PLUS | MINUS | STAR | DIV | LPAREN | RPAREN | AT | NUMERAL | F1CODOP | F2CODOP | F34CODOP | NUM | CONSTHEX | HEXSUF | CONSTCAD | ID | CHCONST | HEXCONST | WS )
+		int alt16=33;
 		try { DebugEnterDecision(16, false);
 		try
 		{
@@ -2429,10 +2720,10 @@ public partial class Gram_SICXELexer : Antlr.Runtime.Lexer
 		{
 		case 1:
 			DebugEnterAlt(1);
-			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:1:10: T__33
+			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:1:10: T__41
 			{
 			DebugLocation(1, 10);
-			mT__33(); 
+			mT__41(); 
 
 			}
 			break;
@@ -2501,153 +2792,225 @@ public partial class Gram_SICXELexer : Antlr.Runtime.Lexer
 			break;
 		case 9:
 			DebugEnterAlt(9);
-			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:1:51: FINL
+			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:1:51: EQU
 			{
 			DebugLocation(1, 51);
-			mFINL(); 
+			mEQU(); 
 
 			}
 			break;
 		case 10:
 			DebugEnterAlt(10);
-			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:1:56: REG
+			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:1:55: ORG
 			{
-			DebugLocation(1, 56);
-			mREG(); 
+			DebugLocation(1, 55);
+			mORG(); 
 
 			}
 			break;
 		case 11:
 			DebugEnterAlt(11);
-			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:1:60: INDICE
+			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:1:59: USE
 			{
-			DebugLocation(1, 60);
-			mINDICE(); 
+			DebugLocation(1, 59);
+			mUSE(); 
 
 			}
 			break;
 		case 12:
 			DebugEnterAlt(12);
-			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:1:67: PLUS
+			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:1:63: FINL
 			{
-			DebugLocation(1, 67);
-			mPLUS(); 
+			DebugLocation(1, 63);
+			mFINL(); 
 
 			}
 			break;
 		case 13:
 			DebugEnterAlt(13);
-			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:1:72: AT
+			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:1:68: REG
 			{
-			DebugLocation(1, 72);
-			mAT(); 
+			DebugLocation(1, 68);
+			mREG(); 
 
 			}
 			break;
 		case 14:
 			DebugEnterAlt(14);
-			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:1:75: NUMERAL
+			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:1:72: INDICE
 			{
-			DebugLocation(1, 75);
-			mNUMERAL(); 
+			DebugLocation(1, 72);
+			mINDICE(); 
 
 			}
 			break;
 		case 15:
 			DebugEnterAlt(15);
-			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:1:83: F1CODOP
+			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:1:79: PLUS
 			{
-			DebugLocation(1, 83);
-			mF1CODOP(); 
+			DebugLocation(1, 79);
+			mPLUS(); 
 
 			}
 			break;
 		case 16:
 			DebugEnterAlt(16);
-			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:1:91: F2CODOP
+			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:1:84: MINUS
 			{
-			DebugLocation(1, 91);
-			mF2CODOP(); 
+			DebugLocation(1, 84);
+			mMINUS(); 
 
 			}
 			break;
 		case 17:
 			DebugEnterAlt(17);
-			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:1:99: F34CODOP
+			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:1:90: STAR
 			{
-			DebugLocation(1, 99);
-			mF34CODOP(); 
+			DebugLocation(1, 90);
+			mSTAR(); 
 
 			}
 			break;
 		case 18:
 			DebugEnterAlt(18);
-			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:1:108: NUM
+			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:1:95: DIV
 			{
-			DebugLocation(1, 108);
-			mNUM(); 
+			DebugLocation(1, 95);
+			mDIV(); 
 
 			}
 			break;
 		case 19:
 			DebugEnterAlt(19);
-			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:1:112: CONSTHEX
+			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:1:99: LPAREN
 			{
-			DebugLocation(1, 112);
-			mCONSTHEX(); 
+			DebugLocation(1, 99);
+			mLPAREN(); 
 
 			}
 			break;
 		case 20:
 			DebugEnterAlt(20);
-			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:1:121: HEXSUF
+			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:1:106: RPAREN
 			{
-			DebugLocation(1, 121);
-			mHEXSUF(); 
+			DebugLocation(1, 106);
+			mRPAREN(); 
 
 			}
 			break;
 		case 21:
 			DebugEnterAlt(21);
-			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:1:128: CONSTCAD
+			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:1:113: AT
 			{
-			DebugLocation(1, 128);
-			mCONSTCAD(); 
+			DebugLocation(1, 113);
+			mAT(); 
 
 			}
 			break;
 		case 22:
 			DebugEnterAlt(22);
-			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:1:137: ID
+			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:1:116: NUMERAL
 			{
-			DebugLocation(1, 137);
-			mID(); 
+			DebugLocation(1, 116);
+			mNUMERAL(); 
 
 			}
 			break;
 		case 23:
 			DebugEnterAlt(23);
-			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:1:140: CHCONST
+			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:1:124: F1CODOP
 			{
-			DebugLocation(1, 140);
-			mCHCONST(); 
+			DebugLocation(1, 124);
+			mF1CODOP(); 
 
 			}
 			break;
 		case 24:
 			DebugEnterAlt(24);
-			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:1:148: HEXCONST
+			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:1:132: F2CODOP
 			{
-			DebugLocation(1, 148);
-			mHEXCONST(); 
+			DebugLocation(1, 132);
+			mF2CODOP(); 
 
 			}
 			break;
 		case 25:
 			DebugEnterAlt(25);
-			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:1:157: WS
+			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:1:140: F34CODOP
 			{
-			DebugLocation(1, 157);
+			DebugLocation(1, 140);
+			mF34CODOP(); 
+
+			}
+			break;
+		case 26:
+			DebugEnterAlt(26);
+			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:1:149: NUM
+			{
+			DebugLocation(1, 149);
+			mNUM(); 
+
+			}
+			break;
+		case 27:
+			DebugEnterAlt(27);
+			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:1:153: CONSTHEX
+			{
+			DebugLocation(1, 153);
+			mCONSTHEX(); 
+
+			}
+			break;
+		case 28:
+			DebugEnterAlt(28);
+			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:1:162: HEXSUF
+			{
+			DebugLocation(1, 162);
+			mHEXSUF(); 
+
+			}
+			break;
+		case 29:
+			DebugEnterAlt(29);
+			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:1:169: CONSTCAD
+			{
+			DebugLocation(1, 169);
+			mCONSTCAD(); 
+
+			}
+			break;
+		case 30:
+			DebugEnterAlt(30);
+			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:1:178: ID
+			{
+			DebugLocation(1, 178);
+			mID(); 
+
+			}
+			break;
+		case 31:
+			DebugEnterAlt(31);
+			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:1:181: CHCONST
+			{
+			DebugLocation(1, 181);
+			mCHCONST(); 
+
+			}
+			break;
+		case 32:
+			DebugEnterAlt(32);
+			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:1:189: HEXCONST
+			{
+			DebugLocation(1, 189);
+			mHEXCONST(); 
+
+			}
+			break;
+		case 33:
+			DebugEnterAlt(33);
+			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:1:198: WS
+			{
+			DebugLocation(1, 198);
 			mWS(); 
 
 			}
@@ -2797,7 +3160,7 @@ public partial class Gram_SICXELexer : Antlr.Runtime.Lexer
 			this.transition = DFA7_transition;
 		}
 
-		public override string Description { get { return "214:10: fragment F34_INSTR : ( 'ADD' | 'ADDF' | 'AND' | 'COMP' | 'COMPF' | 'DIV' | 'DIVF' | 'J' | 'JEQ' | 'JGT' | 'JLT' | 'JSUB' | 'LDA' | 'LDB' | 'LDCH' | 'LDF' | 'LDL' | 'LDS' | 'LDT' | 'LDX' | 'MUL' | 'MULF' | 'MULR' | 'OR' | 'RD' | 'RSUB' | 'SSK' | 'STA' | 'STB' | 'STCH' | 'STF' | 'STI' | 'STL' | 'STS' | 'STSW' | 'STT' | 'STX' | 'SUB' | 'SUBF' | 'TIX' | 'WD' );"; } }
+		public override string Description { get { return "101:10: fragment F34_INSTR : ( 'ADD' | 'ADDF' | 'AND' | 'COMP' | 'COMPF' | 'DIV' | 'DIVF' | 'J' | 'JEQ' | 'JGT' | 'JLT' | 'JSUB' | 'LDA' | 'LDB' | 'LDCH' | 'LDF' | 'LDL' | 'LDS' | 'LDT' | 'LDX' | 'MUL' | 'MULF' | 'MULR' | 'OR' | 'RD' | 'RSUB' | 'SSK' | 'STA' | 'STB' | 'STCH' | 'STF' | 'STI' | 'STL' | 'STS' | 'STSW' | 'STT' | 'STX' | 'SUB' | 'SUBF' | 'TIX' | 'WD' );"; } }
 
 		public override void Error(NoViableAltException nvae)
 		{
@@ -2808,244 +3171,263 @@ public partial class Gram_SICXELexer : Antlr.Runtime.Lexer
 	private class DFA16 : DFA
 	{
 		private const string DFA16_eotS =
-			"\x2\xFFFF\x1\x1C\x2\x25\x2\x1C\x1\xFFFF\x1\x25\x1\x1C\x3\xFFFF\x1\x25"+
-			"\x3\x1C\x2\x25\x1\x1C\x1\x25\x1\x44\x2\x1C\x2\x48\x1\x1C\x3\xFFFF\x7"+
-			"\x1C\x1\xFFFF\x1\x49\x4\x1C\x1\x44\x2\x1C\x1\x44\x3\x1C\x3\x61\x7\x1C"+
-			"\x1\xFFFF\x2\x1C\x1\xFFFF\x4\x1C\x1\xFFFF\x1\x1C\x1\x44\x3\xFFFF\x2\x44"+
-			"\x1\x1C\x6\x44\x1\x7B\x1\x44\x1\x1C\x1\x7F\x1\x44\x1\x80\x4\x1C\x1\x7F"+
-			"\x1\x1C\x1\x7B\x1\x1C\x1\xFFFF\x2\x44\x1\x1C\x2\x7B\x1\x44\x2\x1C\x5"+
-			"\x44\x1\x1C\x2\x44\x1\x1C\x5\x44\x1\x1C\x2\x44\x1\xFFFF\x1\x7F\x1\x44"+
-			"\x1\x1C\x2\xFFFF\x1\x96\x1\x97\x1\x98\x1\x99\x1\x9A\x1\x44\x1\x1C\x1"+
-			"\x7F\x1\x44\x1\x7B\x1\x7F\x1\x44\x1\x1C\x1\x7F\x1\x44\x1\x7F\x3\x44\x1"+
-			"\x9F\x1\x1C\x5\xFFFF\x1\x7B\x1\x7F\x1\x44\x1\x7F\x1\xFFFF\x2\x7F";
+			"\x2\xFFFF\x3\x2A\x4\x22\x1\xFFFF\x1\x2A\x1\x22\x8\xFFFF\x1\x2A\x2\x22"+
+			"\x3\x2A\x1\x22\x1\x2A\x1\x4D\x1\x2A\x2\x50\x1\x22\x3\xFFFF\x6\x22\x1"+
+			"\xFFFF\x2\x22\x1\x51\x4\x22\x1\x4D\x2\x22\x1\x4D\x1\x22\x1\x4D\x3\x22"+
+			"\x3\x6C\x7\x22\x1\xFFFF\x7\x22\x5\xFFFF\x2\x4D\x1\x22\x6\x4D\x1\x86\x1"+
+			"\x4D\x1\x22\x1\x8A\x1\x4D\x1\x8B\x1\x8C\x4\x22\x1\x8A\x1\x22\x1\x93\x1"+
+			"\x94\x1\x86\x1\x22\x1\xFFFF\x1\x86\x1\x4D\x1\x22\x1\x86\x2\x4D\x2\x22"+
+			"\x4\x4D\x1\x22\x8\x4D\x2\x22\x2\x4D\x1\xFFFF\x1\x8A\x1\x4D\x1\x22\x3"+
+			"\xFFFF\x1\xA4\x1\xA5\x1\xA6\x1\xA7\x1\xA8\x1\x4D\x2\xFFFF\x1\x22\x1\x8A"+
+			"\x1\x86\x1\x8A\x2\x4D\x1\x22\x1\x8A\x1\x4D\x1\x8A\x3\x4D\x1\xAD\x1\x22"+
+			"\x5\xFFFF\x1\x86\x1\x8A\x1\x4D\x1\x8A\x1\xFFFF\x2\x8A";
 		private const string DFA16_eofS =
-			"\xA2\xFFFF";
+			"\xB0\xFFFF";
 		private const string DFA16_minS =
-			"\x1\x9\x1\xFFFF\x1\x48\x2\x30\x2\x44\x1\xFFFF\x1\x30\x1\x58\x3\xFFFF"+
-			"\x1\x30\x1\x4F\x2\x49\x1\x27\x1\x30\x1\x55\x1\x27\x1\x30\x1\x44\x1\x52"+
-			"\x3\x30\x3\xFFFF\x1\x41\x1\x4F\x1\x42\x1\x49\x1\x43\x1\x4B\x1\x44\x1"+
-			"\xFFFF\x2\x30\x1\x54\x1\x30\x1\x52\x1\x30\x1\x53\x1\x4F\x1\x30\x1\x55"+
-			"\x1\x58\x1\x4F\x4\x30\x1\x44\x1\x52\x2\x4F\x1\x4D\x1\x45\x1\xFFFF\x1"+
-			"\x56\x1\x4C\x1\xFFFF\x1\x51\x2\x54\x1\x55\x1\xFFFF\x1\x41\x1\x30\x3\xFFFF"+
-			"\x2\x30\x1\x48\x8\x30\x1\x46\x3\x30\x2\x45\x1\x44\x1\x42\x1\x30\x1\x42"+
-			"\x1\x30\x1\x41\x1\xFFFF\x2\x30\x1\x4D\x3\x30\x1\x50\x1\x41\x5\x30\x1"+
-			"\x42\x2\x30\x1\x48\x5\x30\x1\x54\x2\x30\x1\xFFFF\x2\x30\x1\x54\x2\xFFFF"+
-			"\x6\x30\x1\x54\x5\x30\x1\x52\x7\x30\x1\x4C\x5\xFFFF\x4\x30\x1\xFFFF\x2"+
-			"\x30";
+			"\x1\x9\x1\xFFFF\x3\x30\x2\x44\x1\x52\x1\x53\x1\xFFFF\x1\x30\x1\x58\x8"+
+			"\xFFFF\x1\x30\x1\x4F\x1\x49\x1\x30\x1\x27\x1\x30\x1\x55\x2\x30\x1\x27"+
+			"\x3\x30\x3\xFFFF\x1\x41\x1\x4F\x1\x42\x1\x49\x1\x43\x1\x4B\x1\xFFFF\x1"+
+			"\x44\x1\x55\x2\x30\x1\x54\x1\x30\x1\x52\x1\x30\x1\x53\x1\x4F\x1\x30\x1"+
+			"\x55\x1\x30\x1\x45\x1\x58\x1\x4F\x3\x30\x1\x4F\x1\x52\x1\x4F\x1\x30\x1"+
+			"\x44\x1\x4D\x1\x45\x1\xFFFF\x1\x56\x1\x4C\x1\x41\x1\x51\x2\x54\x1\x55"+
+			"\x5\xFFFF\x2\x30\x1\x48\x8\x30\x1\x46\x4\x30\x2\x45\x1\x44\x1\x42\x1"+
+			"\x30\x1\x42\x3\x30\x1\x41\x1\xFFFF\x2\x30\x1\x4D\x3\x30\x1\x50\x1\x41"+
+			"\x4\x30\x1\x48\x8\x30\x1\x42\x1\x54\x2\x30\x1\xFFFF\x2\x30\x1\x54\x3"+
+			"\xFFFF\x6\x30\x2\xFFFF\x1\x54\x5\x30\x1\x52\x7\x30\x1\x4C\x5\xFFFF\x4"+
+			"\x30\x1\xFFFF\x2\x30";
 		private const string DFA16_maxS =
-			"\x1\x7A\x1\xFFFF\x1\x56\x2\x7A\x1\x4F\x1\x53\x1\xFFFF\x1\x7A\x1\x5A\x3"+
-			"\xFFFF\x1\x7A\x1\x4F\x2\x49\x2\x7A\x1\x55\x2\x7A\x1\x44\x1\x52\x1\x78"+
-			"\x2\x68\x3\xFFFF\x1\x58\x1\x4F\x1\x42\x1\x49\x1\x43\x1\x4B\x1\x44\x1"+
-			"\xFFFF\x1\x7A\x1\x68\x1\x54\x1\x68\x1\x52\x1\x7A\x1\x53\x1\x4F\x1\x7A"+
-			"\x1\x55\x1\x58\x1\x4F\x3\x7A\x1\x68\x1\x44\x1\x52\x1\x4F\x1\x58\x1\x4D"+
-			"\x1\x45\x1\xFFFF\x1\x56\x1\x4C\x1\xFFFF\x1\x51\x2\x54\x1\x55\x1\xFFFF"+
-			"\x1\x58\x1\x7A\x3\xFFFF\x2\x7A\x1\x48\x8\x7A\x1\x46\x3\x7A\x2\x45\x1"+
-			"\x44\x1\x57\x1\x7A\x1\x42\x1\x7A\x1\x41\x1\xFFFF\x2\x7A\x1\x4D\x3\x7A"+
-			"\x1\x50\x1\x41\x5\x7A\x1\x42\x2\x7A\x1\x48\x5\x7A\x1\x54\x2\x7A\x1\xFFFF"+
-			"\x2\x7A\x1\x54\x2\xFFFF\x6\x7A\x1\x54\x5\x7A\x1\x52\x7\x7A\x1\x52\x5"+
-			"\xFFFF\x4\x7A\x1\xFFFF\x2\x7A";
+			"\x1\x7A\x1\xFFFF\x3\x7A\x1\x4F\x1\x53\x1\x52\x1\x53\x1\xFFFF\x1\x7A\x1"+
+			"\x5A\x8\xFFFF\x1\x7A\x1\x4F\x1\x49\x3\x7A\x1\x55\x3\x7A\x1\x78\x2\x68"+
+			"\x3\xFFFF\x1\x58\x1\x4F\x1\x42\x1\x49\x1\x43\x1\x4B\x1\xFFFF\x1\x44\x1"+
+			"\x55\x1\x7A\x1\x68\x1\x54\x1\x68\x1\x52\x1\x7A\x1\x53\x1\x4F\x1\x7A\x1"+
+			"\x55\x1\x7A\x1\x45\x1\x58\x1\x4F\x3\x7A\x1\x58\x1\x52\x1\x4F\x1\x68\x1"+
+			"\x44\x1\x4D\x1\x45\x1\xFFFF\x1\x56\x1\x4C\x1\x58\x1\x51\x2\x54\x1\x55"+
+			"\x5\xFFFF\x2\x7A\x1\x48\x8\x7A\x1\x46\x4\x7A\x2\x45\x1\x44\x1\x57\x1"+
+			"\x7A\x1\x42\x3\x7A\x1\x41\x1\xFFFF\x2\x7A\x1\x4D\x3\x7A\x1\x50\x1\x41"+
+			"\x4\x7A\x1\x48\x8\x7A\x1\x42\x1\x54\x2\x7A\x1\xFFFF\x2\x7A\x1\x54\x3"+
+			"\xFFFF\x6\x7A\x2\xFFFF\x1\x54\x5\x7A\x1\x52\x7\x7A\x1\x52\x5\xFFFF\x4"+
+			"\x7A\x1\xFFFF\x2\x7A";
 		private const string DFA16_acceptS =
-			"\x1\xFFFF\x1\x1\x5\xFFFF\x1\x9\x2\xFFFF\x1\xC\x1\xD\x1\xE\xE\xFFFF\x1"+
-			"\x15\x1\x16\x1\x19\x7\xFFFF\x1\xA\x16\xFFFF\x1\x17\x2\xFFFF\x1\x18\x4"+
-			"\xFFFF\x1\x11\x2\xFFFF\x1\x13\x1\x12\x1\x14\x17\xFFFF\x1\xB\x19\xFFFF"+
-			"\x1\xF\x3\xFFFF\x1\x10\x1\x3\x15\xFFFF\x1\x4\x1\x8\x1\x5\x1\x6\x1\x7"+
-			"\x4\xFFFF\x1\x2\x2\xFFFF";
+			"\x1\xFFFF\x1\x1\x7\xFFFF\x1\xC\x2\xFFFF\x1\xF\x1\x10\x1\x11\x1\x12\x1"+
+			"\x13\x1\x14\x1\x15\x1\x16\xD\xFFFF\x1\x1D\x1\x1E\x1\x21\x6\xFFFF\x1\xD"+
+			"\x1A\xFFFF\x1\x1F\x7\xFFFF\x1\x19\x1\x20\x1\x1B\x1\x1A\x1\x1C\x1A\xFFFF"+
+			"\x1\xE\x19\xFFFF\x1\x17\x3\xFFFF\x1\x18\x1\x3\x1\x9\x6\xFFFF\x1\xA\x1"+
+			"\xB\xF\xFFFF\x1\x4\x1\x8\x1\x5\x1\x6\x1\x7\x4\xFFFF\x1\x2\x2\xFFFF";
 		private const string DFA16_specialS =
-			"\xA2\xFFFF}>";
+			"\xB0\xFFFF}>";
 		private static readonly string[] DFA16_transitionS =
 			{
-				"\x1\x1D\x1\x7\x2\xFFFF\x1\x7\x12\xFFFF\x1\x1D\x1\xFFFF\x1\x1B\x1\xC"+
-				"\x7\xFFFF\x1\xA\x1\x1\x3\xFFFF\x1\x18\x9\x19\x1\xFFFF\x1\x7\x4\xFFFF"+
-				"\x1\xB\x1\xD\x1\x4\x1\x11\x1\x12\x1\x3\x1\x8\x1\x1C\x1\xF\x1\x9\x1\x15"+
-				"\x1\x1C\x1\x16\x1\x13\x1\xE\x1\x17\x2\x1C\x1\x6\x1\x2\x1\x10\x2\x1C"+
-				"\x1\x5\x1\x14\x2\x1C\x4\xFFFF\x1\x1C\x1\xFFFF\x6\x1A\x14\x1C",
+				"\x1\x23\x1\x9\x2\xFFFF\x1\x9\x12\xFFFF\x1\x23\x1\xFFFF\x1\x21\x1\x13"+
+				"\x4\xFFFF\x1\x10\x1\x11\x1\xE\x1\xC\x1\x1\x1\xD\x1\xFFFF\x1\xF\x1\x1E"+
+				"\x9\x1F\x1\xFFFF\x1\x9\x4\xFFFF\x1\x12\x1\x17\x1\x4\x1\x18\x1\x19\x1"+
+				"\x3\x1\xA\x1\x22\x1\x16\x1\xB\x1\x1C\x1\x22\x1\x1B\x1\x1A\x1\x15\x1"+
+				"\x7\x2\x22\x1\x6\x1\x2\x1\x14\x1\x8\x1\x22\x1\x5\x1\x1D\x2\x22\x4\xFFFF"+
+				"\x1\x22\x1\xFFFF\x6\x20\x14\x22",
 				"",
-				"\x1\x21\x1\x1F\x9\xFFFF\x1\x23\x1\x1E\x1\x20\x1\x22",
-				"\xA\x27\x7\xFFFF\x6\x27\x1\x1C\x1\x26\x5\x1C\x1\x24\xC\x1C\x4\xFFFF"+
-				"\x1\x1C\x1\xFFFF\x6\x27\x1\x1C\x1\x26\x12\x1C",
-				"\xA\x27\x7\xFFFF\x1\x29\x5\x27\x1\x1C\x1\x26\x10\x1C\x1\x28\x1\x1C"+
-				"\x4\xFFFF\x1\x1C\x1\xFFFF\x6\x27\x1\x1C\x1\x26\x12\x1C",
-				"\x1\x2B\xA\xFFFF\x1\x2A",
-				"\x1\x2E\x1\x2C\x7\xFFFF\x1\x2D\x5\xFFFF\x1\x2F",
-				"",
-				"\xA\x27\x7\xFFFF\x6\x27\x1\x1C\x1\x26\x1\x30\x2\x1C\x1\x31\xE\x1C\x4"+
-				"\xFFFF\x1\x1C\x1\xFFFF\x6\x27\x1\x1C\x1\x26\x12\x1C",
-				"\x1\x32\x1\x33\x1\x34",
-				"",
-				"",
-				"",
-				"\xA\x27\x7\xFFFF\x3\x27\x1\x35\x2\x27\x1\x1C\x1\x26\x5\x1C\x1\x36\xC"+
-				"\x1C\x4\xFFFF\x1\x1C\x1\xFFFF\x6\x27\x1\x1C\x1\x26\x12\x1C",
+				"\xA\x22\x7\xFFFF\x7\x22\x1\x27\x1\x25\x9\x22\x1\x29\x1\x24\x1\x26\x1"+
+				"\x28\x4\x22\x4\xFFFF\x1\x22\x1\xFFFF\x1A\x22",
+				"\xA\x2E\x7\xFFFF\x6\x2E\x1\x22\x1\x2D\x5\x22\x1\x2B\x2\x22\x1\x2C\x9"+
+				"\x22\x4\xFFFF\x1\x22\x1\xFFFF\x6\x2E\x1\x22\x1\x2D\x12\x22",
+				"\xA\x2E\x7\xFFFF\x1\x30\x5\x2E\x1\x22\x1\x2D\x10\x22\x1\x2F\x1\x22"+
+				"\x4\xFFFF\x1\x22\x1\xFFFF\x6\x2E\x1\x22\x1\x2D\x12\x22",
+				"\x1\x32\xA\xFFFF\x1\x31",
+				"\x1\x35\x1\x33\x7\xFFFF\x1\x34\x5\xFFFF\x1\x36",
 				"\x1\x37",
 				"\x1\x38",
-				"\x1\x39",
-				"\x1\x3C\x8\xFFFF\xA\x27\x7\xFFFF\x6\x27\x1\x1C\x1\x26\x3\x1C\x1\x3B"+
-				"\x2\x1C\x1\x3A\xB\x1C\x4\xFFFF\x1\x1C\x1\xFFFF\x6\x27\x1\x1C\x1\x26"+
-				"\x12\x1C",
-				"\xA\x27\x7\xFFFF\x6\x27\x1\x1C\x1\x26\x1\x3D\x11\x1C\x4\xFFFF\x1\x1C"+
-				"\x1\xFFFF\x6\x27\x1\x1C\x1\x26\x12\x1C",
-				"\x1\x3E",
-				"\x1\x3F\x8\xFFFF\xA\x1C\x7\xFFFF\x1A\x1C\x4\xFFFF\x1\x1C\x1\xFFFF\x1A"+
-				"\x1C",
-				"\xA\x1C\x7\xFFFF\x4\x1C\x1\x40\x1\x1C\x1\x41\x4\x1C\x1\x42\x6\x1C\x1"+
-				"\x43\x7\x1C\x4\xFFFF\x1\x1C\x1\xFFFF\x1A\x1C",
-				"\x1\x45",
-				"\x1\x46",
-				"\xA\x19\x7\xFFFF\x6\x49\x1\xFFFF\x1\x49\x18\xFFFF\x6\x49\x1\xFFFF\x1"+
-				"\x49\xF\xFFFF\x1\x47",
-				"\xA\x19\x7\xFFFF\x6\x49\x1\xFFFF\x1\x49\x18\xFFFF\x6\x49\x1\xFFFF\x1"+
-				"\x49",
-				"\xA\x27\x7\xFFFF\x6\x27\x1\xFFFF\x1\x26\x18\xFFFF\x6\x27\x1\xFFFF\x1"+
-				"\x26",
+				"",
+				"\xA\x2E\x7\xFFFF\x6\x2E\x1\x22\x1\x2D\x1\x39\x2\x22\x1\x3A\xE\x22\x4"+
+				"\xFFFF\x1\x22\x1\xFFFF\x6\x2E\x1\x22\x1\x2D\x12\x22",
+				"\x1\x3B\x1\x3C\x1\x3D",
 				"",
 				"",
 				"",
-				"\x1\x4A\x1\x4B\x1\x4C\x2\xFFFF\x1\x4D\x2\xFFFF\x1\x4E\x2\xFFFF\x1\x4F"+
-				"\x6\xFFFF\x1\x50\x1\x51\x3\xFFFF\x1\x52",
-				"\x1\x53",
-				"\x1\x54",
-				"\x1\x55",
-				"\x1\x56",
-				"\x1\x57",
-				"\x1\x58",
 				"",
-				"\xA\x1C\x7\xFFFF\x1A\x1C\x4\xFFFF\x1\x1C\x1\xFFFF\x1A\x1C",
-				"\xA\x27\x7\xFFFF\x6\x27\x1\xFFFF\x1\x26\x18\xFFFF\x6\x27\x1\xFFFF\x1"+
-				"\x26",
-				"\x1\x59",
-				"\xA\x27\x7\xFFFF\x6\x27\x1\xFFFF\x1\x26\xA\xFFFF\x1\x5A\xD\xFFFF\x6"+
-				"\x27\x1\xFFFF\x1\x26",
+				"",
+				"",
+				"",
+				"",
+				"\xA\x22\x7\xFFFF\x8\x22\x1\x3E\x11\x22\x4\xFFFF\x1\x22\x1\xFFFF\x1A"+
+				"\x22",
+				"\x1\x3F",
+				"\x1\x40",
+				"\xA\x2E\x7\xFFFF\x3\x2E\x1\x41\x2\x2E\x1\x22\x1\x2D\x5\x22\x1\x42\xC"+
+				"\x22\x4\xFFFF\x1\x22\x1\xFFFF\x6\x2E\x1\x22\x1\x2D\x12\x22",
+				"\x1\x45\x8\xFFFF\xA\x2E\x7\xFFFF\x6\x2E\x1\x22\x1\x2D\x3\x22\x1\x44"+
+				"\x2\x22\x1\x43\xB\x22\x4\xFFFF\x1\x22\x1\xFFFF\x6\x2E\x1\x22\x1\x2D"+
+				"\x12\x22",
+				"\xA\x2E\x7\xFFFF\x6\x2E\x1\x22\x1\x2D\x1\x46\x11\x22\x4\xFFFF\x1\x22"+
+				"\x1\xFFFF\x6\x2E\x1\x22\x1\x2D\x12\x22",
+				"\x1\x47",
+				"\xA\x22\x7\xFFFF\x3\x22\x1\x48\x16\x22\x4\xFFFF\x1\x22\x1\xFFFF\x1A"+
+				"\x22",
+				"\xA\x22\x7\xFFFF\x4\x22\x1\x49\x1\x22\x1\x4A\x4\x22\x1\x4B\x6\x22\x1"+
+				"\x4C\x7\x22\x4\xFFFF\x1\x22\x1\xFFFF\x1A\x22",
+				"\x1\x4E\x8\xFFFF\xA\x22\x7\xFFFF\x1A\x22\x4\xFFFF\x1\x22\x1\xFFFF\x1A"+
+				"\x22",
+				"\xA\x1F\x7\xFFFF\x6\x51\x1\xFFFF\x1\x51\x18\xFFFF\x6\x51\x1\xFFFF\x1"+
+				"\x51\xF\xFFFF\x1\x4F",
+				"\xA\x1F\x7\xFFFF\x6\x51\x1\xFFFF\x1\x51\x18\xFFFF\x6\x51\x1\xFFFF\x1"+
+				"\x51",
+				"\xA\x2E\x7\xFFFF\x6\x2E\x1\xFFFF\x1\x2D\x18\xFFFF\x6\x2E\x1\xFFFF\x1"+
+				"\x2D",
+				"",
+				"",
+				"",
+				"\x1\x52\x1\x53\x1\x54\x2\xFFFF\x1\x55\x2\xFFFF\x1\x56\x2\xFFFF\x1\x57"+
+				"\x6\xFFFF\x1\x58\x1\x59\x3\xFFFF\x1\x5A",
 				"\x1\x5B",
-				"\xA\x1C\x7\xFFFF\x1A\x1C\x4\xFFFF\x1\x1C\x1\xFFFF\x1A\x1C",
 				"\x1\x5C",
 				"\x1\x5D",
-				"\xA\x1C\x7\xFFFF\x1A\x1C\x4\xFFFF\x1\x1C\x1\xFFFF\x1A\x1C",
 				"\x1\x5E",
 				"\x1\x5F",
-				"\x1\x60",
-				"\xA\x1C\x7\xFFFF\x1A\x1C\x4\xFFFF\x1\x1C\x1\xFFFF\x1A\x1C",
-				"\xA\x1C\x7\xFFFF\x1A\x1C\x4\xFFFF\x1\x1C\x1\xFFFF\x1A\x1C",
-				"\xA\x1C\x7\xFFFF\x1A\x1C\x4\xFFFF\x1\x1C\x1\xFFFF\x1A\x1C",
-				"\xA\x27\x7\xFFFF\x3\x27\x1\x62\x2\x27\x1\xFFFF\x1\x26\x18\xFFFF\x6"+
-				"\x27\x1\xFFFF\x1\x26",
-				"\x1\x63",
-				"\x1\x64",
-				"\x1\x65",
-				"\x1\x66\x8\xFFFF\x1\x67",
-				"\x1\x68",
-				"\x1\x69",
 				"",
+				"\x1\x60",
+				"\x1\x61",
+				"\xA\x22\x7\xFFFF\x1A\x22\x4\xFFFF\x1\x22\x1\xFFFF\x1A\x22",
+				"\xA\x2E\x7\xFFFF\x6\x2E\x1\xFFFF\x1\x2D\x18\xFFFF\x6\x2E\x1\xFFFF\x1"+
+				"\x2D",
+				"\x1\x62",
+				"\xA\x2E\x7\xFFFF\x6\x2E\x1\xFFFF\x1\x2D\xA\xFFFF\x1\x63\xD\xFFFF\x6"+
+				"\x2E\x1\xFFFF\x1\x2D",
+				"\x1\x64",
+				"\xA\x22\x7\xFFFF\x1A\x22\x4\xFFFF\x1\x22\x1\xFFFF\x1A\x22",
+				"\x1\x65",
+				"\x1\x66",
+				"\xA\x22\x7\xFFFF\x1A\x22\x4\xFFFF\x1\x22\x1\xFFFF\x1A\x22",
+				"\x1\x67",
+				"\xA\x22\x7\xFFFF\x6\x22\x1\x68\x13\x22\x4\xFFFF\x1\x22\x1\xFFFF\x1A"+
+				"\x22",
+				"\x1\x69",
 				"\x1\x6A",
 				"\x1\x6B",
-				"",
-				"\x1\x6C",
-				"\x1\x6D",
-				"\x1\x6E",
+				"\xA\x22\x7\xFFFF\x1A\x22\x4\xFFFF\x1\x22\x1\xFFFF\x1A\x22",
+				"\xA\x22\x7\xFFFF\x1A\x22\x4\xFFFF\x1\x22\x1\xFFFF\x1A\x22",
+				"\xA\x22\x7\xFFFF\x1A\x22\x4\xFFFF\x1\x22\x1\xFFFF\x1A\x22",
+				"\x1\x6D\x8\xFFFF\x1\x6E",
 				"\x1\x6F",
+				"\x1\x70",
+				"\xA\x2E\x7\xFFFF\x3\x2E\x1\x71\x2\x2E\x1\xFFFF\x1\x2D\x18\xFFFF\x6"+
+				"\x2E\x1\xFFFF\x1\x2D",
+				"\x1\x72",
+				"\x1\x73",
+				"\x1\x74",
 				"",
-				"\x1\x70\x1\x71\x1\x72\x2\xFFFF\x1\x73\x5\xFFFF\x1\x74\x6\xFFFF\x1\x75"+
-				"\x1\x76\x3\xFFFF\x1\x77",
-				"\xA\x1C\x7\xFFFF\x1A\x1C\x4\xFFFF\x1\x1C\x1\xFFFF\x1A\x1C",
-				"",
-				"",
-				"",
-				"\xA\x1C\x7\xFFFF\x11\x1C\x1\x78\x8\x1C\x4\xFFFF\x1\x1C\x1\xFFFF\x1A"+
-				"\x1C",
-				"\xA\x1C\x7\xFFFF\x1A\x1C\x4\xFFFF\x1\x1C\x1\xFFFF\x1A\x1C",
-				"\x1\x79",
-				"\xA\x1C\x7\xFFFF\x1A\x1C\x4\xFFFF\x1\x1C\x1\xFFFF\x1A\x1C",
-				"\xA\x1C\x7\xFFFF\x1A\x1C\x4\xFFFF\x1\x1C\x1\xFFFF\x1A\x1C",
-				"\xA\x1C\x7\xFFFF\x1A\x1C\x4\xFFFF\x1\x1C\x1\xFFFF\x1A\x1C",
-				"\xA\x1C\x7\xFFFF\x16\x1C\x1\x7A\x3\x1C\x4\xFFFF\x1\x1C\x1\xFFFF\x1A"+
-				"\x1C",
-				"\xA\x1C\x7\xFFFF\x1A\x1C\x4\xFFFF\x1\x1C\x1\xFFFF\x1A\x1C",
-				"\xA\x1C\x7\xFFFF\x1A\x1C\x4\xFFFF\x1\x1C\x1\xFFFF\x1A\x1C",
-				"\xA\x1C\x7\xFFFF\x1A\x1C\x4\xFFFF\x1\x1C\x1\xFFFF\x1A\x1C",
-				"\xA\x1C\x7\xFFFF\x5\x1C\x1\x7D\xB\x1C\x1\x7C\x8\x1C\x4\xFFFF\x1\x1C"+
-				"\x1\xFFFF\x1A\x1C",
-				"\x1\x7E",
-				"\xA\x1C\x7\xFFFF\x1A\x1C\x4\xFFFF\x1\x1C\x1\xFFFF\x1A\x1C",
-				"\xA\x1C\x7\xFFFF\x1A\x1C\x4\xFFFF\x1\x1C\x1\xFFFF\x1A\x1C",
-				"\xA\x1C\x7\xFFFF\x1A\x1C\x4\xFFFF\x1\x1C\x1\xFFFF\x1A\x1C",
+				"\x1\x75",
+				"\x1\x76",
+				"\x1\x77\x1\x78\x1\x79\x2\xFFFF\x1\x7A\x5\xFFFF\x1\x7B\x6\xFFFF\x1\x7C"+
+				"\x1\x7D\x3\xFFFF\x1\x7E",
+				"\x1\x7F",
+				"\x1\x80",
 				"\x1\x81",
 				"\x1\x82",
-				"\x1\x83",
-				"\x1\x84\x14\xFFFF\x1\x85",
-				"\xA\x1C\x7\xFFFF\x1A\x1C\x4\xFFFF\x1\x1C\x1\xFFFF\x1A\x1C",
-				"\x1\x86",
-				"\xA\x1C\x7\xFFFF\x1A\x1C\x4\xFFFF\x1\x1C\x1\xFFFF\x1A\x1C",
-				"\x1\x87",
 				"",
-				"\xA\x27\x7\xFFFF\x5\x27\x1\x89\x1\x1C\x1\x26\x9\x1C\x1\x88\x8\x1C\x4"+
-				"\xFFFF\x1\x1C\x1\xFFFF\x6\x27\x1\x1C\x1\x26\x12\x1C",
-				"\xA\x1C\x7\xFFFF\x1A\x1C\x4\xFFFF\x1\x1C\x1\xFFFF\x1A\x1C",
-				"\x1\x8A",
-				"\xA\x1C\x7\xFFFF\x1A\x1C\x4\xFFFF\x1\x1C\x1\xFFFF\x1A\x1C",
-				"\xA\x1C\x7\xFFFF\x1A\x1C\x4\xFFFF\x1\x1C\x1\xFFFF\x1A\x1C",
-				"\xA\x1C\x7\xFFFF\x11\x1C\x1\x8B\x8\x1C\x4\xFFFF\x1\x1C\x1\xFFFF\x1A"+
-				"\x1C",
-				"\x1\x8C",
+				"",
+				"",
+				"",
+				"",
+				"\xA\x22\x7\xFFFF\x11\x22\x1\x83\x8\x22\x4\xFFFF\x1\x22\x1\xFFFF\x1A"+
+				"\x22",
+				"\xA\x22\x7\xFFFF\x1A\x22\x4\xFFFF\x1\x22\x1\xFFFF\x1A\x22",
+				"\x1\x84",
+				"\xA\x22\x7\xFFFF\x1A\x22\x4\xFFFF\x1\x22\x1\xFFFF\x1A\x22",
+				"\xA\x22\x7\xFFFF\x1A\x22\x4\xFFFF\x1\x22\x1\xFFFF\x1A\x22",
+				"\xA\x22\x7\xFFFF\x1A\x22\x4\xFFFF\x1\x22\x1\xFFFF\x1A\x22",
+				"\xA\x22\x7\xFFFF\x16\x22\x1\x85\x3\x22\x4\xFFFF\x1\x22\x1\xFFFF\x1A"+
+				"\x22",
+				"\xA\x22\x7\xFFFF\x1A\x22\x4\xFFFF\x1\x22\x1\xFFFF\x1A\x22",
+				"\xA\x22\x7\xFFFF\x1A\x22\x4\xFFFF\x1\x22\x1\xFFFF\x1A\x22",
+				"\xA\x22\x7\xFFFF\x1A\x22\x4\xFFFF\x1\x22\x1\xFFFF\x1A\x22",
+				"\xA\x22\x7\xFFFF\x5\x22\x1\x88\xB\x22\x1\x87\x8\x22\x4\xFFFF\x1\x22"+
+				"\x1\xFFFF\x1A\x22",
+				"\x1\x89",
+				"\xA\x22\x7\xFFFF\x1A\x22\x4\xFFFF\x1\x22\x1\xFFFF\x1A\x22",
+				"\xA\x22\x7\xFFFF\x1A\x22\x4\xFFFF\x1\x22\x1\xFFFF\x1A\x22",
+				"\xA\x22\x7\xFFFF\x1A\x22\x4\xFFFF\x1\x22\x1\xFFFF\x1A\x22",
+				"\xA\x22\x7\xFFFF\x1A\x22\x4\xFFFF\x1\x22\x1\xFFFF\x1A\x22",
 				"\x1\x8D",
-				"\xA\x1C\x7\xFFFF\x5\x1C\x1\x8F\xB\x1C\x1\x8E\x8\x1C\x4\xFFFF\x1\x1C"+
-				"\x1\xFFFF\x1A\x1C",
-				"\xA\x1C\x7\xFFFF\x5\x1C\x1\x91\xB\x1C\x1\x90\x8\x1C\x4\xFFFF\x1\x1C"+
-				"\x1\xFFFF\x1A\x1C",
-				"\xA\x1C\x7\xFFFF\x1A\x1C\x4\xFFFF\x1\x1C\x1\xFFFF\x1A\x1C",
-				"\xA\x1C\x7\xFFFF\x1A\x1C\x4\xFFFF\x1\x1C\x1\xFFFF\x1A\x1C",
-				"\xA\x1C\x7\xFFFF\x1A\x1C\x4\xFFFF\x1\x1C\x1\xFFFF\x1A\x1C",
+				"\x1\x8E",
+				"\x1\x8F",
+				"\x1\x90\x14\xFFFF\x1\x91",
+				"\xA\x22\x7\xFFFF\x1A\x22\x4\xFFFF\x1\x22\x1\xFFFF\x1A\x22",
 				"\x1\x92",
-				"\xA\x1C\x7\xFFFF\x1A\x1C\x4\xFFFF\x1\x1C\x1\xFFFF\x1A\x1C",
-				"\xA\x1C\x7\xFFFF\x1A\x1C\x4\xFFFF\x1\x1C\x1\xFFFF\x1A\x1C",
-				"\x1\x93",
-				"\xA\x1C\x7\xFFFF\x1A\x1C\x4\xFFFF\x1\x1C\x1\xFFFF\x1A\x1C",
-				"\xA\x1C\x7\xFFFF\x1A\x1C\x4\xFFFF\x1\x1C\x1\xFFFF\x1A\x1C",
-				"\xA\x1C\x7\xFFFF\x1A\x1C\x4\xFFFF\x1\x1C\x1\xFFFF\x1A\x1C",
-				"\xA\x1C\x7\xFFFF\x1A\x1C\x4\xFFFF\x1\x1C\x1\xFFFF\x1A\x1C",
-				"\xA\x1C\x7\xFFFF\x1A\x1C\x4\xFFFF\x1\x1C\x1\xFFFF\x1A\x1C",
-				"\x1\x94",
-				"\xA\x1C\x7\xFFFF\x1A\x1C\x4\xFFFF\x1\x1C\x1\xFFFF\x1A\x1C",
-				"\xA\x1C\x7\xFFFF\x1A\x1C\x4\xFFFF\x1\x1C\x1\xFFFF\x1A\x1C",
-				"",
-				"\xA\x1C\x7\xFFFF\x1A\x1C\x4\xFFFF\x1\x1C\x1\xFFFF\x1A\x1C",
-				"\xA\x1C\x7\xFFFF\x1A\x1C\x4\xFFFF\x1\x1C\x1\xFFFF\x1A\x1C",
+				"\xA\x22\x7\xFFFF\x1A\x22\x4\xFFFF\x1\x22\x1\xFFFF\x1A\x22",
+				"\xA\x22\x7\xFFFF\x1A\x22\x4\xFFFF\x1\x22\x1\xFFFF\x1A\x22",
+				"\xA\x22\x7\xFFFF\x1A\x22\x4\xFFFF\x1\x22\x1\xFFFF\x1A\x22",
 				"\x1\x95",
 				"",
-				"",
-				"\xA\x1C\x7\xFFFF\x1A\x1C\x4\xFFFF\x1\x1C\x1\xFFFF\x1A\x1C",
-				"\xA\x1C\x7\xFFFF\x1A\x1C\x4\xFFFF\x1\x1C\x1\xFFFF\x1A\x1C",
-				"\xA\x1C\x7\xFFFF\x1A\x1C\x4\xFFFF\x1\x1C\x1\xFFFF\x1A\x1C",
-				"\xA\x1C\x7\xFFFF\x1A\x1C\x4\xFFFF\x1\x1C\x1\xFFFF\x1A\x1C",
-				"\xA\x1C\x7\xFFFF\x1A\x1C\x4\xFFFF\x1\x1C\x1\xFFFF\x1A\x1C",
-				"\xA\x1C\x7\xFFFF\x1A\x1C\x4\xFFFF\x1\x1C\x1\xFFFF\x1A\x1C",
+				"\xA\x22\x7\xFFFF\x1A\x22\x4\xFFFF\x1\x22\x1\xFFFF\x1A\x22",
+				"\xA\x22\x7\xFFFF\x11\x22\x1\x96\x8\x22\x4\xFFFF\x1\x22\x1\xFFFF\x1A"+
+				"\x22",
+				"\x1\x97",
+				"\xA\x22\x7\xFFFF\x1A\x22\x4\xFFFF\x1\x22\x1\xFFFF\x1A\x22",
+				"\xA\x2E\x7\xFFFF\x5\x2E\x1\x99\x1\x22\x1\x2D\x9\x22\x1\x98\x8\x22\x4"+
+				"\xFFFF\x1\x22\x1\xFFFF\x6\x2E\x1\x22\x1\x2D\x12\x22",
+				"\xA\x22\x7\xFFFF\x1A\x22\x4\xFFFF\x1\x22\x1\xFFFF\x1A\x22",
+				"\x1\x9A",
 				"\x1\x9B",
-				"\xA\x1C\x7\xFFFF\x1A\x1C\x4\xFFFF\x1\x1C\x1\xFFFF\x1A\x1C",
-				"\xA\x27\x7\xFFFF\x6\x27\x1\x1C\x1\x26\x12\x1C\x4\xFFFF\x1\x1C\x1\xFFFF"+
-				"\x6\x27\x1\x1C\x1\x26\x12\x1C",
-				"\xA\x1C\x7\xFFFF\x1A\x1C\x4\xFFFF\x1\x1C\x1\xFFFF\x1A\x1C",
-				"\xA\x1C\x7\xFFFF\x1A\x1C\x4\xFFFF\x1\x1C\x1\xFFFF\x1A\x1C",
-				"\xA\x1C\x7\xFFFF\x5\x1C\x1\x9D\xB\x1C\x1\x9C\x8\x1C\x4\xFFFF\x1\x1C"+
-				"\x1\xFFFF\x1A\x1C",
-				"\x1\x9E",
-				"\xA\x1C\x7\xFFFF\x1A\x1C\x4\xFFFF\x1\x1C\x1\xFFFF\x1A\x1C",
-				"\xA\x1C\x7\xFFFF\x1A\x1C\x4\xFFFF\x1\x1C\x1\xFFFF\x1A\x1C",
-				"\xA\x1C\x7\xFFFF\x1A\x1C\x4\xFFFF\x1\x1C\x1\xFFFF\x1A\x1C",
-				"\xA\x1C\x7\xFFFF\x1A\x1C\x4\xFFFF\x1\x1C\x1\xFFFF\x1A\x1C",
-				"\xA\x1C\x7\xFFFF\x1A\x1C\x4\xFFFF\x1\x1C\x1\xFFFF\x1A\x1C",
-				"\xA\x1C\x7\xFFFF\x1A\x1C\x4\xFFFF\x1\x1C\x1\xFFFF\x1A\x1C",
-				"\xA\x1C\x7\xFFFF\x1A\x1C\x4\xFFFF\x1\x1C\x1\xFFFF\x1A\x1C",
-				"\x1\xA0\x5\xFFFF\x1\xA1",
+				"\xA\x22\x7\xFFFF\x5\x22\x1\x9D\xB\x22\x1\x9C\x8\x22\x4\xFFFF\x1\x22"+
+				"\x1\xFFFF\x1A\x22",
+				"\xA\x22\x7\xFFFF\x5\x22\x1\x9F\xB\x22\x1\x9E\x8\x22\x4\xFFFF\x1\x22"+
+				"\x1\xFFFF\x1A\x22",
+				"\xA\x22\x7\xFFFF\x1A\x22\x4\xFFFF\x1\x22\x1\xFFFF\x1A\x22",
+				"\xA\x22\x7\xFFFF\x1A\x22\x4\xFFFF\x1\x22\x1\xFFFF\x1A\x22",
+				"\x1\xA0",
+				"\xA\x22\x7\xFFFF\x1A\x22\x4\xFFFF\x1\x22\x1\xFFFF\x1A\x22",
+				"\xA\x22\x7\xFFFF\x1A\x22\x4\xFFFF\x1\x22\x1\xFFFF\x1A\x22",
+				"\xA\x22\x7\xFFFF\x1A\x22\x4\xFFFF\x1\x22\x1\xFFFF\x1A\x22",
+				"\xA\x22\x7\xFFFF\x1A\x22\x4\xFFFF\x1\x22\x1\xFFFF\x1A\x22",
+				"\xA\x22\x7\xFFFF\x1A\x22\x4\xFFFF\x1\x22\x1\xFFFF\x1A\x22",
+				"\xA\x22\x7\xFFFF\x1A\x22\x4\xFFFF\x1\x22\x1\xFFFF\x1A\x22",
+				"\xA\x22\x7\xFFFF\x1A\x22\x4\xFFFF\x1\x22\x1\xFFFF\x1A\x22",
+				"\xA\x22\x7\xFFFF\x1A\x22\x4\xFFFF\x1\x22\x1\xFFFF\x1A\x22",
+				"\x1\xA1",
+				"\x1\xA2",
+				"\xA\x22\x7\xFFFF\x1A\x22\x4\xFFFF\x1\x22\x1\xFFFF\x1A\x22",
+				"\xA\x22\x7\xFFFF\x1A\x22\x4\xFFFF\x1\x22\x1\xFFFF\x1A\x22",
+				"",
+				"\xA\x22\x7\xFFFF\x1A\x22\x4\xFFFF\x1\x22\x1\xFFFF\x1A\x22",
+				"\xA\x22\x7\xFFFF\x1A\x22\x4\xFFFF\x1\x22\x1\xFFFF\x1A\x22",
+				"\x1\xA3",
+				"",
+				"",
+				"",
+				"\xA\x22\x7\xFFFF\x1A\x22\x4\xFFFF\x1\x22\x1\xFFFF\x1A\x22",
+				"\xA\x22\x7\xFFFF\x1A\x22\x4\xFFFF\x1\x22\x1\xFFFF\x1A\x22",
+				"\xA\x22\x7\xFFFF\x1A\x22\x4\xFFFF\x1\x22\x1\xFFFF\x1A\x22",
+				"\xA\x22\x7\xFFFF\x1A\x22\x4\xFFFF\x1\x22\x1\xFFFF\x1A\x22",
+				"\xA\x22\x7\xFFFF\x1A\x22\x4\xFFFF\x1\x22\x1\xFFFF\x1A\x22",
+				"\xA\x22\x7\xFFFF\x1A\x22\x4\xFFFF\x1\x22\x1\xFFFF\x1A\x22",
+				"",
+				"",
+				"\x1\xA9",
+				"\xA\x22\x7\xFFFF\x1A\x22\x4\xFFFF\x1\x22\x1\xFFFF\x1A\x22",
+				"\xA\x22\x7\xFFFF\x1A\x22\x4\xFFFF\x1\x22\x1\xFFFF\x1A\x22",
+				"\xA\x22\x7\xFFFF\x1A\x22\x4\xFFFF\x1\x22\x1\xFFFF\x1A\x22",
+				"\xA\x2E\x7\xFFFF\x6\x2E\x1\x22\x1\x2D\x12\x22\x4\xFFFF\x1\x22\x1\xFFFF"+
+				"\x6\x2E\x1\x22\x1\x2D\x12\x22",
+				"\xA\x22\x7\xFFFF\x5\x22\x1\xAB\xB\x22\x1\xAA\x8\x22\x4\xFFFF\x1\x22"+
+				"\x1\xFFFF\x1A\x22",
+				"\x1\xAC",
+				"\xA\x22\x7\xFFFF\x1A\x22\x4\xFFFF\x1\x22\x1\xFFFF\x1A\x22",
+				"\xA\x22\x7\xFFFF\x1A\x22\x4\xFFFF\x1\x22\x1\xFFFF\x1A\x22",
+				"\xA\x22\x7\xFFFF\x1A\x22\x4\xFFFF\x1\x22\x1\xFFFF\x1A\x22",
+				"\xA\x22\x7\xFFFF\x1A\x22\x4\xFFFF\x1\x22\x1\xFFFF\x1A\x22",
+				"\xA\x22\x7\xFFFF\x1A\x22\x4\xFFFF\x1\x22\x1\xFFFF\x1A\x22",
+				"\xA\x22\x7\xFFFF\x1A\x22\x4\xFFFF\x1\x22\x1\xFFFF\x1A\x22",
+				"\xA\x22\x7\xFFFF\x1A\x22\x4\xFFFF\x1\x22\x1\xFFFF\x1A\x22",
+				"\x1\xAE\x5\xFFFF\x1\xAF",
 				"",
 				"",
 				"",
 				"",
 				"",
-				"\xA\x1C\x7\xFFFF\x1A\x1C\x4\xFFFF\x1\x1C\x1\xFFFF\x1A\x1C",
-				"\xA\x1C\x7\xFFFF\x1A\x1C\x4\xFFFF\x1\x1C\x1\xFFFF\x1A\x1C",
-				"\xA\x1C\x7\xFFFF\x1A\x1C\x4\xFFFF\x1\x1C\x1\xFFFF\x1A\x1C",
-				"\xA\x1C\x7\xFFFF\x1A\x1C\x4\xFFFF\x1\x1C\x1\xFFFF\x1A\x1C",
+				"\xA\x22\x7\xFFFF\x1A\x22\x4\xFFFF\x1\x22\x1\xFFFF\x1A\x22",
+				"\xA\x22\x7\xFFFF\x1A\x22\x4\xFFFF\x1\x22\x1\xFFFF\x1A\x22",
+				"\xA\x22\x7\xFFFF\x1A\x22\x4\xFFFF\x1\x22\x1\xFFFF\x1A\x22",
+				"\xA\x22\x7\xFFFF\x1A\x22\x4\xFFFF\x1\x22\x1\xFFFF\x1A\x22",
 				"",
-				"\xA\x1C\x7\xFFFF\x1A\x1C\x4\xFFFF\x1\x1C\x1\xFFFF\x1A\x1C",
-				"\xA\x1C\x7\xFFFF\x1A\x1C\x4\xFFFF\x1\x1C\x1\xFFFF\x1A\x1C"
+				"\xA\x22\x7\xFFFF\x1A\x22\x4\xFFFF\x1\x22\x1\xFFFF\x1A\x22",
+				"\xA\x22\x7\xFFFF\x1A\x22\x4\xFFFF\x1\x22\x1\xFFFF\x1A\x22"
 			};
 
 		private static readonly short[] DFA16_eot = DFA.UnpackEncodedString(DFA16_eotS);
@@ -3079,7 +3461,7 @@ public partial class Gram_SICXELexer : Antlr.Runtime.Lexer
 			this.transition = DFA16_transition;
 		}
 
-		public override string Description { get { return "1:1: Tokens : ( T__33 | START | END | BYTE | WORD | RESB | RESW | BASE | FINL | REG | INDICE | PLUS | AT | NUMERAL | F1CODOP | F2CODOP | F34CODOP | NUM | CONSTHEX | HEXSUF | CONSTCAD | ID | CHCONST | HEXCONST | WS );"; } }
+		public override string Description { get { return "1:1: Tokens : ( T__41 | START | END | BYTE | WORD | RESB | RESW | BASE | EQU | ORG | USE | FINL | REG | INDICE | PLUS | MINUS | STAR | DIV | LPAREN | RPAREN | AT | NUMERAL | F1CODOP | F2CODOP | F34CODOP | NUM | CONSTHEX | HEXSUF | CONSTCAD | ID | CHCONST | HEXCONST | WS );"; } }
 
 		public override void Error(NoViableAltException nvae)
 		{
