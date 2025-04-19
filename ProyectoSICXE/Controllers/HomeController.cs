@@ -10,6 +10,7 @@ namespace ProyectoSICXE.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private static Pass1Visitor _ultimoPaso1; //auxiliar que ayuda a que no se pierdan datos entre solicitudes
 
         public HomeController(ILogger<HomeController> logger)
         {
@@ -54,6 +55,7 @@ namespace ProyectoSICXE.Controllers
 
                 // Recorremos el AST con Pass1Visitor
                 pass1.Paso1(ast);
+                _ultimoPaso1 = pass1; //indico que ya se hizo completamente el paso1
 
                 // Aqui creo el objeto anonimo para retornar los datos que voy a ocupar solamente
                 var response = new
@@ -101,7 +103,53 @@ namespace ProyectoSICXE.Controllers
             }
         }
 
+        [HttpPost]
+        public IActionResult EjecutarPaso2()
+        {
+            try
+            {
+                if (_ultimoPaso1 == null)
+                {
+                    return Json(new { Success = false, Error = "Necesitas ejecutar el Paso 1 primero." });
+                }
 
+                // Ejecutar el Paso 2
+                Pass2Visitor pass2 = new Pass2Visitor();
+                pass2.Paso2(_ultimoPaso1);
+
+                // Generar registros H, T, M, E
+                pass2.GenerarRegistrosHTME(_ultimoPaso1);
+
+                // Crear objeto de respuesta
+                var response = new
+                {
+                    Success = true,
+                    ListadoIntermedioObjCode = _ultimoPaso1.Lines.Select(line => new
+                    {
+                        Address = line.Address.ToString("X4"),
+                        Label = line.Label ?? "",
+                        Mnemonic = line.Mnemonic ?? "",
+                        Operand = (line.Mnemonic != null &&
+                                  (line.Mnemonic.Equals("EQU", StringComparison.OrdinalIgnoreCase) ||
+                                   line.Mnemonic.Equals("WORD", StringComparison.OrdinalIgnoreCase)) &&
+                                  !string.IsNullOrEmpty(line.OriginalExpression))
+                                  ? line.OriginalExpression
+                                  : line.Operand ?? "",
+                        Format = line.Format ?? "",
+                        Error = line.Error ?? "",
+                        ObjectCode = line.ObjectCode ?? "",
+                        IsRelocatable = line.IsRelocatable
+                    }).ToList(),
+                    RegistrosHTME = pass2.ObjRecords
+                };
+
+                return Json(response);
+            }
+            catch (Exception ex)
+            {
+                return Json(new { Success = false, Error = "Error en el Paso 2: " + ex.Message });
+            }
+        }
 
     }
 }

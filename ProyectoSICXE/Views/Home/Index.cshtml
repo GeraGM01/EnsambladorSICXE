@@ -111,10 +111,10 @@
 
                     <div class="card">
                         <div class="card-header bg-light">
-                            <h5 class="card-title mb-0">ARCHIVO .OBJ</h5>
+                            <h5 class="card-title mb-0">REGISTROS OBJETO</h5>
                         </div>
-                        <div class="card-body" style="min-height: 200px;">
-                            <pre id="archivoObj" class="mb-0"> </pre>
+                        <div class="card-body" style="min-height: 200px; max-height: 300px; overflow-y: auto;">
+                            <pre id="registrosHTME" class="mb-0"></pre>
                         </div>
                     </div>
                 </div>
@@ -134,6 +134,7 @@
 @section Scripts {
     <script>
         let editor;
+        let paso1Completado = false;
 
         $(document).ready(function () {
             editor = CodeMirror.fromTextArea(document.getElementById("editorCodigo"), {
@@ -162,19 +163,23 @@
             });
 
             $('#btnPaso1').on('click', ejecutarPaso1);
+            $('#btnPaso2').on('click', ejecutarPaso2);
 
             $('#btnLimpiar').on('click', function () {
                 editor.setValue('');
                 limpiarResultados();
+                paso1Completado = false;
                 $('#statusMessage').text('Editor limpiado');
             });
         });
 
         function limpiarResultados() {
             $('#tablaIntermedio tbody').empty();
+            $('#tablaObjcode tbody').empty();
             $('#tablaTabsim tbody').empty();
             $('#tablaBloques tbody').empty();
-            $('#archivoObj').text('');
+            $('#astResult').text('');
+            $('#registrosHTME').text('');
             $('#erroresLexicosSintacticos').empty();
             $('#erroresSemanticos').empty();
         }
@@ -190,6 +195,7 @@
             $('#loadingIntermedio').show();
 
             limpiarResultados();
+            paso1Completado = false;
 
             $.ajax({
                 url: '@Url.Action("EjecutarPaso1", "Home")',
@@ -200,6 +206,7 @@
                     $('#loadingIntermedio').hide();
 
                     if (response.success) {
+                        paso1Completado = true;
                         const tbodyIntermedio = $('#tablaIntermedio tbody');
                         response.listadoIntermedio.forEach(function (linea) {
                             tbodyIntermedio.append(`
@@ -240,6 +247,7 @@
                         });
 
                         $('#statusMessage').text('Paso 1 completado. Contador de localización final: 0x' + response.finalLocctr);
+                        paso1Completado = true;
                     } else {
                         $('#statusMessage').text('Error en el Paso 1: ' + response.error);
                     }
@@ -247,6 +255,70 @@
                 error: function (xhr, status, error) {
                     $('#loadingIntermedio').hide();
                     $('#statusMessage').text('Error al procesar el código: ' + error);
+                }
+            });
+        }
+
+        function ejecutarPaso2() {
+            if (!paso1Completado) {
+                $('#statusMessage').text('Error: Necesitas ejecutar el Paso 1 primero.');
+                return;
+            }
+
+            $('#statusMessage').text('Ejecutando Paso 2...');
+            $('#loadingObjcode').show();
+
+            // Limpiar solo tablas relacionadas al Paso 2
+            $('#tablaObjcode tbody').empty();
+            $('#registrosHTME').text('');
+
+            $.ajax({
+                url: '@Url.Action("EjecutarPaso2", "Home")',
+                type: 'POST',
+                contentType: 'application/json',
+                success: function (response) {
+                    $('#loadingObjcode').hide();
+
+                    if (response.success) {
+                        // Mostrar listado intermedio con OBJCODE
+                        const tbodyObjcode = $('#tablaObjcode tbody');
+                        response.listadoIntermedioObjCode.forEach(function (linea) {
+                            // Agregar asterisco para indicar que es relocatable (solo en la tabla)
+                            let objCode = linea.objectCode;
+                            if (linea.isRelocatable && objCode) {
+                                objCode += "*";
+                            }
+
+                            tbodyObjcode.append(`
+                                        <tr>
+                                            <td>${linea.address}</td>
+                                            <td>${linea.label}</td>
+                                            <td>${linea.mnemonic}</td>
+                                            <td>${linea.operand}</td>
+                                            <td>${linea.format}</td>
+                                            <td>${linea.error}</td>
+                                            <td>${objCode}</td>
+                                        </tr>
+                                    `);
+                        });
+
+                        // Mostrar los registros HTME
+                        const preHTME = $('#registrosHTME');
+                        response.registrosHTME.forEach(function (registro) {
+                            preHTME.append(registro + '\n');
+                        });
+
+                        // Cambiar a la pestaña de OBJCODE automáticamente
+                        $('#objcode-tab').tab('show');
+
+                        $('#statusMessage').text('Paso 2 completado. Registros HTME generados.');
+                    } else {
+                        $('#statusMessage').text('Error en el Paso 2: ' + response.error);
+                    }
+                },
+                error: function (xhr, status, error) {
+                    $('#loadingObjcode').hide();
+                    $('#statusMessage').text('Error al ejecutar el Paso 2: ' + error);
                 }
             });
         }
