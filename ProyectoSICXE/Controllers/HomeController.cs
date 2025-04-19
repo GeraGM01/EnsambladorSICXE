@@ -10,7 +10,7 @@ namespace ProyectoSICXE.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        private static Pass1Visitor _ultimoPaso1; //auxiliar que ayuda a que no se pierdan datos entre solicitudes
+        private static Pass1Visitor _ultimoPaso1;  //auxiliar que ayuda a que no se pierdan datos entre solicitudes
 
         public HomeController(ILogger<HomeController> logger)
         {
@@ -70,7 +70,7 @@ namespace ProyectoSICXE.Controllers
                         Mnemonic = line.Mnemonic ?? "",
                         Operand = line.Operand ?? "",
                         Format = line.Format ?? "",
-                        Error = line.Error ?? ""
+                        Error = line.Error
                     }).ToList(),
                     FinalLocctr = pass1.FinalLocctr.ToString("X4"),
                     SymbolTable = pass1.SymbolInfoTable.Select(kvp => new
@@ -129,14 +129,12 @@ namespace ProyectoSICXE.Controllers
                         Address = line.Address.ToString("X4"),
                         Label = line.Label ?? "",
                         Mnemonic = line.Mnemonic ?? "",
-                        Operand = (line.Mnemonic != null &&
-                                  (line.Mnemonic.Equals("EQU", StringComparison.OrdinalIgnoreCase) ||
-                                   line.Mnemonic.Equals("WORD", StringComparison.OrdinalIgnoreCase)) &&
-                                  !string.IsNullOrEmpty(line.OriginalExpression))
-                                  ? line.OriginalExpression
-                                  : line.Operand ?? "",
+                        Operand = (line.Mnemonic?.Equals("EQU", StringComparison.OrdinalIgnoreCase) == true ||
+                                   line.Mnemonic?.Equals("WORD", StringComparison.OrdinalIgnoreCase) == true) &&
+                                  !string.IsNullOrEmpty(line.OriginalExpression) ?
+                                  line.OriginalExpression : line.Operand ?? "",
                         Format = line.Format ?? "",
-                        Error = line.Error ?? "",
+                        Error = line.Error,
                         ObjectCode = line.ObjectCode ?? "",
                         IsRelocatable = line.IsRelocatable
                     }).ToList(),

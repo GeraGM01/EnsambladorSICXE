@@ -50,6 +50,7 @@
                                     <th>Operando</th>
                                     <th>Formato</th>
                                     <th>Error</th>
+                                    <th>Codigo objeto</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -218,6 +219,7 @@
                                             <td>${linea.operand}</td>
                                             <td>${linea.format}</td>
                                             <td>${linea.error}</td>
+                                            <td></td>
                                         </tr>
                                     `);
                         });
@@ -267,6 +269,7 @@
 
             $('#statusMessage').text('Ejecutando Paso 2...');
             $('#loadingObjcode').show();
+            $('#loadingIntermedio').show();
 
             // Limpiar solo tablas relacionadas al Paso 2
             $('#tablaObjcode tbody').empty();
@@ -277,29 +280,19 @@
                 type: 'POST',
                 contentType: 'application/json',
                 success: function (response) {
-                    $('#loadingObjcode').hide();
 
                     if (response.success) {
-                        // Mostrar listado intermedio con OBJCODE
-                        const tbodyObjcode = $('#tablaObjcode tbody');
-                        response.listadoIntermedioObjCode.forEach(function (linea) {
-                            // Agregar asterisco para indicar que es relocatable (solo en la tabla)
+                        const filas = $('#tablaIntermedio tbody tr');
+                        response.listadoIntermedioObjCode.forEach(function (linea, index) {
+                            const fila = filas.eq(index);
+                            const celdas = fila.find('td');
                             let objCode = linea.objectCode;
                             if (linea.isRelocatable && objCode) {
                                 objCode += "*";
                             }
-
-                            tbodyObjcode.append(`
-                                        <tr>
-                                            <td>${linea.address}</td>
-                                            <td>${linea.label}</td>
-                                            <td>${linea.mnemonic}</td>
-                                            <td>${linea.operand}</td>
-                                            <td>${linea.format}</td>
-                                            <td>${linea.error}</td>
-                                            <td>${objCode}</td>
-                                        </tr>
-                                    `);
+                            // Actualizar la celda de código objeto y de los errores
+                            celdas.eq(7).text(objCode);
+                            celdas.eq(6).text(linea.error);
                         });
 
                         // Mostrar los registros HTME
@@ -312,6 +305,8 @@
                         $('#objcode-tab').tab('show');
 
                         $('#statusMessage').text('Paso 2 completado. Registros HTME generados.');
+                        $('#loadingObjcode').hide();
+                        $('#loadingIntermedio').hide();
                     } else {
                         $('#statusMessage').text('Error en el Paso 2: ' + response.error);
                     }
