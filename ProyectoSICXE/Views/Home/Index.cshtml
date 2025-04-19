@@ -157,8 +157,10 @@
 
                 const lector = new FileReader();
                 lector.onload = function (e) {
+                    msj = "<p class='text-success'>¡Archivo cargado con éxito!</p> <p>Nombre del archivo: " + archivo.name + "</p>";
+                    configuraDialogo("#dialogoInformativo", "Cargar archivo", msj);
+                    mostrarDialogo("#dialogoInformativo");
                     editor.setValue(e.target.result);
-                    $('#statusMessage').text('Archivo cargado: ' + archivo.name);
                 };
                 lector.readAsText(archivo);
             });
@@ -170,7 +172,10 @@
                 editor.setValue('');
                 limpiarResultados();
                 paso1Completado = false;
-                $('#statusMessage').text('Editor limpiado');
+                msj = "<p class='text-success'>Editor de texto limpiado.</p>";
+                configuraDialogo("#dialogoInformativo", "Limpiar editor", msj);
+                mostrarDialogo("#dialogoInformativo");
+                //$('#statusMessage').text('Editor limpiado');
             });
         });
 
@@ -188,11 +193,14 @@
         function ejecutarPaso1() {
             const codigo = editor.getValue();
             if (!codigo.trim()) {
-                $('#statusMessage').text('Error: No hay código para analizar.');
+                msj = "<p class='text-danger'>Error: No hay código para analizar.</p>";
+                configuraDialogo("#dialogoInformativo", "Paso 1", msj);
+                mostrarDialogo("#dialogoInformativo");
+                //$('#statusMessage').text('Error: No hay código para analizar.');
                 return;
             }
 
-            $('#statusMessage').text('Ejecutando Paso 1...');
+            //$('#statusMessage').text('Ejecutando Paso 1...');
             $('#loadingIntermedio').show();
 
             limpiarResultados();
@@ -248,26 +256,34 @@
                                     `);
                         });
 
-                        $('#statusMessage').text('Paso 1 completado. Contador de localización final: 0x' + response.finalLocctr);
+                        //$('#statusMessage').text('Paso 1 completado. Contador de localización final: 0x' + response.finalLocctr);
+                        msj = "<p class='text-success'>Paso 1 ejecutado con exito</p>";
+                        configuraDialogo("#dialogoInformativo", "Paso 1", msj);
+                        mostrarDialogo("#dialogoInformativo");
                         paso1Completado = true;
                     } else {
-                        $('#statusMessage').text('Error en el Paso 1: ' + response.error);
+                        msj = "<p class='text-danger'>Ocurrió un error al ejecutar el paso 1: " + response.error + "</p>";
+                        configuraDialogo("#dialogoInformativo", "Paso 1", msj);
+                        mostrarDialogo("#dialogoInformativo");
                     }
                 },
                 error: function (xhr, status, error) {
                     $('#loadingIntermedio').hide();
-                    $('#statusMessage').text('Error al procesar el código: ' + error);
+                    msj = "<p class='text-danger'>Ocurrió un error al procesar el codigo: " + error + "</p>";
+                    configuraDialogo("#dialogoInformativo", "Paso 1", msj);
+                    mostrarDialogo("#dialogoInformativo");
                 }
             });
         }
 
         function ejecutarPaso2() {
             if (!paso1Completado) {
-                $('#statusMessage').text('Error: Necesitas ejecutar el Paso 1 primero.');
+                msj = "<p class='text-danger'>Error: Necesitas ejecutar el Paso 1 primero.</p>";
+                configuraDialogo("#dialogoInformativo", "Paso 2", msj);
+                mostrarDialogo("#dialogoInformativo");
                 return;
             }
 
-            $('#statusMessage').text('Ejecutando Paso 2...');
             $('#loadingObjcode').show();
             $('#loadingIntermedio').show();
 
@@ -304,16 +320,22 @@
                         // Cambiar a la pestaña de OBJCODE automáticamente
                         $('#objcode-tab').tab('show');
 
-                        $('#statusMessage').text('Paso 2 completado. Registros HTME generados.');
+                        msj = "<p class='text-success'>Paso 2 ejecutado con exito</p>";
+                        configuraDialogo("#dialogoInformativo", "Paso 2", msj);
+                        mostrarDialogo("#dialogoInformativo");
                         $('#loadingObjcode').hide();
                         $('#loadingIntermedio').hide();
                     } else {
-                        $('#statusMessage').text('Error en el Paso 2: ' + response.error);
+                        msj = "<p class='text-danger'>Ocurrió un error en el Paso 2: " + response.error + "</p>";
+                        configuraDialogo("#dialogoInformativo", "Paso 2", msj);
+                        mostrarDialogo("#dialogoInformativo");
                     }
                 },
                 error: function (xhr, status, error) {
-                    $('#loadingObjcode').hide();
-                    $('#statusMessage').text('Error al ejecutar el Paso 2: ' + error);
+                    $('#loadingIntermedio').hide();
+                    msj = "<p class='text-danger'>Ocurrió un error al ejecutar el Paso 2: " + error + "</p>";
+                    configuraDialogo("#dialogoInformativo", "Paso 2", msj);
+                    mostrarDialogo("#dialogoInformativo");
                 }
             });
         }
