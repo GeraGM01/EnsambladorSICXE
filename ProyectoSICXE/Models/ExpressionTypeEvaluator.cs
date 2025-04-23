@@ -17,32 +17,47 @@ namespace Practica02
         public int Value;
         public ExprType Type;
         public string ErrorMsg;
-        // Nueva propiedad para mantener la expresión original
         public string OriginalExpression;
     }
 
-    /// <summary>
-    /// Clase para evaluación de expresiones, determinando si son ABS o REL.
-    /// </summary>
     public static class ExpressionTypeEvaluator
     {
-        // Regex para identificar operadores
         private static readonly Regex OperatorRegex = new Regex(@"[\+\-\*\/]");
-        private static readonly Regex ParenthesisRegex = new Regex(@"[$$$$]");
+        private static readonly Regex ParenthesisRegex = new Regex(@"[\(\)]");
 
-        public static EvalResult Evaluate(string expr,
-                                         IReadOnlyDictionary<string, SymbolInfo> symtab,
-                                         int currentAddress)
+        /// <summary>
+        /// Paso1: Evalúa la expresión sabiendo que cada símbolo relativo está en 'symtab' con su offset 'Address'
+        /// y su 'BlockNumber'.
+        /// 
+        /// "isEqu" = true => Se prohíbe mezclar símbolos de distintos bloques, aunque se anulen,
+        ///                  y se desea forzar error en ese caso.
+        /// </summary>
+        public static EvalResult Evaluate(
+            string expr,
+            IReadOnlyDictionary<string, SymbolInfo> symtab,
+            int currentAddress,
+            int currentBlockNumber,
+            bool isEqu = false
+        )
         {
-            // Eliminar espacios
-            expr = expr.Trim();
+            return EvaluateInternal(expr, symtab, currentAddress, currentBlockNumber, isEqu);
+        }
 
-            // Guardar la expresión original para mostrar en listados
+        private static EvalResult EvaluateInternal(
+            string expr,
+            IReadOnlyDictionary<string, SymbolInfo> symtab,
+            int currentAddress,
+            int currentBlockNumber,
+            bool isEqu
+        )
+        {
+            expr = expr.Trim();
             string originalExpr = expr;
 
-            // Caso trivial: "*"
+            // Manejo de "*" (un solo token)
             if (expr == "*")
             {
+                // '*' => relativo
                 return new EvalResult
                 {
                     Value = currentAddress,
@@ -52,37 +67,243 @@ namespace Practica02
                 };
             }
 
-            // Intenta primero evaluar como expresión simple
-            if (TryEvaluateSimple(expr, symtab, currentAddress, out EvalResult simpleResult))
+            // Intento de interpretación rápida (un solo token sin operadores)
+            if (TryEvaluateSimple(expr, symtab, currentAddress, currentBlockNumber, out EvalResult sres))
             {
-                simpleResult.OriginalExpression = originalExpr;
-                return simpleResult;
+                sres.OriginalExpression = originalExpr;
+                return sres;
             }
 
-            // Si la expresión tiene operadores o paréntesis, intentamos evaluar como expresión compleja
+            // Si contiene operadores => EvaluateComplex
             if (OperatorRegex.IsMatch(expr) || ParenthesisRegex.IsMatch(expr))
             {
-                var result = EvaluateComplex(expr, symtab, currentAddress);
-                result.OriginalExpression = originalExpr;
-                return result;
+                var complex = EvaluateComplex(expr, symtab, currentAddress, currentBlockNumber, isEqu);
+                complex.OriginalExpression = originalExpr;
+                return complex;
             }
 
-            // Si llegamos aquí, no pudimos evaluar la expresión
+            // De lo contrario => error
             return new EvalResult
             {
                 Value = 0,
                 Type = ExprType.Error,
                 ErrorMsg = $"Expresión '{expr}' no soportada",
-                OriginalExpression = originalExpr
+                OriginalExpression = expr
             };
         }
 
-        private static bool TryEvaluateSimple(string expr,
-                                              IReadOnlyDictionary<string, SymbolInfo> symtab,
-                                              int currentAddress,
-                                              out EvalResult result)
+        private static EvalResult EvaluateComplex(
+            string expr,
+            IReadOnlyDictionary<string, SymbolInfo> symtab,
+            int currentAddress,
+            int currentBlockNumber,
+            bool isEqu
+        )
         {
-            // Si es un símbolo
+            try
+            {
+                Dictionary<int, int> blockSignCount = new Dictionary<int, int>();
+                bool foundRelative = false;
+                bool foundMulDiv = false;
+                int currentSign = +1;
+
+                List<string> numericTokens = new List<string>();
+                string pattern = @"(\+|\-|\*|/|\(|\)|0x[0-9A-Fa-f]+|[0-9A-Fa-f]+[Hh]|\d+|\w+)";
+                var matches = Regex.Matches(expr, pattern);
+
+                foreach (Match m in matches)
+                {
+                    string tk = m.Value;
+
+                    if (tk == "+" || tk == "-")
+                    {
+                        numericTokens.Add(tk);
+                        currentSign = (tk == "+") ? +1 : -1;
+                    }
+                    else if (tk == "*" || tk == "/")
+                    {
+                        foundMulDiv = true;
+                        numericTokens.Add(tk);
+                        currentSign = +1;
+                    }
+                    else if (tk == "(" || tk == ")")
+                    {
+                        numericTokens.Add(tk);
+                    }
+                    else if (EsNumeroHexOdecimal(tk, out int valorNumerico))
+                    {
+                        numericTokens.Add(valorNumerico.ToString());
+                        currentSign = +1;
+                    }
+                    else if (tk == "*")
+                    {
+                        foundRelative = true;
+                        if (!blockSignCount.ContainsKey(currentBlockNumber))
+                            blockSignCount[currentBlockNumber] = 0;
+                        blockSignCount[currentBlockNumber] += currentSign;
+
+                        numericTokens.Add(currentAddress.ToString());
+                        currentSign = +1;
+                    }
+                    else
+                    {
+                        // Símbolo
+                        if (!symtab.ContainsKey(tk))
+                        {
+                            return new EvalResult
+                            {
+                                Value = 0,
+                                Type = ExprType.Error,
+                                ErrorMsg = $"Símbolo '{tk}' no encontrado.",
+                                OriginalExpression = expr
+                            };
+                        }
+                        var si = symtab[tk];
+
+                        if (si.IsRelative)
+                        {
+                            foundRelative = true;
+                            if (!blockSignCount.ContainsKey(si.BlockNumber))
+                                blockSignCount[si.BlockNumber] = 0;
+                            blockSignCount[si.BlockNumber] += currentSign;
+                        }
+
+                        numericTokens.Add(si.Address.ToString());
+                        currentSign = +1;
+                    }
+                }
+
+                // Regla: no se permiten términos relativos en * / 
+                if (foundRelative && foundMulDiv)
+                {
+                    return new EvalResult
+                    {
+                        Value = 0,
+                        Type = ExprType.Error,
+                        ErrorMsg = "No se permiten términos relativos en * o /",
+                        OriginalExpression = expr
+                    };
+                }
+
+                int blocksNonZero = 0;
+                int leftoverBlock = -1, leftoverValue = 0;
+                foreach (var kv in blockSignCount)
+                {
+                    if (kv.Value != 0)
+                    {
+                        blocksNonZero++;
+                        leftoverBlock = kv.Key;
+                        leftoverValue = kv.Value;
+                    }
+                }
+
+                // Si es EQU y blockSignCount.Count > 1 => error
+                if (isEqu && blockSignCount.Count > 1)
+                {
+                    return new EvalResult
+                    {
+                        Value = 0,
+                        Type = ExprType.Error,
+                        ErrorMsg = "Expresion Invalida",
+                        OriginalExpression = expr
+                    };
+                }
+
+                // Caso 1: blocksNonZero == 0 => Absoluto
+                if (blocksNonZero == 0)
+                {
+                    string exprNumeric = string.Join(" ", numericTokens);
+                    int valAbs = EvaluateByDataTable(exprNumeric);
+                    return new EvalResult
+                    {
+                        Value = valAbs,
+                        Type = ExprType.Absolute,
+                        ErrorMsg = "",
+                        OriginalExpression = expr
+                    };
+                }
+                // Caso 2: blocksNonZero == 1 => cheque leftoverValue
+                else if (blocksNonZero == 1)
+                {
+                    if (leftoverValue == +1 || leftoverValue == -1)
+                    {
+                        string exprNumeric = string.Join(" ", numericTokens);
+                        int valRel = EvaluateByDataTable(exprNumeric);
+                        return new EvalResult
+                        {
+                            Value = valRel,
+                            Type = ExprType.Relative,
+                            ErrorMsg = "",
+                            OriginalExpression = expr
+                        };
+                    }
+                    else
+                    {
+                        return new EvalResult
+                        {
+                            Value = 0,
+                            Type = ExprType.Error,
+                            ErrorMsg = $"Saldo relativo {leftoverValue} en bloque {leftoverBlock}, no válido",
+                            OriginalExpression = expr
+                        };
+                    }
+                }
+                else
+                {
+                    // 2+ bloques con saldo != 0
+                    return new EvalResult
+                    {
+                        Value = 0,
+                        Type = ExprType.Error,
+                        ErrorMsg = "Se mezclan símbolos de múltiples bloques sin anularse.",
+                        OriginalExpression = expr
+                    };
+                }
+            }
+            catch (Exception ex)
+            {
+                return new EvalResult
+                {
+                    Value = 0,
+                    Type = ExprType.Error,
+                    ErrorMsg = "Error EvaluateComplex => " + ex.Message,
+                    OriginalExpression = expr
+                };
+            }
+        }
+
+        private static bool EsNumeroHexOdecimal(string tk, out int valor)
+        {
+            valor = 0;
+            if (int.TryParse(tk, NumberStyles.Integer, CultureInfo.InvariantCulture, out valor))
+                return true;
+
+            if (tk.StartsWith("0x", StringComparison.OrdinalIgnoreCase))
+            {
+                string hx = tk.Substring(2);
+                if (int.TryParse(hx, NumberStyles.HexNumber, null, out valor))
+                    return true;
+                return false;
+            }
+
+            if (tk.EndsWith("H", StringComparison.OrdinalIgnoreCase))
+            {
+                string hexPart = tk.Substring(0, tk.Length - 1);
+                if (int.TryParse(hexPart, NumberStyles.HexNumber, null, out valor))
+                    return true;
+                return false;
+            }
+            return false;
+        }
+
+        private static bool TryEvaluateSimple(
+            string expr,
+            IReadOnlyDictionary<string, SymbolInfo> symtab,
+            int currentAddress,
+            int currentBlockNumber,
+            out EvalResult result)
+        {
+            // ¿Símbolo?
             if (symtab.ContainsKey(expr))
             {
                 var si = symtab[expr];
@@ -96,7 +317,7 @@ namespace Practica02
                 return true;
             }
 
-            // Intenta parsear decimal
+            // decimal
             if (int.TryParse(expr, out int decVal))
             {
                 result = new EvalResult
@@ -109,7 +330,7 @@ namespace Practica02
                 return true;
             }
 
-            // Hex con sufijo H
+            // Hex sufijo H
             if (expr.EndsWith("H", StringComparison.OrdinalIgnoreCase))
             {
                 string hexPart = expr.Substring(0, expr.Length - 1);
@@ -126,7 +347,7 @@ namespace Practica02
                 }
             }
 
-            // Estilo 0x
+            // Hex prefijo 0x
             if (expr.StartsWith("0x", StringComparison.OrdinalIgnoreCase))
             {
                 string hx = expr.Substring(2);
@@ -143,140 +364,21 @@ namespace Practica02
                 }
             }
 
-            // No se pudo evaluar como expresión simple
-            result = new EvalResult();
+            result = default(EvalResult);
             return false;
         }
 
-        private static EvalResult EvaluateComplex(string expr,
-                                                 IReadOnlyDictionary<string, SymbolInfo> symtab,
-                                                 int currentAddress)
+        private static int EvaluateByDataTable(string rawExpr)
         {
             try
             {
-                // Primero reemplazamos los símbolos por sus valores
-                // y determinamos el tipo de la expresión completa
-                string processedExpr = expr;
-                bool hasRelativeTerms = false;
-                bool hasAbsoluteTerms = false;
-
-                // Tokenizar la expresión para identificar símbolos y operadores
-                string pattern = @"[\+\-\*\/$$$$]|\w+";
-                MatchCollection matches = Regex.Matches(expr, pattern);
-
-                foreach (Match match in matches)
-                {
-                    string token = match.Value;
-
-                    // Ignorar operadores y paréntesis
-                    if (Regex.IsMatch(token, @"[\+\-\*\/$$$$]"))
-                        continue;
-
-                    // Verificar si el token es un símbolo en la tabla
-                    if (symtab.ContainsKey(token))
-                    {
-                        var symbolInfo = symtab[token];
-                        bool isRelative = symbolInfo.IsRelative;
-
-                        // Actualizar flags de tipo de expresión
-                        if (isRelative)
-                            hasRelativeTerms = true;
-                        else
-                            hasAbsoluteTerms = true;
-
-                        // Reemplazar el símbolo por su valor en la expresión
-                        // Aseguramos que el reemplazo sea específico para el token completo
-                        processedExpr = Regex.Replace(processedExpr,
-                                                     $@"\b{Regex.Escape(token)}\b",
-                                                     symbolInfo.Address.ToString());
-                    }
-                    else if (token == "*")
-                    {
-                        // Reemplazar * por la dirección actual
-                        processedExpr = processedExpr.Replace("*", currentAddress.ToString());
-                        hasRelativeTerms = true; // * es relativo
-                    }
-                    else if (!int.TryParse(token, out _) &&
-                             !token.EndsWith("H", StringComparison.OrdinalIgnoreCase) &&
-                             !token.StartsWith("0x", StringComparison.OrdinalIgnoreCase))
-                    {
-                        // Si no es un número, hex o símbolo conocido, es un error
-                        return new EvalResult
-                        {
-                            Value = 0,
-                            Type = ExprType.Error,
-                            ErrorMsg = $"Símbolo '{token}' no encontrado en la tabla",
-                            OriginalExpression = expr
-                        };
-                    }
-                    else
-                    {
-                        // Es una constante numérica (absoluta)
-                        hasAbsoluteTerms = true;
-                    }
-                }
-
-                // Evaluamos la expresión procesada usando el evaluador de expresiones de C#
-                // (seguro pero limitado a operaciones básicas)
-                System.Data.DataTable table = new System.Data.DataTable();
-                int result = Convert.ToInt32(table.Compute(processedExpr, ""));
-
-                // Determinar el tipo de la expresión resultante según las reglas:
-                // 1. Si solo tiene términos absolutos, es absoluta
-                // 2. Si tiene términos relativos en combinaciones específicas, puede ser relativa
-                // 3. Si hay términos relativos y absolutos mezclados incorrectamente, es un error
-
-                ExprType resultType;
-
-                if (!hasRelativeTerms)
-                {
-                    // Solo términos absolutos => resultado absoluto
-                    resultType = ExprType.Absolute;
-                }
-                else if (hasRelativeTerms && !hasAbsoluteTerms)
-                {
-                    // Solo términos relativos pero sin operaciones entre ellos (debe ser un solo término)
-                    resultType = ExprType.Relative;
-                }
-                else
-                {
-                    // Mezcla de términos relativos y absolutos
-                    // En una implementación completa, analizaríamos el árbol de expresión
-                    // para seguir las reglas específicas de la arquitectura SICXE
-
-                    bool hasMultiplyOrDivide = expr.Contains("*") || expr.Contains("/");
-
-                    if (hasMultiplyOrDivide)
-                    {
-                        // Hacemos una simplificación: si hay multiplicaciones o divisiones
-                        // consideramos que el resultado es absoluto
-                        resultType = ExprType.Absolute;
-                    }
-                    else
-                    {
-                        // Solo sumas o restas, podría ser relativo o absoluto
-                        // Simplificamos y lo marcamos como absoluto para este ejemplo
-                        resultType = ExprType.Absolute;
-                    }
-                }
-
-                return new EvalResult
-                {
-                    Value = result,
-                    Type = resultType,
-                    ErrorMsg = "",
-                    OriginalExpression = expr
-                };
+                var table = new System.Data.DataTable();
+                int val = Convert.ToInt32(table.Compute(rawExpr, ""));
+                return val;
             }
-            catch (Exception ex)
+            catch
             {
-                return new EvalResult
-                {
-                    Value = 0,
-                    Type = ExprType.Error,
-                    ErrorMsg = $"Error al evaluar expresión: {ex.Message}",
-                    OriginalExpression = expr
-                };
+                return 0;
             }
         }
     }

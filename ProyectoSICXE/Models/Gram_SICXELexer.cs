@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-// $ANTLR 3.5.1 C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g 2025-04-16 23:09:02
+// $ANTLR 3.5.1 C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g 2025-04-21 15:00:12
 
 // The variable 'variable' is assigned but its value is never used.
 #pragma warning disable 219

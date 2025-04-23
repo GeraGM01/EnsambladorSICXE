@@ -4,21 +4,16 @@ using System.IO;
 using Antlr.Runtime;
 using Antlr.Runtime.Tree;
 using System.Globalization;
+using System.Linq;  // si quisieras asignar StartAddress luego
 
 namespace Practica02
 {
-    /// <summary>
-    /// Estructura para resultados de evaluación de expresiones en Pass1
-    /// </summary>
     public struct ExprResult
     {
         public int Value;
         public ExprType Type;
     }
 
-    /// <summary>
-    /// Estructura principal para una línea parseada en Paso1/Paso2
-    /// </summary>
     public class LineInfo
     {
         public int SourceLine { get; set; }
@@ -29,33 +24,19 @@ namespace Practica02
         public string Format { get; set; }
         public string Error { get; set; }
         public string ObjectCode { get; set; }
-
-        // Propiedad para marcar si la línea es relocatable (para WORD)
         public bool IsRelocatable { get; set; }
-
-        // Nueva propiedad para el número de bloque
         public int BlockNumber { get; set; }
-
-        // Nueva propiedad para mantener la expresión original
         public string OriginalExpression { get; set; }
     }
 
-    /// <summary>
-    /// Info de símbolo (dirección y si es relativo).
-    /// </summary>
     public class SymbolInfo
     {
         public int Address { get; set; }
         public bool IsRelative { get; set; }
-
-        // Nuevo campo para el número de bloque
         public int BlockNumber { get; set; }
-
-        // Nueva propiedad para mantener la expresión original
         public string OriginalExpression { get; set; }
     }
 
-    // Clase para almacenar información de bloques
     public class BlockInfo
     {
         public string Name { get; set; }
@@ -67,32 +48,20 @@ namespace Practica02
     public class Pass1Visitor
     {
         private int locctr = 0;
-
-        // Contador de bloques actual
         private int currentBlockNumber = 0;
 
-        // Tabla de bloques: número => información del bloque
         private Dictionary<int, BlockInfo> blockTable = new Dictionary<int, BlockInfo>();
-
-        // Contadores de localización por bloque
         private Dictionary<int, int> blockLocctr = new Dictionary<int, int>();
 
-        // Tabla de símbolos
-        private Dictionary<string, SymbolInfo> symbolInfoTable = new Dictionary<string, SymbolInfo>(StringComparer.OrdinalIgnoreCase);
+        private Dictionary<string, SymbolInfo> symbolInfoTable
+            = new Dictionary<string, SymbolInfo>(StringComparer.OrdinalIgnoreCase);
 
-        // Lista con todas las líneas parseadas
         private List<LineInfo> lines = new List<LineInfo>();
-
-        // Errores semánticos
         private List<string> semanticErrors = new List<string>();
 
-        // Errores léx/sint simples
         public List<string> errores = new List<string>();
-
-        // Errores léx/sint específicos
         public List<ErrorLex> LexicalErrors = new List<ErrorLex>();
 
-        // Conjuntos: mnemonics
         private HashSet<string> form1Mnemonics = new HashSet<string>(StringComparer.OrdinalIgnoreCase) {
             "FIX","NORM","FLOAT","HIO","SIO","TIO"
         };
@@ -100,33 +69,25 @@ namespace Practica02
             "ADDR","SUBR","COMPR","MULR","DIVR","RMO","SHIFTL","SHIFTR","SVC","CLEAR","TIXR"
         };
         private HashSet<string> validMnemonics = new HashSet<string>(StringComparer.OrdinalIgnoreCase) {
-            // Directivas
             "START","END","BASE","BYTE","WORD","RESB","RESW","EQU","ORG","USE",
-            // F1
             "FIX","NORM","FLOAT","HIO","SIO","TIO",
-            // F2
             "ADDR","SUBR","COMPR","MULR","DIVR","RMO","SHIFTL","SHIFTR","SVC","CLEAR","TIXR",
-            // F3/F4
             "ADD","ADDF","AND","COMP","COMPF","DIV","DIVF","J","JEQ","JGT","JLT","JSUB","LDA",
             "LDB","LDCH","LDF","LDL","LDS","LDT","LDX","MUL","MULF","MULR","OR","RD","RSUB","SSK",
             "STA","STB","STCH","STF","STI","STL","STS","STSW","STT","STX","SUB","SUBF","TIX","WD"
         };
 
-        // Propiedades de solo lectura
         public IReadOnlyDictionary<string, SymbolInfo> SymbolInfoTable => symbolInfoTable;
         public IReadOnlyList<LineInfo> Lines => lines;
         public IReadOnlyList<string> SemanticErrors => semanticErrors;
         public int FinalLocctr => locctr;
         public IReadOnlyDictionary<int, BlockInfo> BlockTable => blockTable;
 
-        /// <summary>
-        /// Realiza el Paso1 sobre el árbol AST generado por ANTLR.
-        /// </summary>
         public void Paso1(CommonTree ast)
         {
             if (ast == null) return;
 
-            // Inicializar el bloque por defecto (0)
+            // Bloque 0 por omisión
             blockTable[0] = new BlockInfo
             {
                 Name = "",
@@ -137,6 +98,7 @@ namespace Practica02
             blockLocctr[0] = 0;
             currentBlockNumber = 0;
 
+            // Recorremos AST
             int n = ast.ChildCount;
             for (int i = 0; i < n; i++)
             {
@@ -144,23 +106,36 @@ namespace Practica02
                 ProcessLine(child);
             }
 
-            // Calcular longitudes finales de cada bloque
-            foreach (var blockNum in blockLocctr.Keys)
+            // Longitud final
+            foreach (var bNum in blockLocctr.Keys)
             {
-                if (blockTable.ContainsKey(blockNum))
+                if (blockTable.ContainsKey(bNum))
                 {
-                    blockTable[blockNum].Length = blockLocctr[blockNum];
+                    var bi = blockTable[bNum];
+                    bi.Length = blockLocctr[bNum];
+                    blockTable[bNum] = bi;
                 }
             }
 
-            // Inyectar errores léx/sint
+            // Asignar StartAddress a cada bloque
+            {
+                int start = 0;
+                var sortedB = blockTable.Keys.OrderBy(k => k).ToList();
+                foreach (int b in sortedB)
+                {
+                    var infoB = blockTable[b];
+                    infoB.StartAddress = start;
+                    blockTable[b] = infoB;
+                    start += infoB.Length;
+                }
+            }
+
             InjectLexicalErrors();
         }
 
         private void InjectLexicalErrors()
         {
             LexicalErrors.Sort((a, b) => a.LineNumber.CompareTo(b.LineNumber));
-
             foreach (var lexErr in LexicalErrors)
             {
                 int errLine = lexErr.LineNumber;
@@ -188,7 +163,6 @@ namespace Practica02
                     mnemonicX = splitted[0];
                 }
 
-                // Buscamos la línea previa en "lines" con SourceLine < errLine
                 int prevIndex = -1;
                 for (int i = lines.Count - 1; i >= 0; i--)
                 {
@@ -220,9 +194,6 @@ namespace Practica02
             }
         }
 
-        /// <summary>
-        /// Procesa un nodo (línea) del AST: determina la etiqueta, opcode, operando, etc.
-        /// </summary>
         private void ProcessLine(ITree lineNode)
         {
             if (lineNode == null) return;
@@ -230,65 +201,67 @@ namespace Practica02
             if (lineNode.Text == "INSTR" || lineNode.Text == "DIR")
             {
                 int lineSource = lineNode.Line;
-                string label = "", opcode = "", operand = "", format = "-";
+                string label = "";
+                string opcode = "";
+                string operand = "";
+                string format = "-";
                 string error = "";
                 int inc = 0;
 
-                int ccount = lineNode.ChildCount;
-                if (ccount == 0) return;
+                int countChildren = lineNode.ChildCount;
+                if (countChildren == 0) return;
 
-                int index = 0;
-                var firstChild = lineNode.GetChild(0);
-                if (firstChild.Type == Gram_SICXEParser.ID)
+                int idx = 0;
+                var firstCh = lineNode.GetChild(0);
+                if (firstCh.Type == Gram_SICXEParser.ID)
                 {
-                    label = firstChild.Text;
-                    index++;
+                    label = firstCh.Text;
+                    idx++;
                 }
 
-                // Detectar si viene un '+' (formato 4)
-                if (index < ccount)
+                // Detecta '+' => formato 4
+                if (idx < countChildren)
                 {
-                    var tok = lineNode.GetChild(index).Text;
-                    if (tok == "+" && (index + 1 < ccount))
+                    var tk = lineNode.GetChild(idx).Text;
+                    if (tk == "+" && (idx + 1 < countChildren))
                     {
-                        opcode = "+" + lineNode.GetChild(index + 1).Text;
-                        index += 2;
+                        opcode = "+" + lineNode.GetChild(idx + 1).Text;
+                        idx += 2;
                     }
                     else
                     {
-                        opcode = tok;
-                        index++;
+                        opcode = tk;
+                        idx++;
                     }
                 }
 
-                // Operando
-                if (index < ccount)
+                // Toma el resto como operando
+                if (idx < countChildren)
                 {
-                    var parts = new List<string>();
-                    while (index < ccount)
+                    var opParts = new List<string>();
+                    while (idx < countChildren)
                     {
-                        var tk = lineNode.GetChild(index).Text;
-                        if ((tk == "#" || tk == "@") && (index + 1 < ccount))
+                        var tkk = lineNode.GetChild(idx).Text;
+                        if ((tkk == "#" || tkk == "@") && (idx + 1 < countChildren))
                         {
-                            // Ej: '#' + 'NUMERO', '@' + 'COUNT'
-                            parts.Add(tk + lineNode.GetChild(index + 1).Text);
-                            index += 2;
+                            opParts.Add(tkk + lineNode.GetChild(idx + 1).Text);
+                            idx += 2;
                         }
                         else
                         {
-                            parts.Add(tk);
-                            index++;
+                            opParts.Add(tkk);
+                            idx++;
                         }
                     }
-                    operand = string.Join("", parts);
+                    operand = string.Join("", opParts);
                 }
 
-                // Manejo especial de START
+                // START
                 if (opcode.Equals("START", StringComparison.OrdinalIgnoreCase))
                 {
                     if (string.IsNullOrEmpty(operand))
                     {
-                        error = ConcatError(error, "Error: Falta operando en START");
+                        error = ConcatError(error, "Falta operando en START");
                     }
                     else
                     {
@@ -309,7 +282,7 @@ namespace Practica02
                     return;
                 }
 
-                // Manejo especial de END
+                // END
                 if (opcode.Equals("END", StringComparison.OrdinalIgnoreCase))
                 {
                     lines.Add(new LineInfo
@@ -326,58 +299,44 @@ namespace Practica02
                     return;
                 }
 
-                // Manejo especial de USE (para bloques)
+                // USE => cambio de bloque
                 if (opcode.Equals("USE", StringComparison.OrdinalIgnoreCase))
                 {
-                    // Guardar el contador de localización actual para el bloque actual
                     blockLocctr[currentBlockNumber] = locctr;
 
-                    // Cambiar al nuevo bloque
                     if (string.IsNullOrEmpty(operand))
                     {
-                        // USE sin operando => volver al bloque por defecto (0)
                         currentBlockNumber = 0;
                     }
                     else
                     {
-                        // Buscar si el bloque ya existe
-                        int targetBlock = -1;
-                        foreach (var kvp in blockTable)
+                        int foundBlock = -1;
+                        foreach (var kv in blockTable)
                         {
-                            if (kvp.Value.Name.Equals(operand, StringComparison.OrdinalIgnoreCase))
+                            if (kv.Value.Name.Equals(operand, StringComparison.OrdinalIgnoreCase))
                             {
-                                targetBlock = kvp.Key;
+                                foundBlock = kv.Key;
                                 break;
                             }
                         }
-
-                        if (targetBlock < 0)
+                        if (foundBlock < 0)
                         {
-                            // Crear nuevo bloque
-                            int newBlockNum = blockTable.Count;
-                            blockTable[newBlockNum] = new BlockInfo
+                            int newB = blockTable.Count;
+                            blockTable[newB] = new BlockInfo
                             {
                                 Name = operand,
-                                Number = newBlockNum,
-                                StartAddress = 0, // Se calculará después
+                                Number = newB,
+                                StartAddress = 0,
                                 Length = 0
                             };
-
-                            if (!blockLocctr.ContainsKey(newBlockNum))
-                            {
-                                blockLocctr[newBlockNum] = 0;
-                            }
-
-                            currentBlockNumber = newBlockNum;
+                            if (!blockLocctr.ContainsKey(newB)) blockLocctr[newB] = 0;
+                            currentBlockNumber = newB;
                         }
                         else
                         {
-                            // Usar bloque existente
-                            currentBlockNumber = targetBlock;
+                            currentBlockNumber = foundBlock;
                         }
                     }
-
-                    // Actualizar el contador de localización al del bloque actual
                     locctr = blockLocctr[currentBlockNumber];
 
                     lines.Add(new LineInfo
@@ -394,15 +353,15 @@ namespace Practica02
                     return;
                 }
 
-                // Valida que el opcode exista (o directiva)
-                string checkOpcode = opcode.StartsWith("+") ? opcode.Substring(1) : opcode;
-                if (!validMnemonics.Contains(checkOpcode))
+                // Instrucción/Directiva
+                string checkOp = opcode.StartsWith("+") ? opcode.Substring(1) : opcode;
+                if (!validMnemonics.Contains(checkOp))
                 {
-                    error = ConcatError(error, "Error: Instrucción o Directiva no existe");
+                    error = ConcatError(error, "Instrucción/Directiva no existe");
                 }
 
-                // Determina formato
-                if (IsDirective(checkOpcode))
+                // Formato
+                if (IsDirective(checkOp))
                 {
                     format = "-";
                     inc = 0;
@@ -412,12 +371,12 @@ namespace Practica02
                     format = "F4";
                     inc = 4;
                 }
-                else if (form1Mnemonics.Contains(checkOpcode))
+                else if (form1Mnemonics.Contains(checkOp))
                 {
                     format = "F1";
                     inc = 1;
                 }
-                else if (form2Mnemonics.Contains(checkOpcode))
+                else if (form2Mnemonics.Contains(checkOp))
                 {
                     format = "F2";
                     inc = 2;
@@ -428,29 +387,33 @@ namespace Practica02
                     inc = 3;
                 }
 
-                // Directivas específicas
+                // Directivas
                 if (opcode.Equals("RESW", StringComparison.OrdinalIgnoreCase))
                 {
-                    var res = ExpressionTypeEvaluator.Evaluate(operand, symbolInfoTable, locctr);
-                    if (res.Type == ExprType.Error)
+                    var evr = ExpressionTypeEvaluator.Evaluate(
+                        operand, symbolInfoTable, locctr, currentBlockNumber, false
+                    );
+                    if (evr.Type == ExprType.Error)
                     {
-                        error = ConcatError(error, res.ErrorMsg);
+                        error = ConcatError(error, evr.ErrorMsg);
                     }
                     else
                     {
-                        inc = res.Value * 3;
+                        inc = evr.Value * 3;
                     }
                 }
                 else if (opcode.Equals("RESB", StringComparison.OrdinalIgnoreCase))
                 {
-                    var res = ExpressionTypeEvaluator.Evaluate(operand, symbolInfoTable, locctr);
-                    if (res.Type == ExprType.Error)
+                    var evr = ExpressionTypeEvaluator.Evaluate(
+                        operand, symbolInfoTable, locctr, currentBlockNumber, false
+                    );
+                    if (evr.Type == ExprType.Error)
                     {
-                        error = ConcatError(error, res.ErrorMsg);
+                        error = ConcatError(error, evr.ErrorMsg);
                     }
                     else
                     {
-                        inc = res.Value;
+                        inc = evr.Value;
                     }
                 }
                 else if (opcode.Equals("WORD", StringComparison.OrdinalIgnoreCase))
@@ -459,32 +422,30 @@ namespace Practica02
                 }
                 else if (opcode.Equals("BYTE", StringComparison.OrdinalIgnoreCase))
                 {
-                    int r = ComputeBYTE(operand, out string e2);
-                    if (!string.IsNullOrEmpty(e2)) error = ConcatError(error, e2);
-                    inc = r;
+                    inc = ComputeBYTE(operand, out string eByte);
+                    if (!string.IsNullOrEmpty(eByte)) error = ConcatError(error, eByte);
                 }
                 else if (opcode.Equals("BASE", StringComparison.OrdinalIgnoreCase))
                 {
-                    // BASE no incrementa locctr
                     inc = 0;
                 }
                 else if (opcode.Equals("EQU", StringComparison.OrdinalIgnoreCase))
                 {
-                    // EQU => no incrementa locctr; define un símbolo
                     if (string.IsNullOrEmpty(label))
                     {
-                        error = ConcatError(error, "Error: EQU sin etiqueta");
+                        error = ConcatError(error, "EQU sin etiqueta");
                     }
                     else
                     {
-                        var res = ExpressionTypeEvaluator.Evaluate(operand, symbolInfoTable, locctr);
-                        if (res.Type == ExprType.Error)
+                        var eqRes = ExpressionTypeEvaluator.Evaluate(
+                            operand, symbolInfoTable, locctr, currentBlockNumber, true
+                        );
+                        if (eqRes.Type == ExprType.Error)
                         {
-                            error = ConcatError(error, res.ErrorMsg);
-                            // Se podría insertar con valor 0, ABS
+                            error = ConcatError(error, eqRes.ErrorMsg);
                             symbolInfoTable[label] = new SymbolInfo
                             {
-                                Address = 0,
+                                Address = 0xFFFF,
                                 IsRelative = false,
                                 BlockNumber = currentBlockNumber,
                                 OriginalExpression = operand
@@ -492,11 +453,10 @@ namespace Practica02
                         }
                         else
                         {
-                            bool isRel = (res.Type == ExprType.Relative);
                             symbolInfoTable[label] = new SymbolInfo
                             {
-                                Address = res.Value,
-                                IsRelative = isRel,
+                                Address = eqRes.Value,
+                                IsRelative = (eqRes.Type == ExprType.Relative),
                                 BlockNumber = currentBlockNumber,
                                 OriginalExpression = operand
                             };
@@ -506,42 +466,41 @@ namespace Practica02
                 }
                 else if (opcode.Equals("ORG", StringComparison.OrdinalIgnoreCase))
                 {
-                    // ORG => cambia locctr al valor
-                    var res = ExpressionTypeEvaluator.Evaluate(operand, symbolInfoTable, locctr);
-                    if (res.Type == ExprType.Error)
+                    var orgRes = ExpressionTypeEvaluator.Evaluate(
+                        operand, symbolInfoTable, locctr, currentBlockNumber, false
+                    );
+                    if (orgRes.Type == ExprType.Error)
                     {
-                        error = ConcatError(error, res.ErrorMsg);
+                        error = ConcatError(error, orgRes.ErrorMsg);
                     }
                     else
                     {
-                        if (res.Type == ExprType.Relative)
+                        if (orgRes.Type == ExprType.Relative)
                         {
-                            error = ConcatError(error, "ORG con dirección relativa no es soportada");
+                            error = ConcatError(error, "ORG con dirección relativa no soportada");
                         }
                         else
                         {
-                            locctr = res.Value;
+                            locctr = orgRes.Value;
                             blockLocctr[currentBlockNumber] = locctr;
                         }
                     }
                     inc = 0;
                 }
 
-                // Insertar etiqueta (si no es START, EQU, etc.)
-                if (!string.IsNullOrEmpty(label) &&
-                    !opcode.Equals("START", StringComparison.OrdinalIgnoreCase) &&
-                    !opcode.Equals("EQU", StringComparison.OrdinalIgnoreCase))
+                // Definir símbolo
+                if (!string.IsNullOrEmpty(label)
+                    && !opcode.Equals("START", StringComparison.OrdinalIgnoreCase)
+                    && !opcode.Equals("EQU", StringComparison.OrdinalIgnoreCase))
                 {
-                    // Checar si ya existe
                     if (symbolInfoTable.ContainsKey(label))
                     {
-                        string msg = $"(Línea {lineSource}) Error: símbolo duplicado.";
+                        string msg = $"(Línea {lineSource}) Símbolo duplicado";
                         semanticErrors.Add(msg);
-                        error = ConcatError(error, "Error: símbolo duplicado");
+                        error = ConcatError(error, "Símbolo duplicado");
                     }
                     else
                     {
-                        // Por defecto, las etiquetas de código/datos son relativas
                         symbolInfoTable[label] = new SymbolInfo
                         {
                             Address = locctr,
@@ -552,12 +511,12 @@ namespace Practica02
                     }
                 }
 
-                // Agregar la línea con la expresión original para EQU y WORD
-                string originalExpr = "";
+                // Guardar la expresión original si es EQU/WORD
+                string origExpr = "";
                 if (opcode.Equals("EQU", StringComparison.OrdinalIgnoreCase) ||
                     opcode.Equals("WORD", StringComparison.OrdinalIgnoreCase))
                 {
-                    originalExpr = operand;
+                    origExpr = operand;
                 }
 
                 lines.Add(new LineInfo
@@ -570,10 +529,9 @@ namespace Practica02
                     Format = format,
                     Error = error,
                     BlockNumber = currentBlockNumber,
-                    OriginalExpression = originalExpr
+                    OriginalExpression = origExpr
                 });
 
-                // Incrementar locctr si corresponde
                 locctr += inc;
                 blockLocctr[currentBlockNumber] = locctr;
             }
@@ -596,6 +554,7 @@ namespace Practica02
         private int ComputeBYTE(string operand, out string error)
         {
             error = "";
+            operand = operand.Trim();
             if (operand.StartsWith("C'", StringComparison.OrdinalIgnoreCase))
             {
                 int i1 = operand.IndexOf('\'');
@@ -606,7 +565,7 @@ namespace Practica02
                     return 0;
                 }
                 string inside = operand.Substring(i1 + 1, i2 - (i1 + 1));
-                return inside.Length; // Cada carácter => 1 byte
+                return inside.Length;
             }
             else if (operand.StartsWith("X'", StringComparison.OrdinalIgnoreCase))
             {
@@ -618,26 +577,20 @@ namespace Practica02
                     return 0;
                 }
                 string inside = operand.Substring(i1 + 1, i2 - (i1 + 1));
-                // Cadena de hex => cada 2 dígitos = 1 byte
-                int nibbleCount = inside.Length;
-                return (nibbleCount + 1) / 2;
+                return (inside.Length + 1) / 2;
             }
             else
             {
-                error = "Error: BYTE solo soporta C'...' o X'...'";
+                error = "Error: BYTE soporta C'...' o X'...'";
                 return 0;
             }
         }
 
-        /// <summary>
-        /// Parsea un string como decimal o hex (sufijo 'H').
-        /// </summary>
         private int ParseHexOrDecimal(string s)
         {
             s = s.Trim();
             if (string.IsNullOrEmpty(s)) return 0;
 
-            // Hex con sufijo H
             if (s.EndsWith("H", StringComparison.OrdinalIgnoreCase))
             {
                 string hexPart = s.Substring(0, s.Length - 1);
@@ -645,12 +598,9 @@ namespace Practica02
                     return valHex;
                 return 0;
             }
-
-            // Decimal
             if (int.TryParse(s, out int valDec))
                 return valDec;
 
-            // No parseado => 0
             return 0;
         }
 
@@ -664,51 +614,40 @@ namespace Practica02
         {
             using (var sw = new StreamWriter(filePath, false))
             {
-                sw.WriteLine("=== TABLA PRINCIPAL (CP, Símbolo, Instrucción, Operando, Formato, Error) ===");
-                sw.WriteLine("CP       Símbolo     Instrucción   Operando   Formato   Error");
+                sw.WriteLine("=== TABLA PRINCIPAL (CP, Símbolo, Instr, Operando, Formato, Error) ===");
+                sw.WriteLine("CP    Símbolo   Instr   Operando   Formato  Error");
                 foreach (var ln in lines)
                 {
                     string cpHex = ln.Address.ToString("X6");
                     string sym = ln.Label ?? "-";
                     string mnemo = ln.Mnemonic ?? "-";
-
-                    // Usar la expresión original si existe
-                    string oper = !string.IsNullOrEmpty(ln.OriginalExpression) ? ln.OriginalExpression : (ln.Operand ?? "-");
-
+                    string oper = string.IsNullOrEmpty(ln.OriginalExpression)
+                                  ? (ln.Operand ?? "-")
+                                  : ln.OriginalExpression;
                     string fmt = ln.Format ?? "-";
                     string err = ln.Error ?? "";
-                    sw.WriteLine($"{cpHex,-8}  {sym,-10}  {mnemo,-12}  {oper,-10}  {fmt,-7}  {err}");
+                    sw.WriteLine($"{cpHex,-6} {sym,-8} {mnemo,-8} {oper,-10} {fmt,-5} {err}");
                 }
-                sw.WriteLine();
 
+                sw.WriteLine();
                 if (symbolInfoTable.Count > 0)
                 {
-                    sw.WriteLine("=== TABSIC (Símbolo, Dirección, Tipo) ===");
+                    sw.WriteLine("=== TABSIC (Símbolo, Dirección, Tipo, Bloque) ===");
                     foreach (var kvp in symbolInfoTable)
                     {
                         string name = kvp.Key;
-                        int addr = kvp.Value.Address;
-                        bool isRel = kvp.Value.IsRelative;
-                        int blockNum = kvp.Value.BlockNumber;
-
-                        sw.WriteLine($"{name,-12}  0x{addr:X6}  {(isRel ? "REL" : "ABS")}  {blockNum}");
+                        var si = kvp.Value;
+                        string relOrAbs = si.IsRelative ? "REL" : "ABS";
+                        sw.WriteLine($"{name,-10} 0x{si.Address:X6} {relOrAbs} {si.BlockNumber}");
                     }
                     sw.WriteLine();
                 }
-
-                // Tabla de bloques
-                sw.WriteLine("\nTabla de Bloques (No., Nombre, Dirección, Longitud):");
-                sw.WriteLine("----------------------------------------------");
-                foreach (var kvp in blockTable)
+                sw.WriteLine("=== Tabla de Bloques ===");
+                foreach (var bkv in blockTable)
                 {
-                    int blockNum = kvp.Key;
-                    string blockName = kvp.Value.Name;
-                    if (string.IsNullOrEmpty(blockName))
-                        blockName = "(por omisión)";
-                    int startAddr = kvp.Value.StartAddress;
-                    int length = kvp.Value.Length;
-
-                    sw.WriteLine($"{blockNum,-5}  {blockName,-15}  0x{startAddr:X6}  0x{length:X6}");
+                    int nb = bkv.Key;
+                    var bi = bkv.Value;
+                    sw.WriteLine($"Bloque {nb}: nombre='{bi.Name}' start={bi.StartAddress} length=0x{bi.Length:X4}");
                 }
             }
         }
@@ -717,36 +656,32 @@ namespace Practica02
         {
             using (var sw = new StreamWriter(filePath, false))
             {
-                // 1) Errores léx/sint
                 if (errores.Count > 0)
                 {
-                    sw.WriteLine("=== ERRORES LEXICOS/SINTACTICOS ===");
+                    sw.WriteLine("=== Errores Léxicos/Sintácticos ===");
                     foreach (var e in errores) sw.WriteLine(e);
                     sw.WriteLine();
                 }
 
-                // 2) Errores en lines
-                bool anyErr = false;
+                bool anyError = false;
                 foreach (var ln in lines)
                 {
                     if (!string.IsNullOrEmpty(ln.Error))
                     {
-                        anyErr = true;
-                        sw.WriteLine($"[Línea {ln.SourceLine}] (CP=0x{ln.Address:X4}) " +
-                                     $"LABEL='{ln.Label}' MNEMONIC='{ln.Mnemonic}' " +
-                                     $"OPERAND='{ln.Operand}' => {ln.Error}");
+                        anyError = true;
+                        sw.WriteLine($"[Línea {ln.SourceLine}] CP=0x{ln.Address:X4} '{ln.Label}' '{ln.Mnemonic}' => {ln.Error}");
                     }
                 }
-                if (anyErr) sw.WriteLine();
+                if (anyError) sw.WriteLine();
 
-                // 3) Errores semánticos
                 if (semanticErrors.Count > 0)
                 {
-                    sw.WriteLine("=== ERRORES SEMANTICOS ===");
-                    foreach (var sE in semanticErrors) sw.WriteLine(sE);
+                    sw.WriteLine("=== Errores Semánticos ===");
+                    foreach (var sErr in semanticErrors) sw.WriteLine(sErr);
                     sw.WriteLine();
                 }
             }
         }
     }
+
 }
