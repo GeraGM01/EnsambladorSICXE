@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-// $ANTLR 3.5.1 C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g 2025-04-16 23:09:02
+// $ANTLR 3.5.1 C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g 2025-04-21 15:00:12
 
 // The variable 'variable' is assigned but its value is never used.
 #pragma warning disable 219
@@ -442,7 +442,7 @@ public partial class Gram_SICXEParser : Antlr.Runtime.Parser
 
 			{
 			// AST REWRITE
-			// elements: v, et, s
+			// elements: et, v, s
 			// token labels: s, v
 			// rule labels: retval, et
 			// token list labels: 
@@ -589,7 +589,7 @@ public partial class Gram_SICXEParser : Antlr.Runtime.Parser
 
 			{
 			// AST REWRITE
-			// elements: ent, e
+			// elements: e, ent
 			// token labels: e
 			// rule labels: ent, retval
 			// token list labels: 
@@ -1774,7 +1774,7 @@ public partial class Gram_SICXEParser : Antlr.Runtime.Parser
 	partial void EnterRule_f4();
 	partial void LeaveRule_f4();
 	// $ANTLR start "f4"
-	// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:266:1: f4 : PLUS f3 ;
+	// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:265:1: f4 : PLUS f3 ;
 	[GrammarRule("f4")]
 	private AstParserRuleReturnScope<object, IToken> f4()
 	{
@@ -1791,21 +1791,21 @@ public partial class Gram_SICXEParser : Antlr.Runtime.Parser
 
 		object PLUS37_tree = default(object);
 		try { DebugEnterRule(GrammarFileName, "f4");
-		DebugLocation(266, 0);
+		DebugLocation(265, 4);
 		try
 		{
-			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:267:3: ( PLUS f3 )
+			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:266:5: ( PLUS f3 )
 			DebugEnterAlt(1);
-			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:267:3: PLUS f3
+			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:266:7: PLUS f3
 			{
 			root_0 = (object)adaptor.Nil();
 
-			DebugLocation(267, 3);
-			PLUS37=(IToken)Match(input,PLUS,Follow._PLUS_in_f41690); 
+			DebugLocation(266, 7);
+			PLUS37=(IToken)Match(input,PLUS,Follow._PLUS_in_f41693); 
 			PLUS37_tree = (object)adaptor.Create(PLUS37);
 			adaptor.AddChild(root_0, PLUS37_tree);
-			DebugLocation(267, 8);
-			PushFollow(Follow._f3_in_f41692);
+			DebugLocation(266, 12);
+			PushFollow(Follow._f3_in_f41695);
 			f338=f3();
 			PopFollow();
 
@@ -1832,7 +1832,7 @@ public partial class Gram_SICXEParser : Antlr.Runtime.Parser
 			LeaveRule("f4", 14);
 			LeaveRule_f4();
 		}
-		DebugLocation(268, 0);
+		DebugLocation(267, 4);
 		} finally { DebugExitRule(GrammarFileName, "f4"); }
 		return retval;
 
@@ -1842,7 +1842,7 @@ public partial class Gram_SICXEParser : Antlr.Runtime.Parser
 	partial void EnterRule_indexado();
 	partial void LeaveRule_indexado();
 	// $ANTLR start "indexado"
-	// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:271:1: indexado : F34CODOP INDICE ;
+	// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:270:1: indexado : F34CODOP INDICE ;
 	[GrammarRule("indexado")]
 	private AstParserRuleReturnScope<object, IToken> indexado()
 	{
@@ -1860,21 +1860,21 @@ public partial class Gram_SICXEParser : Antlr.Runtime.Parser
 		object F34CODOP39_tree = default(object);
 		object INDICE40_tree = default(object);
 		try { DebugEnterRule(GrammarFileName, "indexado");
-		DebugLocation(271, 4);
+		DebugLocation(270, 4);
 		try
 		{
-			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:272:5: ( F34CODOP INDICE )
+			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:271:5: ( F34CODOP INDICE )
 			DebugEnterAlt(1);
-			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:272:7: F34CODOP INDICE
+			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:271:7: F34CODOP INDICE
 			{
 			root_0 = (object)adaptor.Nil();
 
-			DebugLocation(272, 7);
-			F34CODOP39=(IToken)Match(input,F34CODOP,Follow._F34CODOP_in_indexado1706); 
+			DebugLocation(271, 7);
+			F34CODOP39=(IToken)Match(input,F34CODOP,Follow._F34CODOP_in_indexado1713); 
 			F34CODOP39_tree = (object)adaptor.Create(F34CODOP39);
 			adaptor.AddChild(root_0, F34CODOP39_tree);
-			DebugLocation(272, 16);
-			INDICE40=(IToken)Match(input,INDICE,Follow._INDICE_in_indexado1708); 
+			DebugLocation(271, 16);
+			INDICE40=(IToken)Match(input,INDICE,Follow._INDICE_in_indexado1715); 
 			INDICE40_tree = (object)adaptor.Create(INDICE40);
 			adaptor.AddChild(root_0, INDICE40_tree);
 
@@ -1899,7 +1899,7 @@ public partial class Gram_SICXEParser : Antlr.Runtime.Parser
 			LeaveRule("indexado", 15);
 			LeaveRule_indexado();
 		}
-		DebugLocation(273, 4);
+		DebugLocation(272, 4);
 		} finally { DebugExitRule(GrammarFileName, "indexado"); }
 		return retval;
 
@@ -1909,7 +1909,7 @@ public partial class Gram_SICXEParser : Antlr.Runtime.Parser
 	partial void EnterRule_simple3();
 	partial void LeaveRule_simple3();
 	// $ANTLR start "simple3"
-	// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:276:1: simple3 : F34CODOP ( expresion )? ( ',' REG )? ;
+	// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:275:1: simple3 : F34CODOP ( expresion )? ( ',' REG )? ;
 	[GrammarRule("simple3")]
 	private AstParserRuleReturnScope<object, IToken> simple3()
 	{
@@ -1930,21 +1930,21 @@ public partial class Gram_SICXEParser : Antlr.Runtime.Parser
 		object char_literal43_tree = default(object);
 		object REG44_tree = default(object);
 		try { DebugEnterRule(GrammarFileName, "simple3");
-		DebugLocation(276, 4);
+		DebugLocation(275, 4);
 		try
 		{
-			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:277:5: ( F34CODOP ( expresion )? ( ',' REG )? )
+			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:276:5: ( F34CODOP ( expresion )? ( ',' REG )? )
 			DebugEnterAlt(1);
-			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:277:7: F34CODOP ( expresion )? ( ',' REG )?
+			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:276:7: F34CODOP ( expresion )? ( ',' REG )?
 			{
 			root_0 = (object)adaptor.Nil();
 
-			DebugLocation(277, 7);
-			F34CODOP41=(IToken)Match(input,F34CODOP,Follow._F34CODOP_in_simple31726); 
+			DebugLocation(276, 7);
+			F34CODOP41=(IToken)Match(input,F34CODOP,Follow._F34CODOP_in_simple31733); 
 			F34CODOP41_tree = (object)adaptor.Create(F34CODOP41);
 			adaptor.AddChild(root_0, F34CODOP41_tree);
-			DebugLocation(277, 16);
-			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:277:16: ( expresion )?
+			DebugLocation(276, 16);
+			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:276:16: ( expresion )?
 			int alt12=2;
 			try { DebugEnterSubRule(12);
 			try { DebugEnterDecision(12, false);
@@ -1959,10 +1959,10 @@ public partial class Gram_SICXEParser : Antlr.Runtime.Parser
 			{
 			case 1:
 				DebugEnterAlt(1);
-				// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:277:17: expresion
+				// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:276:17: expresion
 				{
-				DebugLocation(277, 17);
-				PushFollow(Follow._expresion_in_simple31729);
+				DebugLocation(276, 17);
+				PushFollow(Follow._expresion_in_simple31736);
 				expresion42=expresion();
 				PopFollow();
 
@@ -1974,8 +1974,8 @@ public partial class Gram_SICXEParser : Antlr.Runtime.Parser
 			}
 			} finally { DebugExitSubRule(12); }
 
-			DebugLocation(277, 29);
-			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:277:29: ( ',' REG )?
+			DebugLocation(276, 29);
+			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:276:29: ( ',' REG )?
 			int alt13=2;
 			try { DebugEnterSubRule(13);
 			try { DebugEnterDecision(13, false);
@@ -1990,14 +1990,14 @@ public partial class Gram_SICXEParser : Antlr.Runtime.Parser
 			{
 			case 1:
 				DebugEnterAlt(1);
-				// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:277:30: ',' REG
+				// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:276:30: ',' REG
 				{
-				DebugLocation(277, 30);
-				char_literal43=(IToken)Match(input,41,Follow._41_in_simple31734); 
+				DebugLocation(276, 30);
+				char_literal43=(IToken)Match(input,41,Follow._41_in_simple31741); 
 				char_literal43_tree = (object)adaptor.Create(char_literal43);
 				adaptor.AddChild(root_0, char_literal43_tree);
-				DebugLocation(277, 34);
-				REG44=(IToken)Match(input,REG,Follow._REG_in_simple31736); 
+				DebugLocation(276, 34);
+				REG44=(IToken)Match(input,REG,Follow._REG_in_simple31743); 
 				REG44_tree = (object)adaptor.Create(REG44);
 				adaptor.AddChild(root_0, REG44_tree);
 
@@ -2029,7 +2029,7 @@ public partial class Gram_SICXEParser : Antlr.Runtime.Parser
 			LeaveRule("simple3", 16);
 			LeaveRule_simple3();
 		}
-		DebugLocation(278, 4);
+		DebugLocation(277, 4);
 		} finally { DebugExitRule(GrammarFileName, "simple3"); }
 		return retval;
 
@@ -2039,7 +2039,7 @@ public partial class Gram_SICXEParser : Antlr.Runtime.Parser
 	partial void EnterRule_indirecto3();
 	partial void LeaveRule_indirecto3();
 	// $ANTLR start "indirecto3"
-	// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:281:1: indirecto3 : F34CODOP AT expresion ;
+	// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:280:1: indirecto3 : F34CODOP AT expresion ;
 	[GrammarRule("indirecto3")]
 	private AstParserRuleReturnScope<object, IToken> indirecto3()
 	{
@@ -2058,25 +2058,25 @@ public partial class Gram_SICXEParser : Antlr.Runtime.Parser
 		object F34CODOP45_tree = default(object);
 		object AT46_tree = default(object);
 		try { DebugEnterRule(GrammarFileName, "indirecto3");
-		DebugLocation(281, 4);
+		DebugLocation(280, 4);
 		try
 		{
-			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:282:5: ( F34CODOP AT expresion )
+			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:281:5: ( F34CODOP AT expresion )
 			DebugEnterAlt(1);
-			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:282:7: F34CODOP AT expresion
+			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:281:7: F34CODOP AT expresion
 			{
 			root_0 = (object)adaptor.Nil();
 
-			DebugLocation(282, 7);
-			F34CODOP45=(IToken)Match(input,F34CODOP,Follow._F34CODOP_in_indirecto31757); 
+			DebugLocation(281, 7);
+			F34CODOP45=(IToken)Match(input,F34CODOP,Follow._F34CODOP_in_indirecto31764); 
 			F34CODOP45_tree = (object)adaptor.Create(F34CODOP45);
 			adaptor.AddChild(root_0, F34CODOP45_tree);
-			DebugLocation(282, 16);
-			AT46=(IToken)Match(input,AT,Follow._AT_in_indirecto31759); 
+			DebugLocation(281, 16);
+			AT46=(IToken)Match(input,AT,Follow._AT_in_indirecto31766); 
 			AT46_tree = (object)adaptor.Create(AT46);
 			adaptor.AddChild(root_0, AT46_tree);
-			DebugLocation(282, 19);
-			PushFollow(Follow._expresion_in_indirecto31761);
+			DebugLocation(281, 19);
+			PushFollow(Follow._expresion_in_indirecto31768);
 			expresion47=expresion();
 			PopFollow();
 
@@ -2103,7 +2103,7 @@ public partial class Gram_SICXEParser : Antlr.Runtime.Parser
 			LeaveRule("indirecto3", 17);
 			LeaveRule_indirecto3();
 		}
-		DebugLocation(283, 4);
+		DebugLocation(282, 4);
 		} finally { DebugExitRule(GrammarFileName, "indirecto3"); }
 		return retval;
 
@@ -2113,7 +2113,7 @@ public partial class Gram_SICXEParser : Antlr.Runtime.Parser
 	partial void EnterRule_inmediato3();
 	partial void LeaveRule_inmediato3();
 	// $ANTLR start "inmediato3"
-	// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:286:1: inmediato3 : F34CODOP NUMERAL expresion ;
+	// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:285:1: inmediato3 : F34CODOP NUMERAL expresion ;
 	[GrammarRule("inmediato3")]
 	private AstParserRuleReturnScope<object, IToken> inmediato3()
 	{
@@ -2132,25 +2132,25 @@ public partial class Gram_SICXEParser : Antlr.Runtime.Parser
 		object F34CODOP48_tree = default(object);
 		object NUMERAL49_tree = default(object);
 		try { DebugEnterRule(GrammarFileName, "inmediato3");
-		DebugLocation(286, 0);
+		DebugLocation(285, 4);
 		try
 		{
-			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:287:3: ( F34CODOP NUMERAL expresion )
+			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:286:5: ( F34CODOP NUMERAL expresion )
 			DebugEnterAlt(1);
-			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:287:3: F34CODOP NUMERAL expresion
+			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:286:7: F34CODOP NUMERAL expresion
 			{
 			root_0 = (object)adaptor.Nil();
 
-			DebugLocation(287, 3);
-			F34CODOP48=(IToken)Match(input,F34CODOP,Follow._F34CODOP_in_inmediato31775); 
+			DebugLocation(286, 7);
+			F34CODOP48=(IToken)Match(input,F34CODOP,Follow._F34CODOP_in_inmediato31786); 
 			F34CODOP48_tree = (object)adaptor.Create(F34CODOP48);
 			adaptor.AddChild(root_0, F34CODOP48_tree);
-			DebugLocation(287, 12);
-			NUMERAL49=(IToken)Match(input,NUMERAL,Follow._NUMERAL_in_inmediato31777); 
+			DebugLocation(286, 16);
+			NUMERAL49=(IToken)Match(input,NUMERAL,Follow._NUMERAL_in_inmediato31788); 
 			NUMERAL49_tree = (object)adaptor.Create(NUMERAL49);
 			adaptor.AddChild(root_0, NUMERAL49_tree);
-			DebugLocation(287, 20);
-			PushFollow(Follow._expresion_in_inmediato31779);
+			DebugLocation(286, 24);
+			PushFollow(Follow._expresion_in_inmediato31790);
 			expresion50=expresion();
 			PopFollow();
 
@@ -2177,7 +2177,7 @@ public partial class Gram_SICXEParser : Antlr.Runtime.Parser
 			LeaveRule("inmediato3", 18);
 			LeaveRule_inmediato3();
 		}
-		DebugLocation(288, 0);
+		DebugLocation(287, 4);
 		} finally { DebugExitRule(GrammarFileName, "inmediato3"); }
 		return retval;
 
@@ -2187,7 +2187,7 @@ public partial class Gram_SICXEParser : Antlr.Runtime.Parser
 	partial void EnterRule_directiva();
 	partial void LeaveRule_directiva();
 	// $ANTLR start "directiva"
-	// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:293:1: directiva : ( etiqueta )? tipodirectiva ( opdirectiva )? FINL -> ^( DIR ( etiqueta )? tipodirectiva ( opdirectiva )? ) ;
+	// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:292:1: directiva : ( etiqueta )? tipodirectiva ( opdirectiva )? FINL -> ^( DIR ( etiqueta )? tipodirectiva ( opdirectiva )? ) ;
 	[GrammarRule("directiva")]
 	private AstParserRuleReturnScope<object, IToken> directiva()
 	{
@@ -2210,15 +2210,15 @@ public partial class Gram_SICXEParser : Antlr.Runtime.Parser
 		RewriteRuleSubtreeStream stream_opdirectiva=new RewriteRuleSubtreeStream(adaptor,"rule opdirectiva");
 		RewriteRuleSubtreeStream stream_tipodirectiva=new RewriteRuleSubtreeStream(adaptor,"rule tipodirectiva");
 		try { DebugEnterRule(GrammarFileName, "directiva");
-		DebugLocation(293, 4);
+		DebugLocation(292, 4);
 		try
 		{
-			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:294:5: ( ( etiqueta )? tipodirectiva ( opdirectiva )? FINL -> ^( DIR ( etiqueta )? tipodirectiva ( opdirectiva )? ) )
+			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:293:5: ( ( etiqueta )? tipodirectiva ( opdirectiva )? FINL -> ^( DIR ( etiqueta )? tipodirectiva ( opdirectiva )? ) )
 			DebugEnterAlt(1);
-			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:294:7: ( etiqueta )? tipodirectiva ( opdirectiva )? FINL
+			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:293:7: ( etiqueta )? tipodirectiva ( opdirectiva )? FINL
 			{
-			DebugLocation(294, 7);
-			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:294:7: ( etiqueta )?
+			DebugLocation(293, 7);
+			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:293:7: ( etiqueta )?
 			int alt14=2;
 			try { DebugEnterSubRule(14);
 			try { DebugEnterDecision(14, false);
@@ -2233,10 +2233,10 @@ public partial class Gram_SICXEParser : Antlr.Runtime.Parser
 			{
 			case 1:
 				DebugEnterAlt(1);
-				// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:294:7: etiqueta
+				// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:293:7: etiqueta
 				{
-				DebugLocation(294, 7);
-				PushFollow(Follow._etiqueta_in_directiva1795);
+				DebugLocation(293, 7);
+				PushFollow(Follow._etiqueta_in_directiva1810);
 				etiqueta51=etiqueta();
 				PopFollow();
 
@@ -2248,14 +2248,14 @@ public partial class Gram_SICXEParser : Antlr.Runtime.Parser
 			}
 			} finally { DebugExitSubRule(14); }
 
-			DebugLocation(294, 17);
-			PushFollow(Follow._tipodirectiva_in_directiva1798);
+			DebugLocation(293, 17);
+			PushFollow(Follow._tipodirectiva_in_directiva1813);
 			tipodirectiva52=tipodirectiva();
 			PopFollow();
 
 			stream_tipodirectiva.Add(tipodirectiva52.Tree);
-			DebugLocation(294, 31);
-			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:294:31: ( opdirectiva )?
+			DebugLocation(293, 31);
+			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:293:31: ( opdirectiva )?
 			int alt15=2;
 			try { DebugEnterSubRule(15);
 			try { DebugEnterDecision(15, false);
@@ -2270,10 +2270,10 @@ public partial class Gram_SICXEParser : Antlr.Runtime.Parser
 			{
 			case 1:
 				DebugEnterAlt(1);
-				// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:294:32: opdirectiva
+				// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:293:32: opdirectiva
 				{
-				DebugLocation(294, 32);
-				PushFollow(Follow._opdirectiva_in_directiva1801);
+				DebugLocation(293, 32);
+				PushFollow(Follow._opdirectiva_in_directiva1816);
 				opdirectiva53=opdirectiva();
 				PopFollow();
 
@@ -2285,15 +2285,15 @@ public partial class Gram_SICXEParser : Antlr.Runtime.Parser
 			}
 			} finally { DebugExitSubRule(15); }
 
-			DebugLocation(294, 46);
-			FINL54=(IToken)Match(input,FINL,Follow._FINL_in_directiva1805);  
+			DebugLocation(293, 46);
+			FINL54=(IToken)Match(input,FINL,Follow._FINL_in_directiva1820);  
 			stream_FINL.Add(FINL54);
 
 
 
 			{
 			// AST REWRITE
-			// elements: opdirectiva, tipodirectiva, etiqueta
+			// elements: etiqueta, opdirectiva, tipodirectiva
 			// token labels: 
 			// rule labels: retval
 			// token list labels: 
@@ -2303,31 +2303,31 @@ public partial class Gram_SICXEParser : Antlr.Runtime.Parser
 			RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.Tree:null);
 
 			root_0 = (object)adaptor.Nil();
-			// 295:7: -> ^( DIR ( etiqueta )? tipodirectiva ( opdirectiva )? )
+			// 294:7: -> ^( DIR ( etiqueta )? tipodirectiva ( opdirectiva )? )
 			{
-				DebugLocation(295, 10);
-				// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:295:10: ^( DIR ( etiqueta )? tipodirectiva ( opdirectiva )? )
+				DebugLocation(294, 10);
+				// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:294:10: ^( DIR ( etiqueta )? tipodirectiva ( opdirectiva )? )
 				{
 				object root_1 = (object)adaptor.Nil();
-				DebugLocation(295, 12);
+				DebugLocation(294, 12);
 				root_1 = (object)adaptor.BecomeRoot((object)adaptor.Create(DIR, "DIR"), root_1);
 
-				DebugLocation(295, 16);
-				// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:295:16: ( etiqueta )?
+				DebugLocation(294, 16);
+				// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:294:16: ( etiqueta )?
 				if (stream_etiqueta.HasNext)
 				{
-					DebugLocation(295, 17);
+					DebugLocation(294, 17);
 					adaptor.AddChild(root_1, stream_etiqueta.NextTree());
 
 				}
 				stream_etiqueta.Reset();
-				DebugLocation(295, 28);
+				DebugLocation(294, 28);
 				adaptor.AddChild(root_1, stream_tipodirectiva.NextTree());
-				DebugLocation(295, 42);
-				// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:295:42: ( opdirectiva )?
+				DebugLocation(294, 42);
+				// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:294:42: ( opdirectiva )?
 				if (stream_opdirectiva.HasNext)
 				{
-					DebugLocation(295, 43);
+					DebugLocation(294, 43);
 					adaptor.AddChild(root_1, stream_opdirectiva.NextTree());
 
 				}
@@ -2362,7 +2362,7 @@ public partial class Gram_SICXEParser : Antlr.Runtime.Parser
 			LeaveRule("directiva", 19);
 			LeaveRule_directiva();
 		}
-		DebugLocation(296, 4);
+		DebugLocation(295, 4);
 		} finally { DebugExitRule(GrammarFileName, "directiva"); }
 		return retval;
 
@@ -2372,7 +2372,7 @@ public partial class Gram_SICXEParser : Antlr.Runtime.Parser
 	partial void EnterRule_tipodirectiva();
 	partial void LeaveRule_tipodirectiva();
 	// $ANTLR start "tipodirectiva"
-	// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:298:1: tipodirectiva : ( BYTE | WORD | RESB | RESW | BASE | EQU | ORG | USE );
+	// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:297:1: tipodirectiva : ( BYTE | WORD | RESB | RESW | BASE | EQU | ORG | USE );
 	[GrammarRule("tipodirectiva")]
 	private AstParserRuleReturnScope<object, IToken> tipodirectiva()
 	{
@@ -2388,16 +2388,16 @@ public partial class Gram_SICXEParser : Antlr.Runtime.Parser
 
 		object set55_tree = default(object);
 		try { DebugEnterRule(GrammarFileName, "tipodirectiva");
-		DebugLocation(298, 4);
+		DebugLocation(297, 4);
 		try
 		{
-			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:299:5: ( BYTE | WORD | RESB | RESW | BASE | EQU | ORG | USE )
+			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:298:5: ( BYTE | WORD | RESB | RESW | BASE | EQU | ORG | USE )
 			DebugEnterAlt(1);
 			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:
 			{
 			root_0 = (object)adaptor.Nil();
 
-			DebugLocation(299, 5);
+			DebugLocation(298, 5);
 
 			set55=(IToken)input.LT(1);
 			if ((input.LA(1)>=BASE && input.LA(1)<=BYTE)||input.LA(1)==EQU||input.LA(1)==ORG||(input.LA(1)>=RESB && input.LA(1)<=RESW)||(input.LA(1)>=USE && input.LA(1)<=WORD))
@@ -2435,7 +2435,7 @@ public partial class Gram_SICXEParser : Antlr.Runtime.Parser
 			LeaveRule("tipodirectiva", 20);
 			LeaveRule_tipodirectiva();
 		}
-		DebugLocation(307, 4);
+		DebugLocation(306, 4);
 		} finally { DebugExitRule(GrammarFileName, "tipodirectiva"); }
 		return retval;
 
@@ -2445,7 +2445,7 @@ public partial class Gram_SICXEParser : Antlr.Runtime.Parser
 	partial void EnterRule_opdirectiva();
 	partial void LeaveRule_opdirectiva();
 	// $ANTLR start "opdirectiva"
-	// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:310:1: opdirectiva : expresion ;
+	// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:309:1: opdirectiva : expresion ;
 	[GrammarRule("opdirectiva")]
 	private AstParserRuleReturnScope<object, IToken> opdirectiva()
 	{
@@ -2460,17 +2460,17 @@ public partial class Gram_SICXEParser : Antlr.Runtime.Parser
 		AstParserRuleReturnScope<object, IToken> expresion56 = default(AstParserRuleReturnScope<object, IToken>);
 
 		try { DebugEnterRule(GrammarFileName, "opdirectiva");
-		DebugLocation(310, 4);
+		DebugLocation(309, 4);
 		try
 		{
-			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:311:5: ( expresion )
+			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:310:5: ( expresion )
 			DebugEnterAlt(1);
-			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:311:7: expresion
+			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:310:7: expresion
 			{
 			root_0 = (object)adaptor.Nil();
 
-			DebugLocation(311, 7);
-			PushFollow(Follow._expresion_in_opdirectiva1924);
+			DebugLocation(310, 7);
+			PushFollow(Follow._expresion_in_opdirectiva1939);
 			expresion56=expresion();
 			PopFollow();
 
@@ -2497,7 +2497,7 @@ public partial class Gram_SICXEParser : Antlr.Runtime.Parser
 			LeaveRule("opdirectiva", 21);
 			LeaveRule_opdirectiva();
 		}
-		DebugLocation(312, 4);
+		DebugLocation(311, 4);
 		} finally { DebugExitRule(GrammarFileName, "opdirectiva"); }
 		return retval;
 
@@ -2507,7 +2507,7 @@ public partial class Gram_SICXEParser : Antlr.Runtime.Parser
 	partial void EnterRule_etiqueta();
 	partial void LeaveRule_etiqueta();
 	// $ANTLR start "etiqueta"
-	// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:315:1: etiqueta : ID ;
+	// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:314:1: etiqueta : ID ;
 	[GrammarRule("etiqueta")]
 	private AstParserRuleReturnScope<object, IToken> etiqueta()
 	{
@@ -2523,17 +2523,17 @@ public partial class Gram_SICXEParser : Antlr.Runtime.Parser
 
 		object ID57_tree = default(object);
 		try { DebugEnterRule(GrammarFileName, "etiqueta");
-		DebugLocation(315, 4);
+		DebugLocation(314, 4);
 		try
 		{
-			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:316:5: ( ID )
+			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:315:5: ( ID )
 			DebugEnterAlt(1);
-			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:316:7: ID
+			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:315:7: ID
 			{
 			root_0 = (object)adaptor.Nil();
 
-			DebugLocation(316, 7);
-			ID57=(IToken)Match(input,ID,Follow._ID_in_etiqueta1942); 
+			DebugLocation(315, 7);
+			ID57=(IToken)Match(input,ID,Follow._ID_in_etiqueta1957); 
 			ID57_tree = (object)adaptor.Create(ID57);
 			adaptor.AddChild(root_0, ID57_tree);
 
@@ -2558,7 +2558,7 @@ public partial class Gram_SICXEParser : Antlr.Runtime.Parser
 			LeaveRule("etiqueta", 22);
 			LeaveRule_etiqueta();
 		}
-		DebugLocation(317, 4);
+		DebugLocation(316, 4);
 		} finally { DebugExitRule(GrammarFileName, "etiqueta"); }
 		return retval;
 
@@ -2568,7 +2568,7 @@ public partial class Gram_SICXEParser : Antlr.Runtime.Parser
 	partial void EnterRule_expresion();
 	partial void LeaveRule_expresion();
 	// $ANTLR start "expresion"
-	// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:322:1: expresion : exprAddSub ;
+	// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:321:1: expresion : exprAddSub ;
 	[GrammarRule("expresion")]
 	private AstParserRuleReturnScope<object, IToken> expresion()
 	{
@@ -2583,17 +2583,17 @@ public partial class Gram_SICXEParser : Antlr.Runtime.Parser
 		AstParserRuleReturnScope<object, IToken> exprAddSub58 = default(AstParserRuleReturnScope<object, IToken>);
 
 		try { DebugEnterRule(GrammarFileName, "expresion");
-		DebugLocation(322, 4);
+		DebugLocation(321, 4);
 		try
 		{
-			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:323:5: ( exprAddSub )
+			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:322:5: ( exprAddSub )
 			DebugEnterAlt(1);
-			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:323:7: exprAddSub
+			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:322:7: exprAddSub
 			{
 			root_0 = (object)adaptor.Nil();
 
-			DebugLocation(323, 7);
-			PushFollow(Follow._exprAddSub_in_expresion1962);
+			DebugLocation(322, 7);
+			PushFollow(Follow._exprAddSub_in_expresion1977);
 			exprAddSub58=exprAddSub();
 			PopFollow();
 
@@ -2620,7 +2620,7 @@ public partial class Gram_SICXEParser : Antlr.Runtime.Parser
 			LeaveRule("expresion", 23);
 			LeaveRule_expresion();
 		}
-		DebugLocation(324, 4);
+		DebugLocation(323, 4);
 		} finally { DebugExitRule(GrammarFileName, "expresion"); }
 		return retval;
 
@@ -2630,7 +2630,7 @@ public partial class Gram_SICXEParser : Antlr.Runtime.Parser
 	partial void EnterRule_exprAddSub();
 	partial void LeaveRule_exprAddSub();
 	// $ANTLR start "exprAddSub"
-	// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:326:1: exprAddSub : exprMulDiv ( ( PLUS | MINUS ) exprMulDiv )* ;
+	// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:325:1: exprAddSub : exprMulDiv ( ( PLUS | MINUS ) exprMulDiv )* ;
 	[GrammarRule("exprAddSub")]
 	private AstParserRuleReturnScope<object, IToken> exprAddSub()
 	{
@@ -2648,23 +2648,23 @@ public partial class Gram_SICXEParser : Antlr.Runtime.Parser
 
 		object set60_tree = default(object);
 		try { DebugEnterRule(GrammarFileName, "exprAddSub");
-		DebugLocation(326, 4);
+		DebugLocation(325, 4);
 		try
 		{
-			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:327:5: ( exprMulDiv ( ( PLUS | MINUS ) exprMulDiv )* )
+			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:326:5: ( exprMulDiv ( ( PLUS | MINUS ) exprMulDiv )* )
 			DebugEnterAlt(1);
-			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:327:7: exprMulDiv ( ( PLUS | MINUS ) exprMulDiv )*
+			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:326:7: exprMulDiv ( ( PLUS | MINUS ) exprMulDiv )*
 			{
 			root_0 = (object)adaptor.Nil();
 
-			DebugLocation(327, 7);
-			PushFollow(Follow._exprMulDiv_in_exprAddSub1979);
+			DebugLocation(326, 7);
+			PushFollow(Follow._exprMulDiv_in_exprAddSub1994);
 			exprMulDiv59=exprMulDiv();
 			PopFollow();
 
 			adaptor.AddChild(root_0, exprMulDiv59.Tree);
-			DebugLocation(327, 18);
-			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:327:18: ( ( PLUS | MINUS ) exprMulDiv )*
+			DebugLocation(326, 18);
+			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:326:18: ( ( PLUS | MINUS ) exprMulDiv )*
 			try { DebugEnterSubRule(16);
 			while (true)
 			{
@@ -2683,9 +2683,9 @@ public partial class Gram_SICXEParser : Antlr.Runtime.Parser
 				{
 				case 1:
 					DebugEnterAlt(1);
-					// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:327:20: ( PLUS | MINUS ) exprMulDiv
+					// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:326:20: ( PLUS | MINUS ) exprMulDiv
 					{
-					DebugLocation(327, 20);
+					DebugLocation(326, 20);
 
 					set60=(IToken)input.LT(1);
 					if (input.LA(1)==MINUS||input.LA(1)==PLUS)
@@ -2701,8 +2701,8 @@ public partial class Gram_SICXEParser : Antlr.Runtime.Parser
 						throw mse;
 					}
 
-					DebugLocation(327, 35);
-					PushFollow(Follow._exprMulDiv_in_exprAddSub1991);
+					DebugLocation(326, 35);
+					PushFollow(Follow._exprMulDiv_in_exprAddSub2006);
 					exprMulDiv61=exprMulDiv();
 					PopFollow();
 
@@ -2743,7 +2743,7 @@ public partial class Gram_SICXEParser : Antlr.Runtime.Parser
 			LeaveRule("exprAddSub", 24);
 			LeaveRule_exprAddSub();
 		}
-		DebugLocation(328, 4);
+		DebugLocation(327, 4);
 		} finally { DebugExitRule(GrammarFileName, "exprAddSub"); }
 		return retval;
 
@@ -2753,7 +2753,7 @@ public partial class Gram_SICXEParser : Antlr.Runtime.Parser
 	partial void EnterRule_exprMulDiv();
 	partial void LeaveRule_exprMulDiv();
 	// $ANTLR start "exprMulDiv"
-	// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:330:1: exprMulDiv : factor ( ( STAR | DIV ) factor )* ;
+	// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:329:1: exprMulDiv : factor ( ( STAR | DIV ) factor )* ;
 	[GrammarRule("exprMulDiv")]
 	private AstParserRuleReturnScope<object, IToken> exprMulDiv()
 	{
@@ -2771,23 +2771,23 @@ public partial class Gram_SICXEParser : Antlr.Runtime.Parser
 
 		object set63_tree = default(object);
 		try { DebugEnterRule(GrammarFileName, "exprMulDiv");
-		DebugLocation(330, 4);
+		DebugLocation(329, 4);
 		try
 		{
-			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:331:5: ( factor ( ( STAR | DIV ) factor )* )
+			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:330:5: ( factor ( ( STAR | DIV ) factor )* )
 			DebugEnterAlt(1);
-			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:331:7: factor ( ( STAR | DIV ) factor )*
+			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:330:7: factor ( ( STAR | DIV ) factor )*
 			{
 			root_0 = (object)adaptor.Nil();
 
-			DebugLocation(331, 7);
-			PushFollow(Follow._factor_in_exprMulDiv2011);
+			DebugLocation(330, 7);
+			PushFollow(Follow._factor_in_exprMulDiv2026);
 			factor62=factor();
 			PopFollow();
 
 			adaptor.AddChild(root_0, factor62.Tree);
-			DebugLocation(331, 14);
-			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:331:14: ( ( STAR | DIV ) factor )*
+			DebugLocation(330, 14);
+			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:330:14: ( ( STAR | DIV ) factor )*
 			try { DebugEnterSubRule(17);
 			while (true)
 			{
@@ -2806,9 +2806,9 @@ public partial class Gram_SICXEParser : Antlr.Runtime.Parser
 				{
 				case 1:
 					DebugEnterAlt(1);
-					// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:331:16: ( STAR | DIV ) factor
+					// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:330:16: ( STAR | DIV ) factor
 					{
-					DebugLocation(331, 16);
+					DebugLocation(330, 16);
 
 					set63=(IToken)input.LT(1);
 					if (input.LA(1)==DIV||input.LA(1)==STAR)
@@ -2824,8 +2824,8 @@ public partial class Gram_SICXEParser : Antlr.Runtime.Parser
 						throw mse;
 					}
 
-					DebugLocation(331, 29);
-					PushFollow(Follow._factor_in_exprMulDiv2023);
+					DebugLocation(330, 29);
+					PushFollow(Follow._factor_in_exprMulDiv2038);
 					factor64=factor();
 					PopFollow();
 
@@ -2866,7 +2866,7 @@ public partial class Gram_SICXEParser : Antlr.Runtime.Parser
 			LeaveRule("exprMulDiv", 25);
 			LeaveRule_exprMulDiv();
 		}
-		DebugLocation(332, 4);
+		DebugLocation(331, 4);
 		} finally { DebugExitRule(GrammarFileName, "exprMulDiv"); }
 		return retval;
 
@@ -2876,7 +2876,7 @@ public partial class Gram_SICXEParser : Antlr.Runtime.Parser
 	partial void EnterRule_factor();
 	partial void LeaveRule_factor();
 	// $ANTLR start "factor"
-	// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:334:1: factor : ( LPAREN expresion RPAREN | ID | NUM | HEXSUF | CONSTHEX | STAR | CHCONST | HEXCONST | CONSTCAD );
+	// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:333:1: factor : ( LPAREN expresion RPAREN | ID | NUM | HEXSUF | CONSTHEX | STAR | CHCONST | HEXCONST | CONSTCAD );
 	[GrammarRule("factor")]
 	private AstParserRuleReturnScope<object, IToken> factor()
 	{
@@ -2911,10 +2911,10 @@ public partial class Gram_SICXEParser : Antlr.Runtime.Parser
 		object HEXCONST74_tree = default(object);
 		object CONSTCAD75_tree = default(object);
 		try { DebugEnterRule(GrammarFileName, "factor");
-		DebugLocation(334, 4);
+		DebugLocation(333, 4);
 		try
 		{
-			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:336:5: ( LPAREN expresion RPAREN | ID | NUM | HEXSUF | CONSTHEX | STAR | CHCONST | HEXCONST | CONSTCAD )
+			// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:335:5: ( LPAREN expresion RPAREN | ID | NUM | HEXSUF | CONSTHEX | STAR | CHCONST | HEXCONST | CONSTCAD )
 			int alt18=9;
 			try { DebugEnterDecision(18, false);
 			switch (input.LA(1))
@@ -2977,22 +2977,22 @@ public partial class Gram_SICXEParser : Antlr.Runtime.Parser
 			{
 			case 1:
 				DebugEnterAlt(1);
-				// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:336:7: LPAREN expresion RPAREN
+				// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:335:7: LPAREN expresion RPAREN
 				{
 				root_0 = (object)adaptor.Nil();
 
-				DebugLocation(336, 7);
-				LPAREN65=(IToken)Match(input,LPAREN,Follow._LPAREN_in_factor2048); 
+				DebugLocation(335, 7);
+				LPAREN65=(IToken)Match(input,LPAREN,Follow._LPAREN_in_factor2063); 
 				LPAREN65_tree = (object)adaptor.Create(LPAREN65);
 				adaptor.AddChild(root_0, LPAREN65_tree);
-				DebugLocation(336, 14);
-				PushFollow(Follow._expresion_in_factor2050);
+				DebugLocation(335, 14);
+				PushFollow(Follow._expresion_in_factor2065);
 				expresion66=expresion();
 				PopFollow();
 
 				adaptor.AddChild(root_0, expresion66.Tree);
-				DebugLocation(336, 24);
-				RPAREN67=(IToken)Match(input,RPAREN,Follow._RPAREN_in_factor2052); 
+				DebugLocation(335, 24);
+				RPAREN67=(IToken)Match(input,RPAREN,Follow._RPAREN_in_factor2067); 
 				RPAREN67_tree = (object)adaptor.Create(RPAREN67);
 				adaptor.AddChild(root_0, RPAREN67_tree);
 
@@ -3000,12 +3000,12 @@ public partial class Gram_SICXEParser : Antlr.Runtime.Parser
 				break;
 			case 2:
 				DebugEnterAlt(2);
-				// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:338:7: ID
+				// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:337:7: ID
 				{
 				root_0 = (object)adaptor.Nil();
 
-				DebugLocation(338, 7);
-				ID68=(IToken)Match(input,ID,Follow._ID_in_factor2065); 
+				DebugLocation(337, 7);
+				ID68=(IToken)Match(input,ID,Follow._ID_in_factor2080); 
 				ID68_tree = (object)adaptor.Create(ID68);
 				adaptor.AddChild(root_0, ID68_tree);
 
@@ -3013,12 +3013,12 @@ public partial class Gram_SICXEParser : Antlr.Runtime.Parser
 				break;
 			case 3:
 				DebugEnterAlt(3);
-				// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:340:7: NUM
+				// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:339:7: NUM
 				{
 				root_0 = (object)adaptor.Nil();
 
-				DebugLocation(340, 7);
-				NUM69=(IToken)Match(input,NUM,Follow._NUM_in_factor2078); 
+				DebugLocation(339, 7);
+				NUM69=(IToken)Match(input,NUM,Follow._NUM_in_factor2093); 
 				NUM69_tree = (object)adaptor.Create(NUM69);
 				adaptor.AddChild(root_0, NUM69_tree);
 
@@ -3026,12 +3026,12 @@ public partial class Gram_SICXEParser : Antlr.Runtime.Parser
 				break;
 			case 4:
 				DebugEnterAlt(4);
-				// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:342:7: HEXSUF
+				// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:341:7: HEXSUF
 				{
 				root_0 = (object)adaptor.Nil();
 
-				DebugLocation(342, 7);
-				HEXSUF70=(IToken)Match(input,HEXSUF,Follow._HEXSUF_in_factor2091); 
+				DebugLocation(341, 7);
+				HEXSUF70=(IToken)Match(input,HEXSUF,Follow._HEXSUF_in_factor2106); 
 				HEXSUF70_tree = (object)adaptor.Create(HEXSUF70);
 				adaptor.AddChild(root_0, HEXSUF70_tree);
 
@@ -3039,12 +3039,12 @@ public partial class Gram_SICXEParser : Antlr.Runtime.Parser
 				break;
 			case 5:
 				DebugEnterAlt(5);
-				// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:344:7: CONSTHEX
+				// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:343:7: CONSTHEX
 				{
 				root_0 = (object)adaptor.Nil();
 
-				DebugLocation(344, 7);
-				CONSTHEX71=(IToken)Match(input,CONSTHEX,Follow._CONSTHEX_in_factor2104); 
+				DebugLocation(343, 7);
+				CONSTHEX71=(IToken)Match(input,CONSTHEX,Follow._CONSTHEX_in_factor2119); 
 				CONSTHEX71_tree = (object)adaptor.Create(CONSTHEX71);
 				adaptor.AddChild(root_0, CONSTHEX71_tree);
 
@@ -3052,12 +3052,12 @@ public partial class Gram_SICXEParser : Antlr.Runtime.Parser
 				break;
 			case 6:
 				DebugEnterAlt(6);
-				// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:346:7: STAR
+				// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:345:7: STAR
 				{
 				root_0 = (object)adaptor.Nil();
 
-				DebugLocation(346, 7);
-				STAR72=(IToken)Match(input,STAR,Follow._STAR_in_factor2117); 
+				DebugLocation(345, 7);
+				STAR72=(IToken)Match(input,STAR,Follow._STAR_in_factor2132); 
 				STAR72_tree = (object)adaptor.Create(STAR72);
 				adaptor.AddChild(root_0, STAR72_tree);
 
@@ -3065,12 +3065,12 @@ public partial class Gram_SICXEParser : Antlr.Runtime.Parser
 				break;
 			case 7:
 				DebugEnterAlt(7);
-				// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:348:7: CHCONST
+				// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:347:7: CHCONST
 				{
 				root_0 = (object)adaptor.Nil();
 
-				DebugLocation(348, 7);
-				CHCONST73=(IToken)Match(input,CHCONST,Follow._CHCONST_in_factor2130); 
+				DebugLocation(347, 7);
+				CHCONST73=(IToken)Match(input,CHCONST,Follow._CHCONST_in_factor2145); 
 				CHCONST73_tree = (object)adaptor.Create(CHCONST73);
 				adaptor.AddChild(root_0, CHCONST73_tree);
 
@@ -3078,12 +3078,12 @@ public partial class Gram_SICXEParser : Antlr.Runtime.Parser
 				break;
 			case 8:
 				DebugEnterAlt(8);
-				// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:350:7: HEXCONST
+				// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:349:7: HEXCONST
 				{
 				root_0 = (object)adaptor.Nil();
 
-				DebugLocation(350, 7);
-				HEXCONST74=(IToken)Match(input,HEXCONST,Follow._HEXCONST_in_factor2143); 
+				DebugLocation(349, 7);
+				HEXCONST74=(IToken)Match(input,HEXCONST,Follow._HEXCONST_in_factor2158); 
 				HEXCONST74_tree = (object)adaptor.Create(HEXCONST74);
 				adaptor.AddChild(root_0, HEXCONST74_tree);
 
@@ -3091,12 +3091,12 @@ public partial class Gram_SICXEParser : Antlr.Runtime.Parser
 				break;
 			case 9:
 				DebugEnterAlt(9);
-				// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:352:7: CONSTCAD
+				// C:\\dev\\SW\\Practica 01 Calculadora\\Gram_SICXE.g:351:7: CONSTCAD
 				{
 				root_0 = (object)adaptor.Nil();
 
-				DebugLocation(352, 7);
-				CONSTCAD75=(IToken)Match(input,CONSTCAD,Follow._CONSTCAD_in_factor2156); 
+				DebugLocation(351, 7);
+				CONSTCAD75=(IToken)Match(input,CONSTCAD,Follow._CONSTCAD_in_factor2171); 
 				CONSTCAD75_tree = (object)adaptor.Create(CONSTCAD75);
 				adaptor.AddChild(root_0, CONSTCAD75_tree);
 
@@ -3123,7 +3123,7 @@ public partial class Gram_SICXEParser : Antlr.Runtime.Parser
 			LeaveRule("factor", 26);
 			LeaveRule_factor();
 		}
-		DebugLocation(353, 4);
+		DebugLocation(352, 4);
 		} finally { DebugExitRule(GrammarFileName, "factor"); }
 		return retval;
 
@@ -3177,44 +3177,44 @@ public partial class Gram_SICXEParser : Antlr.Runtime.Parser
 		public static readonly BitSet _simple3_in_f31659 = new BitSet(new ulong[]{0x2UL});
 		public static readonly BitSet _indirecto3_in_f31667 = new BitSet(new ulong[]{0x2UL});
 		public static readonly BitSet _inmediato3_in_f31675 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _PLUS_in_f41690 = new BitSet(new ulong[]{0x40000UL});
-		public static readonly BitSet _f3_in_f41692 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _F34CODOP_in_indexado1706 = new BitSet(new ulong[]{0x1000000UL});
-		public static readonly BitSet _INDICE_in_indexado1708 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _F34CODOP_in_simple31726 = new BitSet(new ulong[]{0x21014E00382UL});
-		public static readonly BitSet _expresion_in_simple31729 = new BitSet(new ulong[]{0x20000000002UL});
-		public static readonly BitSet _41_in_simple31734 = new BitSet(new ulong[]{0x100000000UL});
-		public static readonly BitSet _REG_in_simple31736 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _F34CODOP_in_indirecto31757 = new BitSet(new ulong[]{0x10UL});
-		public static readonly BitSet _AT_in_indirecto31759 = new BitSet(new ulong[]{0x1014E00380UL});
-		public static readonly BitSet _expresion_in_indirecto31761 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _F34CODOP_in_inmediato31775 = new BitSet(new ulong[]{0x20000000UL});
-		public static readonly BitSet _NUMERAL_in_inmediato31777 = new BitSet(new ulong[]{0x1014E00380UL});
-		public static readonly BitSet _expresion_in_inmediato31779 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _etiqueta_in_directiva1795 = new BitSet(new ulong[]{0xC640002060UL});
-		public static readonly BitSet _tipodirectiva_in_directiva1798 = new BitSet(new ulong[]{0x1014F00380UL});
-		public static readonly BitSet _opdirectiva_in_directiva1801 = new BitSet(new ulong[]{0x100000UL});
-		public static readonly BitSet _FINL_in_directiva1805 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _expresion_in_opdirectiva1924 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _ID_in_etiqueta1942 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _exprAddSub_in_expresion1962 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _exprMulDiv_in_exprAddSub1979 = new BitSet(new ulong[]{0x88000002UL});
-		public static readonly BitSet _set_in_exprAddSub1983 = new BitSet(new ulong[]{0x1014E00380UL});
-		public static readonly BitSet _exprMulDiv_in_exprAddSub1991 = new BitSet(new ulong[]{0x88000002UL});
-		public static readonly BitSet _factor_in_exprMulDiv2011 = new BitSet(new ulong[]{0x1000000802UL});
-		public static readonly BitSet _set_in_exprMulDiv2015 = new BitSet(new ulong[]{0x1014E00380UL});
-		public static readonly BitSet _factor_in_exprMulDiv2023 = new BitSet(new ulong[]{0x1000000802UL});
-		public static readonly BitSet _LPAREN_in_factor2048 = new BitSet(new ulong[]{0x1014E00380UL});
-		public static readonly BitSet _expresion_in_factor2050 = new BitSet(new ulong[]{0x800000000UL});
-		public static readonly BitSet _RPAREN_in_factor2052 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _ID_in_factor2065 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _NUM_in_factor2078 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _HEXSUF_in_factor2091 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _CONSTHEX_in_factor2104 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _STAR_in_factor2117 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _CHCONST_in_factor2130 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _HEXCONST_in_factor2143 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _CONSTCAD_in_factor2156 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _PLUS_in_f41693 = new BitSet(new ulong[]{0x40000UL});
+		public static readonly BitSet _f3_in_f41695 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _F34CODOP_in_indexado1713 = new BitSet(new ulong[]{0x1000000UL});
+		public static readonly BitSet _INDICE_in_indexado1715 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _F34CODOP_in_simple31733 = new BitSet(new ulong[]{0x21014E00382UL});
+		public static readonly BitSet _expresion_in_simple31736 = new BitSet(new ulong[]{0x20000000002UL});
+		public static readonly BitSet _41_in_simple31741 = new BitSet(new ulong[]{0x100000000UL});
+		public static readonly BitSet _REG_in_simple31743 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _F34CODOP_in_indirecto31764 = new BitSet(new ulong[]{0x10UL});
+		public static readonly BitSet _AT_in_indirecto31766 = new BitSet(new ulong[]{0x1014E00380UL});
+		public static readonly BitSet _expresion_in_indirecto31768 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _F34CODOP_in_inmediato31786 = new BitSet(new ulong[]{0x20000000UL});
+		public static readonly BitSet _NUMERAL_in_inmediato31788 = new BitSet(new ulong[]{0x1014E00380UL});
+		public static readonly BitSet _expresion_in_inmediato31790 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _etiqueta_in_directiva1810 = new BitSet(new ulong[]{0xC640002060UL});
+		public static readonly BitSet _tipodirectiva_in_directiva1813 = new BitSet(new ulong[]{0x1014F00380UL});
+		public static readonly BitSet _opdirectiva_in_directiva1816 = new BitSet(new ulong[]{0x100000UL});
+		public static readonly BitSet _FINL_in_directiva1820 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _expresion_in_opdirectiva1939 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _ID_in_etiqueta1957 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _exprAddSub_in_expresion1977 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _exprMulDiv_in_exprAddSub1994 = new BitSet(new ulong[]{0x88000002UL});
+		public static readonly BitSet _set_in_exprAddSub1998 = new BitSet(new ulong[]{0x1014E00380UL});
+		public static readonly BitSet _exprMulDiv_in_exprAddSub2006 = new BitSet(new ulong[]{0x88000002UL});
+		public static readonly BitSet _factor_in_exprMulDiv2026 = new BitSet(new ulong[]{0x1000000802UL});
+		public static readonly BitSet _set_in_exprMulDiv2030 = new BitSet(new ulong[]{0x1014E00380UL});
+		public static readonly BitSet _factor_in_exprMulDiv2038 = new BitSet(new ulong[]{0x1000000802UL});
+		public static readonly BitSet _LPAREN_in_factor2063 = new BitSet(new ulong[]{0x1014E00380UL});
+		public static readonly BitSet _expresion_in_factor2065 = new BitSet(new ulong[]{0x800000000UL});
+		public static readonly BitSet _RPAREN_in_factor2067 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _ID_in_factor2080 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _NUM_in_factor2093 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _HEXSUF_in_factor2106 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _CONSTHEX_in_factor2119 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _STAR_in_factor2132 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _CHCONST_in_factor2145 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _HEXCONST_in_factor2158 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _CONSTCAD_in_factor2171 = new BitSet(new ulong[]{0x2UL});
 	}
 	#endregion Follow sets
 }
