@@ -1,25 +1,37 @@
-# Usa la imagen SDK para compilar
-FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
+# Etapa 1: Construcción
+# Usar la imagen base de .NET SDK
+FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 
+# Definir el directorio de trabajo
 WORKDIR /src
 
-# Copia el contenido del repositorio
-COPY . .
+# Copiar los archivos del proyecto al contenedor
+COPY EnsambladorSICXE/ProyectoSICXE/ProyectoSICXE.csproj EnsambladorSICXE/ProyectoSICXE/
 
-# Cambia a la carpeta del proyecto
-WORKDIR /src/ProyectoSICXE
+# Restaurar las dependencias del proyecto
+RUN dotnet restore EnsambladorSICXE/ProyectoSICXE/ProyectoSICXE.csproj
 
-#  Restaurar dependencias del proyecto explícitamente
-RUN dotnet restore ProyectoSICXE.csproj
+# Copiar el resto del código fuente
+COPY EnsambladorSICXE/ProyectoSICXE/ EnsambladorSICXE/ProyectoSICXE/
 
-# Compilar la aplicación
-RUN dotnet publish ProyectoSICXE.csproj -c Release -o /app/publish
+# Compilar el proyecto
+RUN dotnet build EnsambladorSICXE/ProyectoSICXE/ProyectoSICXE.csproj -c Release -o /app/build
 
-# Usa la imagen de runtime para producción
-FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS final
+# Publicar el proyecto
+RUN dotnet publish EnsambladorSICXE/ProyectoSICXE/ProyectoSICXE.csproj -c Release -o /app/publish
 
+# Etapa 2: Imagen final
+# Usar la imagen base de .NET Runtime
+FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS final
+
+# Definir el directorio de trabajo en la imagen final
 WORKDIR /app
+
+# Copiar los archivos publicados desde la etapa de construcción
 COPY --from=build /app/publish .
 
-# Comando para ejecutar la app
+# Exponer el puerto en el que la app estará corriendo
+EXPOSE 80
+
+# Comando para ejecutar la aplicación
 ENTRYPOINT ["dotnet", "ProyectoSICXE.dll"]
