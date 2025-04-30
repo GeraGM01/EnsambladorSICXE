@@ -1,22 +1,25 @@
-# Etapa base
-FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS base
-WORKDIR /app
-EXPOSE 80
-
-# Etapa de build
+# Usa la imagen SDK para compilar
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
+
 WORKDIR /src
 
-# Copia TODO el repo al contenedor
+# Copia el contenido del repositorio
 COPY . .
 
-# Busca el .csproj dentro de la carpeta correcta
+# Cambia a la carpeta del proyecto
 WORKDIR /src/ProyectoSICXE
-RUN dotnet restore
-RUN dotnet publish -c Release -o /app/publish
 
-# Etapa final
-FROM base AS final
+#  Restaurar dependencias del proyecto explícitamente
+RUN dotnet restore ProyectoSICXE.csproj
+
+# Compilar la aplicación
+RUN dotnet publish ProyectoSICXE.csproj -c Release -o /app/publish
+
+# Usa la imagen de runtime para producción
+FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS final
+
 WORKDIR /app
 COPY --from=build /app/publish .
+
+# Comando para ejecutar la app
 ENTRYPOINT ["dotnet", "ProyectoSICXE.dll"]
