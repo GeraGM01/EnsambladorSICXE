@@ -10,9 +10,16 @@
             <input type="file" id="fileInput" accept=".xe,.txt" style="display: none;" />
             <button class="btn btn-primary" id="btnPaso1">Paso 1</button>
             <button class="btn btn-primary" id="btnPaso2">Paso 2</button>
+
+            <button class="btn btn-secondary" id="btnGuardarIntermedio">Guardar Intermedio</button>
+            <button class="btn btn-secondary" id="btnGuardarTabsimBloques">Guardar TABSIM y BLOQUES</button>
+            <button class="btn btn-secondary" id="btnGuardarHTME">Guardar Registros</button>
+
             <button class="btn btn-danger" id="btnLimpiar">Limpiar</button>
+
         </div>
     </div>
+
 
     <div class="row m-0 border border-dark">
         <!-- seccion pal editor de codigo -->
@@ -43,6 +50,7 @@
                         <table class="table table-bordered table-hover mb-0 table-striped" id="tablaIntermedio">
                             <thead class="table-primary">
                                 <tr>
+                                    <th>Línea</th>
                                     <th>CP</th>
                                     <th>Bloque</th>
                                     <th>Etiqueta</th>
@@ -177,6 +185,25 @@
                 mostrarDialogo("#dialogoInformativo");
                 //$('#statusMessage').text('Editor limpiado');
             });
+
+            $('#btnGuardarIntermedio').on('click', function () {
+                const texto = tablaAtexto('tablaIntermedio');
+                guardarComoArchivo('archivo_intermedio.txt', texto);
+            });
+
+            $('#btnGuardarTabsimBloques').on('click', function () {
+                const textoTabsim = 'TABSIM:\n' + tablaAtexto('tablaTabsim');
+                const textoBloques = '\n\nTABLA DE BLOQUES:\n' + tablaAtexto('tablaBloques');
+                guardarComoArchivo('tabsim_bloques.txt', textoTabsim + textoBloques);
+            });
+
+            $('#btnGuardarHTME').on('click', function () {
+                const texto = $('#registrosHTME').text().trim();
+                guardarComoArchivo('registros_HTME.txt', texto);
+            });
+
+
+
         });
 
         function limpiarResultados() {
@@ -217,20 +244,22 @@
                     if (response.success) {
                         paso1Completado = true;
                         const tbodyIntermedio = $('#tablaIntermedio tbody');
-                        response.listadoIntermedio.forEach(function (linea) {
+                        response.listadoIntermedio.forEach(function (linea, index) {
                             tbodyIntermedio.append(`
-                                        <tr>
-                                            <td>${linea.address}</td>
-                                            <td>${linea.blockNumber}</td>
-                                            <td>${linea.label}</td>
-                                            <td>${linea.mnemonic}</td>
-                                            <td>${linea.operand}</td>
-                                            <td>${linea.format}</td>
-                                            <td>${linea.error}</td>
-                                            <td></td>
-                                        </tr>
-                                    `);
+                                <tr>
+                                    <td>${index + 1}</td> <!-- Número de línea -->
+                                    <td>${linea.address}</td>
+                                    <td>${linea.blockNumber}</td>
+                                    <td>${linea.label}</td>
+                                    <td>${linea.mnemonic}</td>
+                                    <td>${linea.operand}</td>
+                                    <td>${linea.format}</td>
+                                    <td>${linea.error}</td>
+                                    <td></td>
+                                </tr>
+                            `);
                         });
+
 
                         const tbodyTabsim = $('#tablaTabsim tbody');
                         response.symbolTable.forEach(function (simbolo) {
@@ -256,7 +285,13 @@
                                     `);
                         });
 
-                        //$('#statusMessage').text('Paso 1 completado. Contador de localización final: 0x' + response.finalLocctr);
+                        tbodyBloques.append(`
+                            <tr class="table-info">
+                                <td colspan="3"><strong>Tamaño del programa</strong></td>
+                                <td><strong>0x${response.finalLocctr} bytes</strong></td>
+                            </tr>
+                        `);
+
                         msj = "<p class='text-success'>Paso 1 ejecutado con exito</p>";
                         configuraDialogo("#dialogoInformativo", "Paso 1", msj);
                         mostrarDialogo("#dialogoInformativo");
@@ -339,5 +374,35 @@
                 }
             });
         }
+
+        function tablaAtexto(tablaId) {
+            let texto = '';
+            const encabezados = $(`#${tablaId} thead tr th`).map(function () {
+                return $(this).text().trim();
+            }).get();
+            texto += encabezados.join('\t') + '\n';
+
+            const filas = $(`#${tablaId} tbody tr`);
+            filas.each(function () {
+                const columnas = $(this).find('td').map(function () {
+                    return $(this).text().trim();
+                }).get();
+                texto += columnas.join('\t') + '\n';
+            });
+
+            return texto;
+        }
+
+
+        function guardarComoArchivo(nombreArchivo, contenido) {
+            const blob = new Blob([contenido], { type: 'text/plain;charset=utf-8' });
+            const enlace = document.createElement('a');
+            enlace.href = URL.createObjectURL(blob);
+            enlace.download = nombreArchivo;
+            document.body.appendChild(enlace);
+            enlace.click();
+            document.body.removeChild(enlace);
+        }
+
     </script>
 }
