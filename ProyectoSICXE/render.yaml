@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: ensamblador-sicxe
+    runtime: dotnet
+    region: oregon
+    plan: free
+    rootDir: ProyectoSICXE
+    buildCommand: dotnet build
+    startCommand: dotnet ProyectoSICXE.dll
+    envVars:
+      - key: ASPNETCORE_ENVIRONMENT
+        value: Production
