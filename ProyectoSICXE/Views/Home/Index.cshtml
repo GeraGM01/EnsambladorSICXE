@@ -2,22 +2,51 @@
     ViewData["Title"] = "Home Page";
 }
 
+@Html.Partial("_TablaArchivoIntermedio")
+@Html.Partial("_TablaTabsim")
+@Html.Partial("_TablaBloques")
+@Html.Partial("_RegistrosObjeto")
+
 <div class="container-fluid p-0">
     <!-- Tabs para opciones que tenemos -->
     <div class="row m-0">
-        <div class="card-footer bg-light">
-            <button class="btn btn-success" id="btnAbrirArchivo">Abrir archivo</button>
-            <input type="file" id="fileInput" accept=".xe,.txt" style="display: none;" />
-            <button class="btn btn-primary" id="btnPaso1">Paso 1</button>
-            <button class="btn btn-primary" id="btnPaso2">Paso 2</button>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+            <div class="container-fluid">
+                <div class="navbar-nav">
+                    <!-- Sección Archivo -->
+                    <div class="nav-item dropdown me-3">
+                        <a class="nav-link dropdown-toggle btn btn-outline-secondary" href="#" role="button" data-bs-toggle="dropdown">
+                            Archivo
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#" id="btnAbrirArchivo">Abrir archivo</a></li>
+                            <li><a class="dropdown-item" href="#" id="btnGuardarIntermedio">Guardar Intermedio</a></li>
+                            <li><a class="dropdown-item" href="#" id="btnGuardarTabsimBloques">Guardar TABSIM y BLOQUES</a></li>
+                            <li><a class="dropdown-item" href="#" id="btnGuardarHTME">Guardar Registros</a></li>
+                        </ul>
+                    </div>
 
-            <button class="btn btn-secondary" id="btnGuardarIntermedio">Guardar Intermedio</button>
-            <button class="btn btn-secondary" id="btnGuardarTabsimBloques">Guardar TABSIM y BLOQUES</button>
-            <button class="btn btn-secondary" id="btnGuardarHTME">Guardar Registros</button>
+                    <!-- Sección Ensamblar -->
+                    <div class="nav-item dropdown me-3">
+                        <a class="nav-link dropdown-toggle btn btn-outline-primary" href="#" role="button" data-bs-toggle="dropdown">
+                            Ensamblar
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#" id="btnPaso1">Paso 1</a></li>
+                            <li><a class="dropdown-item" href="#" id="btnPaso2">Paso 2</a></li>
+                            <li><a class="dropdown-item" href="#" id="btnEjecutarAmbos">Ensamblar (Paso 1 + Paso 2)</a></li>
+                        </ul>
+                    </div>
 
-            <button class="btn btn-danger" id="btnLimpiar">Limpiar</button>
+                    <!-- Otros -->
+                    <button class="btn btn-outline-danger ms-2" id="btnLimpiar">Limpiar</button>
+                </div>
+            </div>
+        </nav>
 
-        </div>
+        <!-- Input oculto para carga -->
+        <input type="file" id="fileInput" accept=".xe,.txt" style="display: none;" />
+
     </div>
 
 
@@ -38,7 +67,7 @@
             <!-- archivo intermedio -->
             <div class="card mb-3">
                 <div class="card-header bg-light">
-                    <h5 class="card-title mb-0">ARCHIVO INTERMEDIO</h5>
+                    <h5 class="card-title mb-0" style="cursor:pointer;" data-bs-toggle="modal" data-bs-target="#modalArchivoIntermedio">ARCHIVO INTERMEDIO</h5>
                 </div>
                 <div class="card-body">
                     <div id="loadingIntermedio" class="text-center" style="display: none;">
@@ -73,7 +102,7 @@
                 <div class="col-6">
                     <div class="card mb-3">
                         <div class="card-header bg-light">
-                            <h5 class="card-title mb-0">TABSIM</h5>
+                            <h5 class="card-title mb-0" style="cursor:pointer;" data-bs-toggle="modal" data-bs-target="#modalTabsim">TABSIM</h5>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive" style="max-height: 300px; overflow-y: auto;">
@@ -98,7 +127,7 @@
                 <div class="col-6">
                     <div class="card mb-3">
                         <div class="card-header bg-light">
-                            <h5 class="card-title mb-0">TABLA DE BLOQUES</h5>
+                            <h5 class="card-title mb-0" style="cursor:pointer;" data-bs-toggle="modal" data-bs-target="#modalBloques">TABLA DE BLOQUES</h5>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive" style="max-height: 300px; overflow-y: auto;">
@@ -120,7 +149,7 @@
 
                     <div class="card">
                         <div class="card-header bg-light">
-                            <h5 class="card-title mb-0">REGISTROS OBJETO</h5>
+                            <h5 class="card-title mb-0" style="cursor:pointer;" data-bs-toggle="modal" data-bs-target="#modalRegistrosObjeto">REGISTROS OBJETO</h5>
                         </div>
                         <div class="card-body" style="min-height: 200px; max-height: 300px; overflow-y: auto;">
                             <pre id="registrosHTME" class="mb-0"></pre>
@@ -200,6 +229,31 @@
             $('#btnGuardarHTME').on('click', function () {
                 const texto = $('#registrosHTME').text().trim();
                 guardarComoArchivo('registros_HTME.txt', texto);
+            });
+
+
+            $('#modalArchivoIntermedio').on('show.bs.modal', function () {
+                const tabla = $('#tablaIntermedio').clone();
+                tabla.removeAttr('id');
+                $(this).find('.modal-body').html(tabla);
+            });
+
+            $('#modalTabsim').on('show.bs.modal', function () {
+                const tabla = $('#tablaTabsim').clone();
+                tabla.removeAttr('id');
+                $(this).find('.modal-body').html(tabla);
+            });
+
+            $('#modalBloques').on('show.bs.modal', function () {
+                const tabla = $('#tablaBloques').clone();
+                tabla.removeAttr('id');
+                $(this).find('.modal-body').html(tabla);
+            });
+
+            $('#modalRegistrosObjeto').on('show.bs.modal', function () {
+                const tabla = $('#registrosHTME').clone();
+                tabla.removeAttr('id');
+                $(this).find('.modal-body').html(tabla);
             });
 
 
@@ -312,68 +366,97 @@
         }
 
         function ejecutarPaso2() {
-            if (!paso1Completado) {
-                msj = "<p class='text-danger'>Error: Necesitas ejecutar el Paso 1 primero.</p>";
-                configuraDialogo("#dialogoInformativo", "Paso 2", msj);
-                mostrarDialogo("#dialogoInformativo");
-                return;
-            }
-
-            $('#loadingObjcode').show();
-            $('#loadingIntermedio').show();
-
-            // Limpiar solo tablas relacionadas al Paso 2
-            $('#tablaObjcode tbody').empty();
-            $('#registrosHTME').text('');
-
-            $.ajax({
-                url: '@Url.Action("EjecutarPaso2", "Home")',
-                type: 'POST',
-                contentType: 'application/json',
-                success: function (response) {
-
-                    if (response.success) {
-                        const filas = $('#tablaIntermedio tbody tr');
-                        response.listadoIntermedioObjCode.forEach(function (linea, index) {
-                            const fila = filas.eq(index);
-                            const celdas = fila.find('td');
-                            let objCode = linea.objectCode;
-                            if (linea.isRelocatable && objCode) {
-                                objCode += "*";
-                            }
-                            // Actualizar la celda de código objeto y de los errores
-                            celdas.eq(7).text(objCode);
-                            celdas.eq(6).text(linea.error);
-                        });
-
-                        // Mostrar los registros HTME
-                        const preHTME = $('#registrosHTME');
-                        response.registrosHTME.forEach(function (registro) {
-                            preHTME.append(registro + '\n');
-                        });
-
-                        // Cambiar a la pestaña de OBJCODE automáticamente
-                        $('#objcode-tab').tab('show');
-
-                        msj = "<p class='text-success'>Paso 2 ejecutado con exito</p>";
-                        configuraDialogo("#dialogoInformativo", "Paso 2", msj);
-                        mostrarDialogo("#dialogoInformativo");
-                        $('#loadingObjcode').hide();
-                        $('#loadingIntermedio').hide();
-                    } else {
-                        msj = "<p class='text-danger'>Ocurrió un error en el Paso 2: " + response.error + "</p>";
-                        configuraDialogo("#dialogoInformativo", "Paso 2", msj);
-                        mostrarDialogo("#dialogoInformativo");
-                    }
-                },
-                error: function (xhr, status, error) {
-                    $('#loadingIntermedio').hide();
-                    msj = "<p class='text-danger'>Ocurrió un error al ejecutar el Paso 2: " + error + "</p>";
+            return new Promise((resolve, reject) => {
+                if (!paso1Completado) {
+                    const msj = "<p class='text-danger'>Error: Necesitas ejecutar el Paso 1 primero.</p>";
                     configuraDialogo("#dialogoInformativo", "Paso 2", msj);
                     mostrarDialogo("#dialogoInformativo");
+                    reject("Paso 1 no completado");
+                    return;
                 }
+
+                $('#loadingObjcode').show();
+                $('#loadingIntermedio').show();
+
+                // Limpiar solo tablas relacionadas al Paso 2
+                $('#tablaObjcode tbody').empty();
+                $('#registrosHTME').text('');
+
+                $.ajax({
+                    url: '@Url.Action("EjecutarPaso2", "Home")',
+                    type: 'POST',
+                    contentType: 'application/json',
+                    success: function (response) {
+                        $('#loadingObjcode').hide();
+                        $('#loadingIntermedio').hide();
+
+                        if (response.success) {
+                            const filas = $('#tablaIntermedio tbody tr');
+                            response.listadoIntermedioObjCode.forEach(function (linea, index) {
+                                const fila = filas.eq(index);
+                                const celdas = fila.find('td');
+                                let objCode = linea.objectCode;
+                                if (linea.isRelocatable && objCode) {
+                                    objCode += "*";
+                                }
+                                // Actualizar la celda de código objeto y de los errores
+                                celdas.eq(8).text(objCode);
+                                celdas.eq(7).text(linea.error);
+                            });
+
+                            // Mostrar los registros HTME
+                            const preHTME = $('#registrosHTME');
+                            response.registrosHTME.forEach(function (registro) {
+                                preHTME.append(registro + '\n');
+                            });
+
+                            // Cambiar a la pestaña de OBJCODE automáticamente
+                            $('#objcode-tab').tab('show');
+
+                            msj = "<p class='text-success'>Paso 2 ejecutado con exito</p>";
+                            configuraDialogo("#dialogoInformativo", "Paso 2", msj);
+                            mostrarDialogo("#dialogoInformativo");
+                            $('#loadingObjcode').hide();
+                            $('#loadingIntermedio').hide();
+
+                            resolve(response);
+                        } else {
+                            const msj = "<p class='text-danger'>Ocurrió un error en el Paso 2: " + response.error + "</p>";
+                            configuraDialogo("#dialogoInformativo", "Paso 2", msj);
+                            mostrarDialogo("#dialogoInformativo");
+                            reject(response.error);
+                        }
+                    },
+                    error: function (xhr, status, error) {
+                        $('#loadingIntermedio').hide();
+                        const msj = "<p class='text-danger'>Ocurrió un error al ejecutar el Paso 2: " + error + "</p>";
+                        configuraDialogo("#dialogoInformativo", "Paso 2", msj);
+                        mostrarDialogo("#dialogoInformativo");
+                        reject(error);
+                    }
+                });
             });
         }
+
+        $('#btnEjecutarAmbos').on('click', function () {
+            ejecutarPaso1();
+
+            const interval = setInterval(() => {
+                if (paso1Completado) {
+                    clearInterval(interval);
+                    ejecutarPaso2().then(() => {
+                                        msj = "<p class='text-success'>Ensamblado ejecutado con exito</p>";
+                                        configuraDialogo("#dialogoInformativo", "Ensamblado", msj);
+                                        mostrarDialogo("#dialogoInformativo");
+                                        $('#loadingObjcode').hide();
+                                        $('#loadingIntermedio').hide();
+                    }).catch(error => {
+                        // El error ya se maneja dentro de ejecutarPaso2
+                    });
+                }
+            }, 500);
+        });
+
 
         function tablaAtexto(tablaId) {
             let texto = '';
